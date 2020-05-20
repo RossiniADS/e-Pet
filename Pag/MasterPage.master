@@ -16,14 +16,21 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <header class="container-fluid">
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top   topnav">
+         <header class="container-fluid">
+            <nav class="navbar navbar-expand-md navbar-light topnav">
 
-                <button class="bg-success navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <ul class="navbar-nav mx-auto">
+                    <!-- Centered link -->
+
+                    <li class="topnav-centered">
+                        <a href="#home" class="active nav-link ">e-Pet<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
                 <!-- Top navigation -->
-                <div class="collapse navbar-collapse center " id="navbarsExampleDefault">
+                <div class="collapse navbar-collapse center mx-auto" id="navbarsExampleDefault">
 
                     <!-- Left-aligned links (default) -->
                     <a class="nav-item" href="#map">
@@ -32,7 +39,8 @@
                     <a href="#carrinho">
                         <img src="../Icons/carrinho.png" />
                     </a>
-                    <ul class="navbar-nav mr-auto">
+
+                    <ul class="navbar-nav mr-auto d-none d-md-block">
                         <!-- Centered link -->
                         <li class="topnav-centered">
                             <a href="#home" class="active nav-link">e-Pet<span class="sr-only">(current)</span></a>
@@ -43,8 +51,10 @@
                         <a href="#about">Cadastro</a>
                     </div>
                 </div>
+
             </nav>
         </header>
+
 
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
