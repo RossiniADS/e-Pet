@@ -17,7 +17,7 @@ public class Cartao
     private string car_bandeira;
     private int car_cod;
 
-    private Cliente cli_id;
+    private Clientes cli_id;
 
     public int Car_id { get => car_id; set => car_id = value; }
     public int Car_cpf { get => car_cpf; set => car_cpf = value; }
@@ -25,6 +25,6 @@ public class Cartao
     public string Car_nome { get => car_nome; set => car_nome = value; }
     public DateTime Car_vencimento { get => car_vencimento; set => car_vencimento = value; }
     public int Car_cod { get => car_cod; set => car_cod = value; }
-    public Cliente Cli_id { get => cli_id; set => cli_id = value; }
+    public global::Clientes Cli_id { get => cli_id; set => cli_id = value; }
     public string Car_bandeira { get => car_bandeira; set => car_bandeira = value; }
 }
