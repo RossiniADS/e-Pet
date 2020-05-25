@@ -116,7 +116,7 @@
                 </div>
 
                 <div class="col-5">
-                    <label>Nome da empresa *</label>
+                    <label>Nome fantasia *</label>
                     <asp:TextBox runat="server" ID="textNomeEmpresa" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
@@ -150,21 +150,54 @@
             </div>
             <div class="col-4"></div>
             <div class="col-5">
-                <label>Bairro *</label>
-                <asp:TextBox runat="server" ID="textBairro" CssClass="form-control"></asp:TextBox>
+                <label>Rua *</label>
+                <asp:TextBox runat="server" ID="textRua" CssClass="form-control"></asp:TextBox>
+            </div>
+
+            <div class="col-2"></div>
+            <div class="col-5">
+                <label>Numero *</label>
+                <asp:TextBox runat="server" ID="textNumero" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-5">
+                <label>Complemento</label>
+                <asp:TextBox runat="server" ID="textComplemento" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-2"></div>
             <div class="col-5">
-                <label>Rua *</label>
-                <asp:TextBox runat="server" ID="textRua" CssClass="form-control"></asp:TextBox>
+                <label>Bairro *</label>
+                <asp:TextBox runat="server" ID="textBairro" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-5">
                 <label>Estado *</label>
                 <asp:DropDownList runat="server" ID="rblEstado" CssClass="form-control">
-                    <asp:ListItem Value="SP">São Paulo</asp:ListItem>
-                    <asp:ListItem Value="RJ">Rio de Janeiro</asp:ListItem>
+                    <asp:ListItem Value="AC">Acre</asp:ListItem>
+                    <asp:ListItem Value="AL">Alagoas</asp:ListItem>
+                    <asp:ListItem Value="AP">Amapá</asp:ListItem>
+                    <asp:ListItem Value="AM">Amazonas</asp:ListItem>
+                    <asp:ListItem Value="BA">Bahia</asp:ListItem>
+                    <asp:ListItem Value="CE">Ceará</asp:ListItem>
+                    <asp:ListItem Value="DF">Distrito Federal</asp:ListItem>
+                    <asp:ListItem Value="ES">Espírito Santo</asp:ListItem>
+                    <asp:ListItem Value="GO">Goiás</asp:ListItem>
+                    <asp:ListItem Value="MA">Maranhão</asp:ListItem>
+                    <asp:ListItem Value="MT">Mato Grosso</asp:ListItem>
+                    <asp:ListItem Value="MS">Mato Grosso do Sul</asp:ListItem>
                     <asp:ListItem Value="MG">Minas Gerais</asp:ListItem>
-                    <asp:ListItem Value="ES">Espiro Santo</asp:ListItem>
+                    <asp:ListItem Value="PA">Pará</asp:ListItem>
+                    <asp:ListItem Value="PB">Paraíba</asp:ListItem>
+                    <asp:ListItem Value="PR">Paraná</asp:ListItem>
+                    <asp:ListItem Value="PE">Pernambuco</asp:ListItem>
+                    <asp:ListItem Value="PI">Piauí</asp:ListItem>
+                    <asp:ListItem Value="RJ">Rio de Janeiro</asp:ListItem>
+                    <asp:ListItem Value="RN">Rio Grande do Norte</asp:ListItem>
+                    <asp:ListItem Value="RS">Rio Grande do Sul</asp:ListItem>
+                    <asp:ListItem Value="RO">Rondônia</asp:ListItem>
+                    <asp:ListItem Value="RR">Roraima</asp:ListItem>
+                    <asp:ListItem Value="SC">Santa Catarina</asp:ListItem>
+                    <asp:ListItem Value="SP">São Paulo</asp:ListItem>
+                    <asp:ListItem Value="SE">Sergipe</asp:ListItem>
+                    <asp:ListItem Value="TO">Tocantins</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="col-2"></div>
@@ -178,6 +211,32 @@
                     OnClick="btnConta_Click" BorderWidth="5px" ForeColor="Black" BorderColor="orange" BackColor="white"></asp:Button>
             </div>
         </div>
+
+        <!-- INICIO DA MODAL -->
+        <div class="modal" tabindex="-1" role="dialog" id="myModal">
+
+
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cadastro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Literal ID="ltl" runat="server"></asp:Literal>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIM DA MODAL -->
+
     </div>
 </asp:Content>
 

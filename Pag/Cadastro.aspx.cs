@@ -16,7 +16,7 @@ public partial class Pag_Cadastro : System.Web.UI.Page
         }
     }
 
-  protected void EscolhePessoa_SelectedIndexChanged(object sender, EventArgs e)
+    protected void EscolhePessoa_SelectedIndexChanged(object sender, EventArgs e)
     {
         switch (EscolhePessoa.SelectedValue)
         {
@@ -33,6 +33,8 @@ public partial class Pag_Cadastro : System.Web.UI.Page
 
     protected void btnConta_Click(object sender, EventArgs e)
     {
+        ltl.Text = "<p class='text-success'>Cadastro efetuado com sucesso</p>";
+        Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
 
     }
 }

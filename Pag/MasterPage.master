@@ -25,16 +25,18 @@
                 </button>
 
                 <ul class="nav navbar-nav mx-auto">
-                    <li class="topnav-centered text-center"><a class="nav-link" href="#ePet">e-Pet</a></li>
+                    <li class="topnav-centered text-center"><a class="nav-link" href="../telaInicial.aspx" runat="server">e-Pet</a></li>
                 </ul>
-
                 <div id="menu" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="nav-item active text-center">
-                            <a class="nav-link" href="#mapa"> <img src="../Icons/mapa.png" /> </a>
+                            <a class="nav-link" runat="server" href="Mapa.aspx">
+                                <img src="../Icons/mapa.png" />
+                            </a>
                         </li>
                         <li class="nav-item text-center">
-                            <a class="nav-link" href="#carrinho"> <img src="../Icons/carrinho.png" /></a>
+                            <a class="nav-link" href="Carrinho.aspx" runat="server">
+                                <img src="../Icons/carrinho.png" /></a>
                         </li>
                     </ul>
 
@@ -43,10 +45,10 @@
 
                     <ul class="nav navbar-nav">
                         <li class="nav-item text-center">
-                            <a class="nav-link" href="#login">Login</a>
+                            <a class="nav-link" href="Login.aspx" runat="server">Login</a>
                         </li>
                         <li class="nav-item text-center">
-                            <a class="nav-link" href="#cadastrar">Cadastrar</a>
+                            <a class="nav-link" href="Cadastro.aspx" runat="server">Cadastrar</a>
                         </li>
                     </ul>
                 </div>
