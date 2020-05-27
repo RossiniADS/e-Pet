@@ -143,14 +143,17 @@
         </div>
         <hr />
         <div class="row">
-            <div class="col-4"></div>
+            <div class="col-2"></div>
             <div class="col-4">
                 <label>Cep</label>
                 <asp:TextBox runat="server" ID="textCep" CssClass="form-control"></asp:TextBox>
             </div>
+            <div class="col-1">
+                <asp:Button runat="server" ID="BuscaCep" Text="Buscar" CssClass="btn btn-block btn-primary" OnClick="BuscaCep_Click" />
+            </div>
             <div class="col-4"></div>
             <div class="col-5">
-                <label>Rua *</label>
+                <label>Logradouro *</label>
                 <asp:TextBox runat="server" ID="textRua" CssClass="form-control"></asp:TextBox>
             </div>
 

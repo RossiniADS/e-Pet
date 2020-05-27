@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using Correios;
 using System.Web.UI.WebControls;
 
 public partial class Pag_Cadastro : System.Web.UI.Page
@@ -36,5 +37,16 @@ public partial class Pag_Cadastro : System.Web.UI.Page
         ltl.Text = "<p class='text-success'>Cadastro efetuado com sucesso</p>";
         Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
 
+    }
+
+    protected void BuscaCep_Click(object sender, EventArgs e)
+    {
+        CorreiosApi correiosApi = new CorreiosApi();
+        var address = correiosApi.consultaCEP(textCep.Text);
+
+        textRua.Text = address.cidade;
+        textBairro.Text = address.bairro;
+        textCidade.Text = address.cidade;
+        rblEstado.SelectedValue = address.uf;
     }
 }

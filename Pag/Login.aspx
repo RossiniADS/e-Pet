@@ -19,11 +19,11 @@
                         <img src="../Icons/iconeUsuario.png" />
                     </div>
                     <div class="col-10">
-                        <asp:TextBox runat="server" ClientIDMode="Static" required="required" type="email" 
-                            ID="txtUsuario" placeholder="@outlook,@hotmail,@gmail..." CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox runat="server" ClientIDMode="Static" required="required" type="email"
+                            ID="txtUsuario" placeholder="exemplo@email.com" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
-            
+
                 <div class="row">
                     <div class="col-2 "></div>
                     <div class="col-10 mt-3">
@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-10">
                         <table>
-                            <asp:TextBox runat="server" ClientIDMode="Static" required="required" type="password" 
+                            <asp:TextBox runat="server" ClientIDMode="Static" required="required" type="password"
                                 ID="txtSenha" placeholder="******" CssClass="form-control"></asp:TextBox>
                         </table>
                     </div>
@@ -45,12 +45,12 @@
                     <div class="col-2"></div>
                     <div class="col-10"><a href="#">Esqueci minha senha</a></div>
                 </div>
-               
+
                 <div class="row">
                     <div class="col-2"></div>
                     <div class="col-10 mt-4">
                         <asp:Button ClientIDMode="Static" runat="server" Text="Entrar" ID="btnSalvar" ForeColor="black"
-                            BorderColor="orange" BorderWidth="5px"  BackColor="white"  CssClass="btn btn-primary btn-block" />
+                            BorderColor="orange" BorderWidth="5px" BackColor="white" CssClass="btn btn-primary btn-block" OnClick="btnSalvar_Click"/>
                     </div>
                 </div>
 
@@ -73,7 +73,8 @@
                     <div class="col-2 "></div>
                     <div class="col-8 mt-4">
                         <asp:Button ClientIDMode="Static" runat="server" Text="Cadastrar" ID="btnCadastrar"
-                            CssClass="btn btn-primary btn-block" BorderWidth="5px" ForeColor="Black" BorderColor="orange" BackColor="white" />
+                            CssClass="btn btn-primary btn-block" BorderWidth="5px" ForeColor="Black" BorderColor="orange"
+                            BackColor="white" OnClick="btnCadastrar_Click" />
                     </div>
                 </div>
 
