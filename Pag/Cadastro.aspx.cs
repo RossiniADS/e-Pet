@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using Correios;
 using System.Web.UI.WebControls;
+using System.ServiceModel.Description;
 
 public partial class Pag_Cadastro : System.Web.UI.Page
 {
@@ -41,12 +42,15 @@ public partial class Pag_Cadastro : System.Web.UI.Page
 
     protected void BuscaCep_Click(object sender, EventArgs e)
     {
-        CorreiosApi correiosApi = new CorreiosApi();
-        var address = correiosApi.consultaCEP(textCep.Text);
+        if (!string.IsNullOrEmpty(textCep.Text))
+        {
+            CorreiosApi correiosApi = new CorreiosApi();
+            var address = correiosApi.consultaCEP(textCep.Text);
 
-        textRua.Text = address.cidade;
-        textBairro.Text = address.bairro;
-        textCidade.Text = address.cidade;
-        rblEstado.SelectedValue = address.uf;
+            textRua.Text = address.cidade;
+            textBairro.Text = address.bairro;
+            textCidade.Text = address.cidade;
+            rblEstado.SelectedValue = address.uf;
+        }
     }
 }

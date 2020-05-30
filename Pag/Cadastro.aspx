@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-12">
                     <label>E-mail *</label>
-                    <asp:TextBox runat="server" ID="textEmail" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="textEmail" type="email" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-1">
                     <label>DDD</label>
@@ -71,12 +71,12 @@
                 </div>
                 <div class="col-5">
                     <label>Senha *</label>
-                    <asp:TextBox runat="server" ID="textSenha" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="textSenha" required="required" CssClass="form-control" type="password"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
                 <div class="col-5">
                     <label>Confirmar senha *</label>
-                    <asp:TextBox runat="server" ID="textConfirmar" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="textConfirmar" required="required" CssClass="form-control" type="password"></asp:TextBox>
                 </div>
             </div>
         </asp:Panel>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="col-12">
                     <label>E-mail *</label>
-                    <asp:TextBox runat="server" ID="textEmail2" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="textEmail2" AutoCompleteType="Email" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-1">
                     <label>DDD</label>
@@ -126,12 +126,12 @@
                 </div>
                 <div class="col-5">
                     <label>Senha *</label>
-                    <asp:TextBox runat="server" ID="textSenha2" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="textSenha2" required="required" CssClass="form-control" type="password"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
                 <div class="col-5">
                     <label>Confirmar senha *</label>
-                    <asp:TextBox runat="server" ID="textConfirmar2" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="textConfirmar2" required="required" CssClass="form-control" type="password"></asp:TextBox>
                 </div>
             </div>
 
@@ -143,13 +143,15 @@
         </div>
         <hr />
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col-4">
+            <div class="col-4"></div>
+            <div class="col-3">
                 <label>Cep</label>
                 <asp:TextBox runat="server" ID="textCep" CssClass="form-control"></asp:TextBox>
             </div>
-            <div class="col-1">
-                <asp:Button runat="server" ID="BuscaCep" Text="Buscar" CssClass="btn btn-block btn-primary" OnClick="BuscaCep_Click" />
+            <div class="col-1 mt-2">
+                <label></label>
+                <asp:Button runat="server" ID="BuscaCep" Text="Buscar" CssClass="btn btn-group-sm" ForeColor="Black" 
+                    BorderColor="orange" BackColor="white" OnClick="BuscaCep_Click" />
             </div>
             <div class="col-4"></div>
             <div class="col-5">

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows;
 
 public partial class Pag_Login : System.Web.UI.Page
 {
@@ -12,10 +13,6 @@ public partial class Pag_Login : System.Web.UI.Page
 
     }
 
-    protected void btnCadastrar_Click(object sender, EventArgs e)
-    {
-
-    }
 
     protected void btnSalvar_Click(object sender, EventArgs e)
     {

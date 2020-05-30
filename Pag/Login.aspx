@@ -74,7 +74,7 @@
                     <div class="col-8 mt-4">
                         <asp:Button ClientIDMode="Static" runat="server" Text="Cadastrar" ID="btnCadastrar"
                             CssClass="btn btn-primary btn-block" BorderWidth="5px" ForeColor="Black" BorderColor="orange"
-                            BackColor="white" OnClick="btnCadastrar_Click" />
+                            BackColor="white" OnClientClick="javascript:window.location.href='Cadastro.aspx'; return false;" />
                     </div>
                 </div>
 
