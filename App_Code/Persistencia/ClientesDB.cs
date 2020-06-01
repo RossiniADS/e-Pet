@@ -18,7 +18,7 @@ public class ClientesDB
             IDbConnection objConnection;
             IDbCommand objCommand;
 
-            string sql = "insert into cli_cliente(cli_nome,cli_email,cli_senha,cli_sexo,cli_nascimento) values(?cli_nome, ?cli_email, ?cli_senha, ?cli_sexo, ?cli_nascimento)";
+            string sql = "insert into cli_cliente(cli_nome,cli_email,cli_senha,cli_sexo,cli_data_nascimento) values(?cli_nome, ?cli_email, ?cli_senha, ?cli_sexo, ?cli_data_nascimento)";
             objConnection = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConnection);
 
@@ -26,7 +26,7 @@ public class ClientesDB
             objCommand.Parameters.Add(Mapped.Parameter("?cli_email", clientes.Cli_email));
             objCommand.Parameters.Add(Mapped.Parameter("?cli_senha", clientes.Cli_senha));
             objCommand.Parameters.Add(Mapped.Parameter("?cli_sexo", clientes.Cli_sexo));
-            objCommand.Parameters.Add(Mapped.Parameter("?cli_nascimento", clientes.Cli_nascimento));
+            objCommand.Parameters.Add(Mapped.Parameter("?cli_data_nascimento", clientes.Cli_data_nascimento));
 
             objCommand.ExecuteNonQuery();
             objConnection.Close();

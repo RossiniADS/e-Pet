@@ -40,7 +40,7 @@ public partial class Pag_Cadastro : System.Web.UI.Page
         cli.Cli_email = textEmail.Text;
         cli.Cli_senha = textSenha.Text;
         cli.Cli_sexo = Convert.ToChar(rblSexo.SelectedValue);
-        cli.Cli_nascimento = Convert.ToDateTime(textCalendario.Text);
+        cli.Cli_data_nascimento = Convert.ToDateTime(textCalendario.Text);
 
         switch (ClientesDB.Insert(cli))
         {

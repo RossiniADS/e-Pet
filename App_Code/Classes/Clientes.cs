@@ -15,7 +15,7 @@ public class Clientes
     private char cli_sexo;
     private string cli_numero_endereco;
     private string cli_foto_url;
-    private DateTime cli_nascimento;
+    private DateTime cli_data_nascimento;
 
     public int Cli_id { get => cli_id; set => cli_id = value; }
     public string Cli_nome { get => cli_nome; set => cli_nome = value; }
@@ -24,5 +24,5 @@ public class Clientes
     public char Cli_sexo { get => cli_sexo; set => cli_sexo = value; }
     public string Cli_numero_endereco { get => cli_numero_endereco; set => cli_numero_endereco = value; }
     public string Cli_foto_url { get => cli_foto_url; set => cli_foto_url = value; }
-    public DateTime Cli_nascimento { get => cli_nascimento; set => cli_nascimento = value; }
+    public DateTime Cli_data_nascimento { get => cli_data_nascimento; set => cli_data_nascimento = value; }
 }
