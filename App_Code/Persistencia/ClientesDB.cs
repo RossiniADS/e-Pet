@@ -13,12 +13,13 @@ public class ClientesDB
     {
         int retorno = 0;
 
-        try
-        {
+        //try
+        //{
             IDbConnection objConnection;
             IDbCommand objCommand;
 
-            string sql = "insert into cli_cliente(cli_nome,cli_email,cli_senha,cli_sexo,cli_data_nascimento) values(?cli_nome, ?cli_email, ?cli_senha, ?cli_sexo, ?cli_data_nascimento)";
+            string sql = "insert into cli_cliente(cli_nome,cli_email,cli_senha,cli_sexo,cli_data_nascimento)" +
+                " values(?cli_nome, ?cli_email, ?cli_senha, ?cli_sexo, ?cli_data_nascimento)";
             objConnection = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConnection);
 
@@ -32,11 +33,11 @@ public class ClientesDB
             objConnection.Close();
             objConnection.Dispose();
             objCommand.Dispose();
-        }
-        catch (Exception ex)
-        {
-            retorno = -2;
-        }
+        //}
+        //catch (Exception ex)
+        //{
+         //   retorno = -2;
+        //}
         return retorno;
     }
 }
