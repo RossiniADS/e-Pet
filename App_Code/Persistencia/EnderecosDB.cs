@@ -13,30 +13,30 @@ public class EnderecosDB
     {
         int retorno = 0;
 
-       // try
-       // {
-            IDbConnection objConnection;
-            IDbCommand objCommand;
+        // try
+        // {
+        IDbConnection objConnection;
+        IDbCommand objCommand;
 
-            string sql = "insert into end_endereco(end_cep, end_tipo, bai_id) values(?end_cep, ?end_tipo, ?bai_id)";
+        string sql = "insert into end_endereco(end_cep, end_tipo, bai_id) values(?end_cep, ?end_tipo, ?bai_id); select last_insert_id();";
 
-            objConnection = Mapped.Connection();
-            objCommand = Mapped.Command(sql, objConnection);
+        objConnection = Mapped.Connection();
+        objCommand = Mapped.Command(sql, objConnection);
 
-            objCommand.Parameters.Add(Mapped.Parameter("?end_cep", enderecos.End_cep));
-            objCommand.Parameters.Add(Mapped.Parameter("?end_tipo", enderecos.End_tipo));
+        objCommand.Parameters.Add(Mapped.Parameter("?end_cep", enderecos.End_cep));
+        objCommand.Parameters.Add(Mapped.Parameter("?end_tipo", enderecos.End_tipo));
 
-            //FK
-            objCommand.Parameters.Add(Mapped.Parameter("?bai_id", enderecos.Bai_id.Bai_id));
+        //FK
+        objCommand.Parameters.Add(Mapped.Parameter("?bai_id", enderecos.Bai_id.Bai_id));
 
-            objCommand.ExecuteNonQuery();
-            objConnection.Close();
-            objConnection.Dispose();
-            objCommand.Dispose();
+        retorno = Convert.ToInt32(objCommand.ExecuteScalar());
+        objConnection.Close();
+        objConnection.Dispose();
+        objCommand.Dispose();
 
-       // }
-       // catch (Exception ex)
-       // {
+        // }
+        // catch (Exception ex)
+        // {
         //    retorno = -2;
         //}
         return retorno;

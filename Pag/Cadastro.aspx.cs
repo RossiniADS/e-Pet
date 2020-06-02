@@ -15,7 +15,16 @@ public partial class Pag_Cadastro : System.Web.UI.Page
         {
             pnlFisica.Visible = true;
             pnlJuridica.Visible = false;
+            CarregaRBL();
         }
+    }
+
+    void CarregaRBL()
+    {
+        rblEstado.DataSource = EstadosDB.SelectAll();
+        rblEstado.DataTextField = "est_uf";
+        rblEstado.DataValueField = "est_id";
+        rblEstado.DataBind();
     }
 
     protected void EscolhePessoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -41,42 +50,39 @@ public partial class Pag_Cadastro : System.Web.UI.Page
         cli.Cli_senha = textSenha.Text;
         cli.Cli_sexo = Convert.ToChar(rblSexo.SelectedValue);
         cli.Cli_data_nascimento = Convert.ToDateTime(textCalendario.Text);
+        cli.Cli_id = ClientesDB.Insert(cli);
 
         Estados est = new Estados();
-        est.Est_uf = rblEstado.SelectedValue;
-        
+
         Cidades cid = new Cidades();
         cid.Cid_nome = textCidade.Text;
         //FK
-        est.Est_id = Convert.ToInt32(cid.Est_id);
+        est.Est_id = Convert.ToInt32(rblEstado.SelectedValue);
         cid.Est_id = est;
-
+        cid.Cid_id = CidadesDB.Insert(cid);
 
         Bairros bai = new Bairros();
         bai.Bai_nome = textBairro.Text;
         //FK
-        cid.Cid_id = Convert.ToInt32(bai.Cid_id);
         bai.Cid_id = cid;
-
+        bai.Bai_id = BairrosDB.Insert(bai);
 
         Enderecos end = new Enderecos();
         end.End_cep = textCep.Text;
         end.End_tipo = textComplemento.Text;
         //FK
-        bai.Bai_id = Convert.ToInt32(end.Bai_id);
         end.Bai_id = bai;
-
+        end.End_id = EnderecosDB.Insert(end);
 
         ClienteEndereco cle = new ClienteEndereco();
         cle.Cle_num = textNumero.Text;
         cle.Cle_principal = true;
         //FK
-        cli.Cli_id = Convert.ToInt32(cle.Cli_id);
         cle.Cli_id = cli;
-        end.End_id = Convert.ToInt32(cle.End_id);
         cle.End_id = end;
 
-        switch (CidadesDB.Insert(cid))
+
+        switch (ClienteEnderecoDB.Insert(cle))
         {
             case 0:
                 ltl.Text = "<p class='text-success'>Cadastro efetuado com sucesso</p>";
@@ -99,7 +105,7 @@ public partial class Pag_Cadastro : System.Web.UI.Page
             textRua.Text = address.cidade;
             textBairro.Text = address.bairro;
             textCidade.Text = address.cidade;
-            rblEstado.SelectedValue = address.uf;
+            rblEstado.SelectedItem.Text = address.uf;
         }
     }
 }

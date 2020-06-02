@@ -13,17 +13,32 @@ public class TelefonesDB
     {
         int retorno = 0;
 
-        try
-        {
-            IDbConnection objConexao;
-            IDbCommand objCommand;
+        //try
+        //  {
+        IDbConnection objConnection;
+        IDbCommand objCommand;
 
+        string sql = "insert into tel_telefone(tel_ddd, tel_num, cli_cliente, emp_id) values(?tel_ddd, ?tel_num, ?cli_cliente, ?emp_id)";
 
-        } catch(Exception ex)
-        {
-            throw;
-        }
+        objConnection = Mapped.Connection();
+        objCommand = Mapped.Command(sql, objConnection);
 
+        objCommand.Parameters.Add(Mapped.Parameter("?tel_ddd", telefones.Tel_ddd));
+        objCommand.Parameters.Add(Mapped.Parameter("?tel_num", telefones.Tel_num));
+
+        //FK
+        objCommand.Parameters.Add(Mapped.Parameter("?cli_cliente", telefones.Cli_id.Cli_id));
+        objCommand.Parameters.Add(Mapped.Parameter("?emp_id", telefones.Emp_id.Emp_id));
+
+        objCommand.ExecuteNonQuery();
+        objConnection.Close();
+        objConnection.Dispose();
+        objCommand.Dispose();
+        // }
+        //catch (Exception ex)
+        // {
+        //    retorno = -2;
+        // }
         return retorno;
     }
 }

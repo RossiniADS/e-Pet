@@ -175,35 +175,7 @@
             </div>
             <div class="col-5">
                 <label>Estado *</label>
-                <asp:DropDownList runat="server" ID="rblEstado" CssClass="form-control">
-                    <asp:ListItem Value="AC">Acre</asp:ListItem>
-                    <asp:ListItem Value="AL">Alagoas</asp:ListItem>
-                    <asp:ListItem Value="AP">Amapá</asp:ListItem>
-                    <asp:ListItem Value="AM">Amazonas</asp:ListItem>
-                    <asp:ListItem Value="BA">Bahia</asp:ListItem>
-                    <asp:ListItem Value="CE">Ceará</asp:ListItem>
-                    <asp:ListItem Value="DF">Distrito Federal</asp:ListItem>
-                    <asp:ListItem Value="ES">Espírito Santo</asp:ListItem>
-                    <asp:ListItem Value="GO">Goiás</asp:ListItem>
-                    <asp:ListItem Value="MA">Maranhão</asp:ListItem>
-                    <asp:ListItem Value="MT">Mato Grosso</asp:ListItem>
-                    <asp:ListItem Value="MS">Mato Grosso do Sul</asp:ListItem>
-                    <asp:ListItem Value="MG">Minas Gerais</asp:ListItem>
-                    <asp:ListItem Value="PA">Pará</asp:ListItem>
-                    <asp:ListItem Value="PB">Paraíba</asp:ListItem>
-                    <asp:ListItem Value="PR">Paraná</asp:ListItem>
-                    <asp:ListItem Value="PE">Pernambuco</asp:ListItem>
-                    <asp:ListItem Value="PI">Piauí</asp:ListItem>
-                    <asp:ListItem Value="RJ">Rio de Janeiro</asp:ListItem>
-                    <asp:ListItem Value="RN">Rio Grande do Norte</asp:ListItem>
-                    <asp:ListItem Value="RS">Rio Grande do Sul</asp:ListItem>
-                    <asp:ListItem Value="RO">Rondônia</asp:ListItem>
-                    <asp:ListItem Value="RR">Roraima</asp:ListItem>
-                    <asp:ListItem Value="SC">Santa Catarina</asp:ListItem>
-                    <asp:ListItem Value="SP">São Paulo</asp:ListItem>
-                    <asp:ListItem Value="SE">Sergipe</asp:ListItem>
-                    <asp:ListItem Value="TO">Tocantins</asp:ListItem>
-                </asp:DropDownList>
+                <asp:DropDownList runat="server" ID="rblEstado" CssClass="form-control"></asp:DropDownList>
             </div>
             <div class="col-2"></div>
             <div class="col-5">

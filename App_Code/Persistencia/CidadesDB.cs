@@ -14,23 +14,23 @@ public class CidadesDB
         int retorno = 0;
 
         //try
-       //{
-            IDbConnection objConnection;
-            IDbCommand objCommand;
+        //{
+        IDbConnection objConnection;
+        IDbCommand objCommand;
 
-            string sql = "insert into cid_cidade(cid_nome, est_id) values(?cid_nome, ?est_id)";
-            objConnection = Mapped.Connection();
-            objCommand = Mapped.Command(sql, objConnection);
+        string sql = "insert into cid_cidade(cid_nome, est_id) values(?cid_nome, ?est_id); select last_insert_id();";
+        objConnection = Mapped.Connection();
+        objCommand = Mapped.Command(sql, objConnection);
 
-            objCommand.Parameters.Add(Mapped.Parameter("?cid_nome", cidades.Cid_nome));
+        objCommand.Parameters.Add(Mapped.Parameter("?cid_nome", cidades.Cid_nome));
 
-            // FK
-            objCommand.Parameters.Add(Mapped.Parameter("?est_id", cidades.Est_id.Est_id));
+        // FK
+        objCommand.Parameters.Add(Mapped.Parameter("?est_id", cidades.Est_id.Est_id));
 
-            objCommand.ExecuteNonQuery();
-            objConnection.Close();
-            objConnection.Dispose();
-            objCommand.Dispose();
+        retorno = Convert.ToInt32(objCommand.ExecuteScalar());
+        objConnection.Close();
+        objConnection.Dispose();
+        objCommand.Dispose();
         //}
         //catch (Exception ex)
         //{

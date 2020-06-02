@@ -35,4 +35,26 @@ public class EstadosDB
        // }
         return retorno;
     }
+
+     public static DataSet SelectAll()
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        objConnection = Mapped.Connection();
+        string sql = "select * from est_estado";
+        //objCommand = Mapped.Command("select * from perfil", objConnection);
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+
+    }
 }
