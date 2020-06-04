@@ -25,6 +25,10 @@ public partial class Pag_Cadastro : System.Web.UI.Page
         rblEstado.DataTextField = "est_uf";
         rblEstado.DataValueField = "est_id";
         rblEstado.DataBind();
+        rblCidade.DataSource = CidadesDB.SelectAll();
+        rblCidade.DataTextField = "cid_nome";
+        rblCidade.DataValueField = "cid_id";
+        rblCidade.DataBind();
     }
 
     protected void EscolhePessoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,15 +59,17 @@ public partial class Pag_Cadastro : System.Web.UI.Page
         Estados est = new Estados();
 
         Cidades cid = new Cidades();
-        cid.Cid_nome = textCidade.Text;
+        
+        /*cid.Cid_nome = textCidade.Text;
         //FK
         est.Est_id = Convert.ToInt32(rblEstado.SelectedValue);
         cid.Est_id = est;
-        cid.Cid_id = CidadesDB.Insert(cid);
+        cid.Cid_id = CidadesDB.Insert(cid);*/
 
         Bairros bai = new Bairros();
         bai.Bai_nome = textBairro.Text;
         //FK
+        cid.Cid_id = Convert.ToInt32(rblCidade.SelectedValue);
         bai.Cid_id = cid;
         bai.Bai_id = BairrosDB.Insert(bai);
 
@@ -102,9 +108,9 @@ public partial class Pag_Cadastro : System.Web.UI.Page
             CorreiosApi correiosApi = new CorreiosApi();
             var address = correiosApi.consultaCEP(textCep.Text);
 
-            textRua.Text = address.cidade;
+            textRua.Text = address.end;
             textBairro.Text = address.bairro;
-            textCidade.Text = address.cidade;
+            rblCidade.SelectedItem.Text = address.cidade;
             rblEstado.SelectedItem.Text = address.uf;
         }
     }

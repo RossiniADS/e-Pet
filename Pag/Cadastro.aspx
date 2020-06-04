@@ -180,7 +180,7 @@
             <div class="col-2"></div>
             <div class="col-5">
                 <label>Cidade *</label>
-                <asp:TextBox runat="server" ID="textCidade" CssClass="form-control"></asp:TextBox>
+                <asp:DropDownList runat="server" ID="rblCidade" CssClass="form-control"></asp:DropDownList>
             </div>
             <div class="col-8"></div>
             <div class="col-4 mt-5">

@@ -27,16 +27,16 @@ public class ClienteEnderecoDB
             //FK
             objCommand.Parameters.Add(Mapped.Parameter("?cli_id", clienteEndereco.Cli_id.Cli_id));
             objCommand.Parameters.Add(Mapped.Parameter("?end_id", clienteEndereco.End_id.End_id));
-            
+
             objCommand.ExecuteNonQuery();
             objConnection.Close();
             objConnection.Dispose();
             objCommand.Dispose();
         //}
-        //catch (Exception ex)
-        //{
-        //    retorno = -2;
-        //}
+        /*catch (Exception ex)
+        {
+            retorno = -2;
+        }*/
         return retorno;
     }
 }

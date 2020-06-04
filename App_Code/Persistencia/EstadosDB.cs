@@ -13,8 +13,8 @@ public class EstadosDB
     {
         int retorno = 0;
 
-        //try
-      //  {
+        try
+        {
             IDbConnection objConnection;
             IDbCommand objCommand;
 
@@ -28,15 +28,15 @@ public class EstadosDB
             objConnection.Close();
             objConnection.Dispose();
             objCommand.Dispose();
-       // }
-        //catch (Exception ex)
-       // {
-        //    retorno = -2;
-       // }
+        }
+        catch (Exception ex)
+        {
+            retorno = -2;
+        }
         return retorno;
     }
 
-     public static DataSet SelectAll()
+    public static DataSet SelectAll()
     {
         DataSet ds = new DataSet();
         IDbConnection objConnection;
@@ -45,7 +45,6 @@ public class EstadosDB
 
         objConnection = Mapped.Connection();
         string sql = "select * from est_estado";
-        //objCommand = Mapped.Command("select * from perfil", objConnection);
         objCommand = Mapped.Command(sql, objConnection);
 
         objDataDadapter = Mapped.adapter(objCommand);
