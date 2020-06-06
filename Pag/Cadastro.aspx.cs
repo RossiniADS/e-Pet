@@ -48,56 +48,111 @@ public partial class Pag_Cadastro : System.Web.UI.Page
 
     protected void btnConta_Click(object sender, EventArgs e)
     {
-        Clientes cli = new Clientes();
-        cli.Cli_nome = textNome.Text;
-        cli.Cli_email = textEmail.Text;
-        cli.Cli_senha = textSenha.Text;
-        cli.Cli_sexo = Convert.ToChar(rblSexo.SelectedValue);
-        cli.Cli_data_nascimento = Convert.ToDateTime(textCalendario.Text);
-        cli.Cli_id = ClientesDB.Insert(cli);
-
-        Estados est = new Estados();
-
-        Cidades cid = new Cidades();
-        
-        /*cid.Cid_nome = textCidade.Text;
-        //FK
-        est.Est_id = Convert.ToInt32(rblEstado.SelectedValue);
-        cid.Est_id = est;
-        cid.Cid_id = CidadesDB.Insert(cid);*/
-
-        Bairros bai = new Bairros();
-        bai.Bai_nome = textBairro.Text;
-        //FK
-        cid.Cid_id = Convert.ToInt32(rblCidade.SelectedValue);
-        bai.Cid_id = cid;
-        bai.Bai_id = BairrosDB.Insert(bai);
-
-        Enderecos end = new Enderecos();
-        end.End_cep = textCep.Text;
-        end.End_tipo = textComplemento.Text;
-        //FK
-        end.Bai_id = bai;
-        end.End_id = EnderecosDB.Insert(end);
-
-        ClienteEndereco cle = new ClienteEndereco();
-        cle.Cle_num = textNumero.Text;
-        cle.Cle_principal = true;
-        //FK
-        cle.Cli_id = cli;
-        cle.End_id = end;
-
-
-        switch (ClienteEnderecoDB.Insert(cle))
+        if (EscolhePessoa.SelectedValue == "1")
         {
-            case 0:
-                ltl.Text = "<p class='text-success'>Cadastro efetuado com sucesso</p>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
-                break;
-            case -2:
-                ltl.Text = "<p class='text-success'>Erro no cadastro</p>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
-                break;
+            Clientes cli = new Clientes();
+            cli.Cli_nome = textNome.Text;
+            cli.Cli_email = textEmail.Text;
+            cli.Cli_senha = textSenha.Text;
+            cli.Cli_sexo = Convert.ToChar(rblSexo.SelectedValue);
+            cli.Cli_data_nascimento = Convert.ToDateTime(textCalendario.Text);
+            cli.Cli_id = ClientesDB.Insert(cli);
+
+            Telefones tel = new Telefones();
+            tel.Tel_ddd = Convert.ToInt32(textDDD.Text);
+            tel.Tel_num = Convert.ToInt32(textCelular.Text);
+            //FK
+            tel.Cli_id = cli;
+            tel.Tel_id = TelefonesDB.Insert(tel);
+
+            Estados est = new Estados();
+
+            Cidades cid = new Cidades();
+
+            Bairros bai = new Bairros();
+            bai.Bai_nome = textBairro.Text;
+            //FK
+            cid.Cid_id = Convert.ToInt32(rblCidade.SelectedValue);
+            bai.Cid_id = cid;
+            bai.Bai_id = BairrosDB.Insert(bai);
+
+            Enderecos end = new Enderecos();
+            end.End_cep = textCep.Text;
+            end.End_tipo = textComplemento.Text;
+            //FK
+            end.Bai_id = bai;
+            end.End_id = EnderecosDB.Insert(end);
+
+            ClienteEndereco cle = new ClienteEndereco();
+            cle.Cle_num = textNumero.Text;
+            cle.Cle_principal = true;
+            //FK
+            cle.Cli_id = cli;
+            cle.End_id = end;
+
+
+            switch (ClienteEnderecoDB.Insert(cle))
+            {
+                case 0:
+                    ltl.Text = "<p class='text-success'>Cadastro efetuado com sucesso</p>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                    break;
+                case -2:
+                    ltl.Text = "<p class='text-success'>Erro no cadastro</p>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                    break;
+            }
+        }
+        else
+        {
+
+
+            Estados est = new Estados();
+
+            Cidades cid = new Cidades();
+
+            Bairros bai = new Bairros();
+            bai.Bai_nome = textBairro.Text;
+            //FK
+            cid.Cid_id = Convert.ToInt32(rblCidade.SelectedValue);
+            bai.Cid_id = cid;
+            bai.Bai_id = BairrosDB.Insert(bai);
+
+            Enderecos end = new Enderecos();
+            end.End_cep = textCep.Text;
+            end.End_tipo = textComplemento.Text;
+            //FK
+            end.Bai_id = bai;
+            end.End_id = EnderecosDB.Insert(end);
+
+            Empresas emp = new Empresas();
+            emp.Emp_razao_social = textSocial.Text;
+            emp.Emp_email = textEmail2.Text;
+            emp.Emp_nome_fantasia = textNomeFantasia.Text;
+            emp.Emp_cnpj = textCNPJ.Text;
+            emp.Emp_senha = textSenha2.Text;
+            emp.Emp_numero_endereco = textNumero.Text;
+            //FK
+            emp.End_id = end;
+
+            /*Telefones tel = new Telefones();
+            tel.Tel_ddd = Convert.ToInt32(textDDD.Text);
+            tel.Tel_num = Convert.ToInt32(textCelular.Text);
+            //FK
+            tel.Emp_id = emp;
+            tel.Tel_id = TelefonesDB.Insert(tel);*/
+
+            switch (EmpresasDB.Insert(emp))
+            {
+                case 0:
+                    ltl.Text = "<p class='text-success'>Cadastro efetuado com sucesso</p>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                    break;
+                case -2:
+                    ltl.Text = "<p class='text-success'>Erro no cadastro</p>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                    break;
+            }
         }
     }
 

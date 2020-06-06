@@ -108,7 +108,7 @@
                 <div class="col-2"></div>
                 <div class="col-1">
                     <label>DDD</label>
-                    <asp:TextBox runat="server" ID="textDDDt2" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="textDDDt2" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-4">
                     <label>Telefone </label>
@@ -117,7 +117,7 @@
 
                 <div class="col-5">
                     <label>Nome fantasia *</label>
-                    <asp:TextBox runat="server" ID="textNomeEmpresa" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="textNomeFantasia" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
                 <div class="col-5">

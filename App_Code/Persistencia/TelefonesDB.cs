@@ -18,7 +18,8 @@ public class TelefonesDB
         IDbConnection objConnection;
         IDbCommand objCommand;
 
-        string sql = "insert into tel_telefone(tel_ddd, tel_num, cli_cliente, emp_id) values(?tel_ddd, ?tel_num, ?cli_cliente, ?emp_id)";
+        string sql = "insert into tel_telefone(tel_ddd, tel_num, cli_id) values(?tel_ddd, ?tel_num, ?cli_id)";
+        //string sql = "insert into tel_telefone(tel_ddd, tel_num, cli_id, emp_id) values(?tel_ddd, ?tel_num, ?cli_id, ?emp_id)";
 
         objConnection = Mapped.Connection();
         objCommand = Mapped.Command(sql, objConnection);
@@ -27,8 +28,8 @@ public class TelefonesDB
         objCommand.Parameters.Add(Mapped.Parameter("?tel_num", telefones.Tel_num));
 
         //FK
-        objCommand.Parameters.Add(Mapped.Parameter("?cli_cliente", telefones.Cli_id.Cli_id));
-        objCommand.Parameters.Add(Mapped.Parameter("?emp_id", telefones.Emp_id.Emp_id));
+        objCommand.Parameters.Add(Mapped.Parameter("?cli_id", telefones.Cli_id.Cli_id));
+        //objCommand.Parameters.Add(Mapped.Parameter("?emp_id", telefones.Emp_id.Emp_id));
 
         objCommand.ExecuteNonQuery();
         objConnection.Close();

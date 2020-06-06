@@ -9,21 +9,23 @@ using System.Web;
 public class Empresas
 {
     private int emp_id;
-    private int emp_cnpj;
-    private string emp_nome;
+    private string emp_razao_social;
     private string emp_email;
+    private string emp_nome_fantasia;
+    private string emp_cnpj;
     private string emp_senha;
-    private string em_numEndereco;
-    private string em_foto_url;
+    private string emp_numero_endereco;
+    private string emp_foto_url;
 
     private Enderecos end_id;
 
     public int Emp_id { get => emp_id; set => emp_id = value; }
-    public int Emp_cnpj { get => emp_cnpj; set => emp_cnpj = value; }
-    public string Emp_nome { get => emp_nome; set => emp_nome = value; }
+    public string Emp_razao_social { get => emp_razao_social; set => emp_razao_social = value; }
     public string Emp_email { get => emp_email; set => emp_email = value; }
+    public string Emp_nome_fantasia { get => emp_nome_fantasia; set => emp_nome_fantasia = value; }
+    public string Emp_cnpj { get => emp_cnpj; set => emp_cnpj = value; }
     public string Emp_senha { get => emp_senha; set => emp_senha = value; }
-    public string Em_numEndereco { get => em_numEndereco; set => em_numEndereco = value; }
-    public string Em_foto_url { get => em_foto_url; set => em_foto_url = value; }
+    public string Emp_numero_endereco { get => emp_numero_endereco; set => emp_numero_endereco = value; }
+    public string Emp_foto_url { get => emp_foto_url; set => emp_foto_url = value; }
     public Enderecos End_id { get => end_id; set => end_id = value; }
 }
