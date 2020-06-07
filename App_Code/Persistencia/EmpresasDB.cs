@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Data;
 
+using System.Text;
+using System.IO;
+using System.Security.Cryptography;
+
 /// <summary>
 /// Descrição resumida de EmpresasDB
 /// </summary>
@@ -45,5 +49,19 @@ public class EmpresasDB
             retorno = -2;
         }
         return retorno;
+    }
+
+    public static string PWD(string senha)
+    {
+        UnicodeEncoding UE = new UnicodeEncoding();
+        byte[] HashValue, MessageBytes = UE.GetBytes(senha);
+        SHA512Managed SHash = new SHA512Managed();
+        string strHEx = "";
+        HashValue = SHash.ComputeHash(MessageBytes);
+        foreach (byte b in HashValue)
+        {
+            strHEx += String.Format("{0:x2}", b);
+        }
+        return strHEx;
     }
 }

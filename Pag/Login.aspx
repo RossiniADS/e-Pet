@@ -50,7 +50,7 @@
                     <div class="col-2"></div>
                     <div class="col-10 mt-4">
                         <asp:Button ClientIDMode="Static" runat="server" Text="Entrar" ID="btnSalvar" ForeColor="black"
-                            BorderColor="orange" BorderWidth="5px" BackColor="white" CssClass="btn btn-primary btn-block" OnClick="btnSalvar_Click"/>
+                            BorderColor="orange" BorderWidth="5px" BackColor="white" CssClass="btn btn-primary btn-block" OnClick="btnSalvar_Click" />
                     </div>
                 </div>
 
@@ -77,10 +77,34 @@
                             BackColor="white" OnClientClick="javascript:window.location.href='Cadastro.aspx'; return false;" />
                     </div>
                 </div>
-
-
             </div>
         </div>
+
+        <!-- INICIO DA MODAL -->
+        <div class="modal" tabindex="-1" role="dialog" id="myModal">
+
+
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cadastro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Literal ID="ltl" runat="server"></asp:Literal>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIM DA MODAL -->
+
     </section>
 
 </asp:Content>

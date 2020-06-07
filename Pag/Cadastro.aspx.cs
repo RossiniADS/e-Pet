@@ -53,7 +53,7 @@ public partial class Pag_Cadastro : System.Web.UI.Page
             Clientes cli = new Clientes();
             cli.Cli_nome = textNome.Text;
             cli.Cli_email = textEmail.Text;
-            cli.Cli_senha = textSenha.Text;
+            cli.Cli_senha = ClientesDB.PWD(textSenha.Text);
             cli.Cli_sexo = Convert.ToChar(rblSexo.SelectedValue);
             cli.Cli_data_nascimento = Convert.ToDateTime(textCalendario.Text);
             cli.Cli_id = ClientesDB.Insert(cli);
@@ -130,7 +130,7 @@ public partial class Pag_Cadastro : System.Web.UI.Page
             emp.Emp_email = textEmail2.Text;
             emp.Emp_nome_fantasia = textNomeFantasia.Text;
             emp.Emp_cnpj = textCNPJ.Text;
-            emp.Emp_senha = textSenha2.Text;
+            emp.Emp_senha = EmpresasDB.PWD(textSenha2.Text);
             emp.Emp_numero_endereco = textNumero.Text;
             //FK
             emp.End_id = end;

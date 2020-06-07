@@ -4,6 +4,10 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
+using System.Text;
+using System.IO;
+using System.Security.Cryptography;
+
 /// <summary>
 /// Descrição resumida de ClientesDB
 /// </summary>
@@ -39,5 +43,43 @@ public class ClientesDB
             retorno = -2;
         }
         return retorno;
+    }
+
+    public static string PWD(string senha)
+    {
+        UnicodeEncoding UE = new UnicodeEncoding();
+        byte[] HashValue, MessageBytes = UE.GetBytes(senha);
+        SHA512Managed SHash = new SHA512Managed();
+        string strHEx = "";
+        HashValue = SHash.ComputeHash(MessageBytes);
+        foreach (byte b in HashValue)
+        {
+            strHEx += String.Format("{0:x2}", b);
+        }
+        return strHEx;
+    }
+
+    public static DataSet SelectLogin(string email, string pwd)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        objConnection = Mapped.Connection();
+        string sql = "select * from cli_cliente where cli_email = ?cli_email and cli_senha = ?cli_senha";
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?cli_email", email));
+        objCommand.Parameters.Add(Mapped.Parameter("?cli_senha", pwd));
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+
     }
 }

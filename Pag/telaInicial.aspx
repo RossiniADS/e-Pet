@@ -12,7 +12,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="first-slide w-100" src="Imagem/4.jpg" alt="First slide">
+                    <img class="first-slide w-100" src="../Imagem/4.jpg" alt="First slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>Manchete</h1>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="second-slide w-100" src="Imagem/5.jpg" alt="Second slide">
+                    <img class="second-slide w-100" src="../Imagem/5.jpg" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Outra manchete</h1>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide w-100" src="Imagem/6.jpg" alt="Third slide">
+                    <img class="third-slide w-100" src="../Imagem/6.jpg" alt="Third slide">
                     <div class="container">
                         <div class="carousel-caption text-right">
                             <h1>Outra manchete, pra garantir</h1>
@@ -62,7 +62,7 @@
             <div class="col-2"></div>
             <div class="col-8 text-center mt-5">
                 <h4>Como faço para pedir um acessório ou ração?</h4>
-                <img class="img-responsive" src="Icons/pc.png" />
+                <img class="img-responsive" src="../Icons/pc.png" />
             </div>
             <div class="col-2"></div>
         </div>
@@ -70,7 +70,7 @@
             <div class="col-2"></div>
             <div class="col-8 text-center">
                 <h4>Pesquise pelo produto ou loja. Assim que achar o que deseja é só adicionar ao carrinho!</h4>
-                <img class="img-responsive" src="Icons/Caminhão.png" />
+                <img class="img-responsive" src="../Icons/Caminhão.png" />
             </div>
             <div class="col-2"></div>
             <div class="col-12 text-center mt-3">
