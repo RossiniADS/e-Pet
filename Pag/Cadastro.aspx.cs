@@ -96,6 +96,9 @@ public partial class Pag_Cadastro : System.Web.UI.Page
                 case 0:
                     ltl.Text = "<p class='text-success'>Cadastro efetuado com sucesso</p>";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                    
+                    Session["cli_cliente"] = cli;
+                    Response.Redirect("../PaginaCliente/MeusDados.aspx");
                     break;
                 case -2:
                     ltl.Text = "<p class='text-success'>Erro no cadastro</p>";

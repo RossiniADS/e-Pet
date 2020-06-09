@@ -30,9 +30,9 @@ public partial class Pag_Login : System.Web.UI.Page
 
             cli.Cli_id = Convert.ToInt32(ds.Tables[0].Rows[0]["cli_id"]);
 
-            Session["cliente"] = cli;
+            Session["cli_cliente"] = cli;
 
-            Response.Redirect("telaInicial.aspx");
+            Response.Redirect("../PaginaCliente/MeusDados.aspx");
         }
         else
         {

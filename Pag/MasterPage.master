@@ -44,14 +44,44 @@
                     <ul class="nav navbar-nav mx-auto">
                     </ul>
 
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item text-center">
-                            <a class="nav-link" href="Login.aspx" runat="server">Login</a>
-                        </li>
-                        <li class="nav-item text-center">
-                            <a class="nav-link" href="Cadastro.aspx" runat="server">Cadastrar</a>
-                        </li>
-                    </ul>
+                    <asp:Panel runat="server" CssClass="mr-4" ID="PnlLogado">
+                        <ul class="nav navbar-nav mr-5">
+                            <li class="nav-item text-center">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                        <asp:Literal runat="server" ID="ltlNomeUsuario"></asp:Literal>
+                                        <span class="caret"></span>
+
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="../PaginaCliente/MeusDados.aspx">Meus dados</a></li>
+                                        <li><a class="dropdown-item" href="../PaginaCliente/Endereco.aspx">Endereço</a></li>
+                                        <li><a class="dropdown-item" href="#">Pedidos</a></li>
+                                        <li><a class="dropdown-item" href="#">Historico de pedidos</a></li>
+                                        <li>
+                                            <asp:Button runat="server" ID="btnSair" ValidationGroup=""
+                                                CssClass="btn btn-danger btn-sm dropdown-item" Text="Sair" OnClick="btnSair_Click" /></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </asp:Panel>
+
+                    <asp:Panel runat="server" ID="PnlLogin">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item text-center">
+                                <a class="nav-link" href="Login.aspx" runat="server">Login</a>
+                            </li>
+                            <li class="nav-item text-center">
+                                <a class="nav-link" href="Cadastro.aspx" runat="server">Cadastrar</a>
+                            </li>
+                        </ul>
+                    </asp:Panel>
+
+                    
+
                 </div>
             </nav>
         </header>
