@@ -81,4 +81,40 @@ public class ClientesDB
         objConnection.Dispose();
         return ds;
     }
+
+    public static int Update(Clientes cliente)
+    {
+        int retorno = 0;
+        try
+        {
+            IDbConnection objConnection;
+            IDbCommand objCommand;
+
+            string sql = "update cli_cliente set cli_nome = ?cli_nome, cli_email = ?cli_email, cli_senha = ?cli_senha, cli_sexo = " +
+            "?cli_sexo,  cli_data_nascimento =  ?cli_data_nascimento, cli_foto_url = ?cli_foto_url where cli_id = ?cli_id";
+            objConnection = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConnection);
+
+            objCommand.Parameters.Add(Mapped.Parameter("?cli_nome", cliente.Cli_nome));
+            objCommand.Parameters.Add(Mapped.Parameter("?cli_email", cliente.Cli_email));
+            objCommand.Parameters.Add(Mapped.Parameter("?cli_senha", cliente.Cli_senha));
+            objCommand.Parameters.Add(Mapped.Parameter("?cli_sexo", cliente.Cli_sexo));
+            objCommand.Parameters.Add(Mapped.Parameter("?cli_data_nascimento", cliente.Cli_data_nascimento));
+            objCommand.Parameters.Add(Mapped.Parameter("?cli_foto_url", cliente.Cli_foto_url));
+            objCommand.Parameters.Add(Mapped.Parameter("?cli_id", cliente.Cli_id));
+
+            objCommand.ExecuteNonQuery();
+
+            objConnection.Close();
+            objConnection.Dispose();
+            objCommand.Dispose();
+
+        }
+        catch (Exception ex)
+        {
+            retorno = -2;
+        }
+        return retorno;
+
+    }
 }

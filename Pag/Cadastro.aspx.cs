@@ -96,7 +96,7 @@ public partial class Pag_Cadastro : System.Web.UI.Page
                 case 0:
                     ltl.Text = "<p class='text-success'>Cadastro efetuado com sucesso</p>";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
-                    
+
                     Session["cli_cliente"] = cli;
                     Response.Redirect("../PaginaCliente/MeusDados.aspx");
                     break;
@@ -168,8 +168,24 @@ public partial class Pag_Cadastro : System.Web.UI.Page
 
             textRua.Text = address.end;
             textBairro.Text = address.bairro;
-            rblCidade.SelectedItem.Text = address.cidade;
-            rblEstado.SelectedItem.Text = address.uf;
+            DDLSelecionaItem(rblCidade, address.cidade);
+            DDLSelecionaItem(rblEstado, address.uf);
         }
+    }
+    public static DropDownList DDLSelecionaItem(DropDownList ddl, string valor)
+    {
+        for (int i = 0; i <= ddl.Items.Count - 1; i++)
+        {
+            ddl.Items[i].Selected = false;
+        }
+        for (int i = 0; i <= ddl.Items.Count - 1; i++)
+        {
+            if (ddl.Items[i].Text == valor)
+            {
+                ddl.Items[i].Selected = true;
+                break;
+            }
+        }
+        return ddl;
     }
 }

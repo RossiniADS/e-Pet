@@ -10,9 +10,11 @@
             <h5>Meus Dados</h5>
         </div>
         <hr />
-
         <div class="row">
-            <div class="col-12">
+            <div class="col-4 mt-4">
+            </div>
+
+            <div class="col-8">
                 <label>Nome completo *</label>
                 <asp:TextBox runat="server" ID="textNome" required="required" CssClass="form-control"></asp:TextBox>
             </div>
@@ -68,6 +70,31 @@
             </div>
 
         </div>
+
+        <!-- INICIO DA MODAL -->
+        <div class="modal" tabindex="-1" role="dialog" id="myModal">
+
+
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cadastro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Literal ID="ltl" runat="server"></asp:Literal>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIM DA MODAL -->
     </div>
 
 
