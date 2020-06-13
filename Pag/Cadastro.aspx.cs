@@ -71,6 +71,7 @@ public partial class Pag_Cadastro : System.Web.UI.Page
 
             Bairros bai = new Bairros();
             bai.Bai_nome = textBairro.Text;
+            bai.Bai_rua = textRua.Text;
             //FK
             cid.Cid_id = Convert.ToInt32(rblCidade.SelectedValue);
             bai.Cid_id = cid;
@@ -116,6 +117,7 @@ public partial class Pag_Cadastro : System.Web.UI.Page
 
             Bairros bai = new Bairros();
             bai.Bai_nome = textBairro.Text;
+            bai.Bai_rua = textRua.Text;
             //FK
             cid.Cid_id = Convert.ToInt32(rblCidade.SelectedValue);
             bai.Cid_id = cid;

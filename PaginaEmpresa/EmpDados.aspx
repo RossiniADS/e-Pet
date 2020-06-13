@@ -1,68 +1,59 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pag/MasterPage.master" AutoEventWireup="true" CodeFile="MeusDados.aspx.cs" Inherits="PaginaCliente_MeusDadosaspx" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaEmpresa/EmpresaLogada.master" AutoEventWireup="true" CodeFile="EmpDados.aspx.cs" Inherits="PaginaEmpresa_EmpDados" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
     <div class="container">
-
         <div class="mt-4 ml-4">
-            <h5>Meus Dados</h5>
+            <h5>Dados Empresariais</h5>
         </div>
-        <hr />
-        <div class="row">
-            <div class="col-4 mt-4">
-                <asp:FileUpload ID="FileUpload" runat="server" />
-            </div>
+        <hr/>
 
-            <div class="col-8">
-                <label>Nome completo *</label>
-                <asp:TextBox runat="server" ID="textNome" required="required" CssClass="form-control"></asp:TextBox>
+        <div class="row">
+            <div class="col-12">
+                <label>Razão Social *</label>
+                <asp:TextBox runat="server" ID="textSocial" required="required" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-12">
                 <label>E-mail *</label>
-                <asp:TextBox runat="server" ID="textEmail" type="email" required="required" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textEmail2" AutoCompleteType="Email" required="required" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-1">
                 <label>DDD</label>
-                <asp:TextBox runat="server" ID="textDDD" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textDDD2" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-4">
                 <label>Celular *</label>
-                <asp:TextBox runat="server" ID="textCelular" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textCelular2" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-2"></div>
             <div class="col-1">
                 <label>DDD</label>
-                <asp:TextBox runat="server" ID="textDDDt" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textDDDt2" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-4">
                 <label>Telefone </label>
-                <asp:TextBox runat="server" ID="textTelefone" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textTelefone2" CssClass="form-control"></asp:TextBox>
             </div>
 
             <div class="col-5">
-                <label>Sexo *</label>
-                <asp:DropDownList runat="server" ID="rblSexo" CssClass="form-control" RepeatDirection="Horizontal">
-                    <asp:ListItem Value="M" Selected="True">Masculino</asp:ListItem>
-                    <asp:ListItem Value="F">Feminino</asp:ListItem>
-                </asp:DropDownList>
+                <label>Nome fantasia *</label>
+                <asp:TextBox runat="server" ID="textNomeFantasia" required="required" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-2"></div>
             <div class="col-5">
-                <label>Data de Nascimento *</label>
-                <asp:TextBox runat="server" ID="textCalendario" type="Date" CssClass="form-control"></asp:TextBox>
+                <label>CNPJ *</label>
+                <asp:TextBox runat="server" ID="textCNPJ" required="required" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-5">
                 <label>Senha *</label>
-                <asp:TextBox runat="server" ID="textSenha" CssClass="form-control" type="password"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textSenha2" CssClass="form-control" type="password"></asp:TextBox>
             </div>
             <div class="col-2"></div>
             <div class="col-5">
                 <label>Confirmar senha *</label>
-                <asp:TextBox runat="server" ID="textConfirmar" CssClass="form-control" type="password"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textConfirmar2" CssClass="form-control" type="password"></asp:TextBox>
             </div>
-
 
             <div class="col-8"></div>
             <div class="col-4 mt-5">
@@ -74,8 +65,6 @@
 
         <!-- INICIO DA MODAL -->
         <div class="modal" tabindex="-1" role="dialog" id="myModal">
-
-
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -97,7 +86,5 @@
         </div>
         <!-- FIM DA MODAL -->
     </div>
-
-
 </asp:Content>
 

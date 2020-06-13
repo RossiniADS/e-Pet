@@ -77,11 +77,11 @@ public class EnderecosDB
             objConnection = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConnection);
 
-            objCommand.Parameters.Add(Mapped.Parameter("?end_id", enderecos.End_id));
             objCommand.Parameters.Add(Mapped.Parameter("?end_cep", enderecos.End_cep));
             objCommand.Parameters.Add(Mapped.Parameter("?end_tipo", enderecos.End_tipo));
+            objCommand.Parameters.Add(Mapped.Parameter("?end_id", enderecos.End_id));
 
-            objCommand.ExecuteNonQuery();
+            retorno = Convert.ToInt32(objCommand.ExecuteScalar());
 
             objConnection.Close();
             objConnection.Dispose();

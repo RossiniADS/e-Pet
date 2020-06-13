@@ -13,30 +13,30 @@ public class ClienteEnderecoDB
     {
         int retorno = 0;
 
-        //try
-        //{
-        IDbConnection objConnection;
-        IDbCommand objCommand;
+        try
+        {
+            IDbConnection objConnection;
+            IDbCommand objCommand;
 
-        string sql = "insert into cle_cliente_endereco(cle_num, cli_id, end_id) values(?cle_num, ?cli_id, ?end_id)";
-        objConnection = Mapped.Connection();
-        objCommand = Mapped.Command(sql, objConnection);
+            string sql = "insert into cle_cliente_endereco(cle_num, cli_id, end_id) values(?cle_num, ?cli_id, ?end_id)";
+            objConnection = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConnection);
 
-        objCommand.Parameters.Add(Mapped.Parameter("?cle_num", clienteEndereco.Cle_num));
+            objCommand.Parameters.Add(Mapped.Parameter("?cle_num", clienteEndereco.Cle_num));
 
-        //FK
-        objCommand.Parameters.Add(Mapped.Parameter("?cli_id", clienteEndereco.Cli_id.Cli_id));
-        objCommand.Parameters.Add(Mapped.Parameter("?end_id", clienteEndereco.End_id.End_id));
+            //FK
+            objCommand.Parameters.Add(Mapped.Parameter("?cli_id", clienteEndereco.Cli_id.Cli_id));
+            objCommand.Parameters.Add(Mapped.Parameter("?end_id", clienteEndereco.End_id.End_id));
 
-        objCommand.ExecuteNonQuery();
-        objConnection.Close();
-        objConnection.Dispose();
-        objCommand.Dispose();
-        //}
-        /*catch (Exception ex)
+            objCommand.ExecuteNonQuery();
+            objConnection.Close();
+            objConnection.Dispose();
+            objCommand.Dispose();
+        }
+        catch (Exception ex)
         {
             retorno = -2;
-        }*/
+        }
         return retorno;
     }
 
@@ -74,8 +74,8 @@ public class ClienteEnderecoDB
             objConnection = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConnection);
 
-            objCommand.Parameters.Add(Mapped.Parameter("?cle_id", clienteEndereco.Cle_id));
             objCommand.Parameters.Add(Mapped.Parameter("?cle_num", clienteEndereco.Cle_num));
+            objCommand.Parameters.Add(Mapped.Parameter("?cle_id", clienteEndereco.Cle_id));
 
             objCommand.ExecuteNonQuery();
 

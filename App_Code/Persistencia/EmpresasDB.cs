@@ -64,4 +64,87 @@ public class EmpresasDB
         }
         return strHEx;
     }
+
+    public static DataSet SelectAll(int id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        objConnection = Mapped.Connection();
+        string sql = "select * from emp_empresa where emp_id= ?emp_id";
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?emp_id", id));
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+    }
+
+    public static DataSet SelectLogin(string email, string pwd)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        objConnection = Mapped.Connection();
+        string sql = "select * from emp_empresa where emp_email = ?emp_email and emp_senha = ?emp_senha";
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?emp_email", email));
+        objCommand.Parameters.Add(Mapped.Parameter("?emp_senha", pwd));
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+    }
+
+    public static int Update(Empresas emp)
+    {
+        int retorno = 0;
+        try
+        {
+            IDbConnection objConnection;
+            IDbCommand objCommand;
+
+            string sql = "update emp_empresa set emp_nome_fantasia = ?Emp_nome_fantasia, emp_numero_endereco = ?emp_numero_endereco, " +
+                "Emp_email = ?Emp_email, Emp_razao_social = ?Emp_razao_social, Emp_cnpj = " +
+            "?Emp_cnpj,  Emp_senha =  ?Emp_senha, Emp_foto_url = ?Emp_foto_url where Emp_id = ?Emp_id";
+            objConnection = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConnection);
+
+            objCommand.Parameters.Add(Mapped.Parameter("?Emp_nome_fantasia", emp.Emp_nome_fantasia));
+            objCommand.Parameters.Add(Mapped.Parameter("?emp_numero_endereco", emp.Emp_numero_endereco));
+            objCommand.Parameters.Add(Mapped.Parameter("?Emp_email", emp.Emp_email));
+            objCommand.Parameters.Add(Mapped.Parameter("?Emp_razao_social", emp.Emp_razao_social));
+            objCommand.Parameters.Add(Mapped.Parameter("?Emp_cnpj", emp.Emp_cnpj));
+            objCommand.Parameters.Add(Mapped.Parameter("?Emp_senha", emp.Emp_senha));
+            objCommand.Parameters.Add(Mapped.Parameter("?Emp_foto_url", emp.Emp_foto_url));
+            objCommand.Parameters.Add(Mapped.Parameter("?Emp_id", emp.Emp_id));
+
+            objCommand.ExecuteNonQuery();
+
+            objConnection.Close();
+            objConnection.Dispose();
+            objCommand.Dispose();
+
+        }
+        catch (Exception ex)
+        {
+            retorno = -2;
+        }
+        return retorno;
+
+    }
 }

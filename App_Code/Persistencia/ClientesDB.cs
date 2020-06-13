@@ -59,6 +59,30 @@ public class ClientesDB
         return strHEx;
     }
 
+    public static DataSet SelectAll(int id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        objConnection = Mapped.Connection();
+        string sql = "select * from cli_cliente where cli_id = ?cli_id";
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?cli_id", id));
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+    }
+
+
+
     public static DataSet SelectLogin(string email, string pwd)
     {
         DataSet ds = new DataSet();

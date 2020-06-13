@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-10">
                         <asp:TextBox runat="server" ClientIDMode="Static" required="required" type="email"
-                            ID="txtUsuario" placeholder="exemplo@email.com" CssClass="form-control"></asp:TextBox>
+                            ID="TextUsuario" placeholder="exemplo@email.com" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@
                     <div class="col-10">
                         <table>
                             <asp:TextBox runat="server" ClientIDMode="Static" required="required" type="password"
-                                ID="txtSenha" placeholder="******" CssClass="form-control"></asp:TextBox>
+                                ID="TextSenha" placeholder="******" CssClass="form-control"></asp:TextBox>
                         </table>
                     </div>
                 </div>

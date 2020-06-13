@@ -55,6 +55,7 @@ public partial class PaginaCliente_Endereco : System.Web.UI.Page
 
         DataSet dsBai = BairrosDB.SelectBairro(cle.End_id.Bai_id.Bai_id);
         cle.End_id.Bai_id.Bai_nome = Convert.ToString(dsBai.Tables[0].Rows[0]["bai_nome"]);
+        cle.End_id.Bai_id.Bai_rua = Convert.ToString(dsBai.Tables[0].Rows[0]["bai_rua"]);
 
         cle.End_id.Bai_id.Cid_id = new Cidades();
         cle.End_id.Bai_id.Cid_id.Cid_id = Convert.ToInt32(dsBai.Tables[0].Rows[0]["cid_id"]);
@@ -69,12 +70,10 @@ public partial class PaginaCliente_Endereco : System.Web.UI.Page
         textBairro.Text = cle.End_id.Bai_id.Bai_nome;
         textCep.Text = cle.End_id.End_cep;
         textNumero.Text = cle.Cle_num;
-        textRua.Text = "";
+        textRua.Text = cle.End_id.Bai_id.Bai_rua;
         textComplemento.Text = cle.End_id.End_tipo;
         rblCidade.SelectedValue = cle.End_id.Bai_id.Cid_id.Cid_id.ToString();
         rblEstado.SelectedValue = cle.End_id.Bai_id.Cid_id.Est_id.Est_id.ToString();
-
-
     }
 
     protected void btnAtualizar_Click(object sender, EventArgs e)
@@ -82,11 +81,14 @@ public partial class PaginaCliente_Endereco : System.Web.UI.Page
         Clientes cli = (Clientes)Session["cli_cliente"];
 
         ClienteEndereco cle = new ClienteEndereco();
+
         DataSet ds = ClienteEnderecoDB.SelectEndereco(cli.Cli_id);
+
         cle.Cle_id = Convert.ToInt32(ds.Tables[0].Rows[0]["cle_id"]);
         cle.Cle_descricao = Convert.ToString(ds.Tables[0].Rows[0]["Cle_descricao"]);
         cle.Cle_num = Convert.ToString(ds.Tables[0].Rows[0]["Cle_num"]);
         //cle.Cle_principal = Convert.ToBoolean(ds.Tables[0].Rows[0]["cle_principal"]);
+
         cle.End_id = new Enderecos();
         cle.End_id.End_id = Convert.ToInt32(ds.Tables[0].Rows[0]["end_id"]);
 
@@ -115,7 +117,7 @@ public partial class PaginaCliente_Endereco : System.Web.UI.Page
         cle.End_id.Bai_id.Bai_nome = textBairro.Text;
         cle.End_id.End_cep = textCep.Text;
         cle.Cle_num = textNumero.Text;
-        //textRua.Text = "";
+        cle.End_id.Bai_id.Bai_rua = textRua.Text;
         cle.End_id.End_tipo = textComplemento.Text;
         cle.End_id.Bai_id.Cid_id.Cid_id = Convert.ToInt32(rblCidade.SelectedValue);
         cle.End_id.Bai_id.Cid_id.Est_id.Est_id = Convert.ToInt32(rblEstado.SelectedValue);
