@@ -23,22 +23,14 @@
                 <label>E-mail *</label>
                 <asp:TextBox runat="server" ID="textEmail" type="email" required="required" CssClass="form-control"></asp:TextBox>
             </div>
-            <div class="col-1">
-                <label>DDD</label>
-                <asp:TextBox runat="server" ID="textDDD" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="col-4">
-                <label>Celular *</label>
+            <div class="col-5">
+                <label>DDD + Celular *</label>
                 <asp:TextBox runat="server" ID="textCelular" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-2"></div>
             <div class="col-1">
-                <label>DDD</label>
-                <asp:TextBox runat="server" ID="textDDDt" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-4">
-                <label>Telefone </label>
-                <asp:TextBox runat="server" ID="textTelefone" CssClass="form-control"></asp:TextBox>
             </div>
 
             <div class="col-5">

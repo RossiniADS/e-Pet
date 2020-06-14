@@ -39,22 +39,14 @@
                     <label>E-mail *</label>
                     <asp:TextBox runat="server" ID="textEmail" type="email" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-1">
-                    <label>DDD</label>
-                    <asp:TextBox runat="server" ID="textDDD" required="required" CssClass="form-control"></asp:TextBox>
-                </div>
-                <div class="col-4">
-                    <label>Celular *</label>
+                <div class="col-5">
+                    <label>DDD + Celular *</label>
                     <asp:TextBox runat="server" ID="textCelular" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
                 <div class="col-1">
-                    <label>DDD</label>
-                    <asp:TextBox runat="server" ID="textDDDt" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-4">
-                    <label>Telefone </label>
-                    <asp:TextBox runat="server" ID="textTelefone" CssClass="form-control"></asp:TextBox>
                 </div>
 
                 <div class="col-5">
@@ -99,20 +91,16 @@
                 </div>
                 <div class="col-1">
                     <label>DDD</label>
-                    <asp:TextBox runat="server" ID="textDDD2" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="textDDD" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-4">
-                    <label>Celular *</label>
-                    <asp:TextBox runat="server" ID="textCelular2" required="required" CssClass="form-control"></asp:TextBox>
+                    <label>telefone *</label>
+                    <asp:TextBox runat="server" ID="textTelefone" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
                 <div class="col-1">
-                    <label>DDD</label>
-                    <asp:TextBox runat="server" ID="textDDDt2" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-4">
-                    <label>Telefone </label>
-                    <asp:TextBox runat="server" ID="textTelefone2" CssClass="form-control"></asp:TextBox>
                 </div>
 
                 <div class="col-5">
@@ -150,7 +138,7 @@
             </div>
             <div class="col-1 mt-2">
                 <label></label>
-                <asp:Button runat="server" ID="BuscaCep" Text="Buscar" CssClass="btn btn-group-sm" ForeColor="Black" 
+                <asp:Button runat="server" ID="BuscaCep" Text="Buscar" CssClass="btn btn-group-sm" ForeColor="Black"
                     BorderColor="orange" BackColor="white" OnClick="BuscaCep_Click" />
             </div>
             <div class="col-4"></div>

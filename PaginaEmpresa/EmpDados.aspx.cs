@@ -19,49 +19,67 @@ public partial class PaginaEmpresa_EmpDados : System.Web.UI.Page
     {
         Empresas id = (Empresas)Session["emp_nome_fantasia"];
 
-        Empresas emp = new Empresas();
+        Telefones tel = new Telefones();
+        DataSet dsTel = TelefonesDB.SelectTel(id.Emp_id);
+
+        tel.Tel_ddd = Convert.ToString(dsTel.Tables[0].Rows[0]["tel_ddd"]);
+        tel.Tel_num = Convert.ToString(dsTel.Tables[0].Rows[0]["tel_num"]);
+
+        tel.Emp_id = new Empresas();
+        tel.Emp_id.Emp_id = Convert.ToInt32(dsTel.Tables[0].Rows[0]["emp_id"]);
+
 
         DataSet ds = EmpresasDB.SelectAll(id.Emp_id);
-        emp.Emp_id = Convert.ToInt32(ds.Tables[0].Rows[0]["emp_id"]);
-        emp.Emp_nome_fantasia = Convert.ToString(ds.Tables[0].Rows[0]["emp_nome_fantasia"]);
-        emp.Emp_senha = Convert.ToString(ds.Tables[0].Rows[0]["emp_senha"]);
-        emp.Emp_email = Convert.ToString(ds.Tables[0].Rows[0]["emp_email"]);
-        emp.Emp_razao_social = Convert.ToString(ds.Tables[0].Rows[0]["emp_razao_social"]);
-        emp.Emp_cnpj = Convert.ToString(ds.Tables[0].Rows[0]["emp_cnpj"]);
-        emp.Emp_foto_url = Convert.ToString(ds.Tables[0].Rows[0]["emp_foto_url"]);
-        emp.Emp_numero_endereco = Convert.ToString(ds.Tables[0].Rows[0]["emp_numero_endereco"]);
+        tel.Emp_id.Emp_nome_fantasia = Convert.ToString(ds.Tables[0].Rows[0]["emp_nome_fantasia"]);
+        tel.Emp_id.Emp_senha = Convert.ToString(ds.Tables[0].Rows[0]["emp_senha"]);
+        tel.Emp_id.Emp_email = Convert.ToString(ds.Tables[0].Rows[0]["emp_email"]);
+        tel.Emp_id.Emp_razao_social = Convert.ToString(ds.Tables[0].Rows[0]["emp_razao_social"]);
+        tel.Emp_id.Emp_cnpj = Convert.ToString(ds.Tables[0].Rows[0]["emp_cnpj"]);
+        tel.Emp_id.Emp_foto_url = Convert.ToString(ds.Tables[0].Rows[0]["emp_foto_url"]);
+        tel.Emp_id.Emp_numero_endereco = Convert.ToString(ds.Tables[0].Rows[0]["emp_numero_endereco"]);
 
 
-        textNomeFantasia.Text = emp.Emp_nome_fantasia.ToString();
-        textEmail2.Text = emp.Emp_email.ToString();
-        textSocial.Text = emp.Emp_razao_social.ToString();
-        textCNPJ.Text = emp.Emp_cnpj.ToString();
+        textDDD.Text = tel.Tel_ddd.ToString();
+        textTelefone.Text = tel.Tel_num.ToString();
+        textNomeFantasia.Text = tel.Emp_id.Emp_nome_fantasia.ToString();
+        textEmail2.Text = tel.Emp_id.Emp_email.ToString();
+        textSocial.Text = tel.Emp_id.Emp_razao_social.ToString();
+        textCNPJ.Text = tel.Emp_id.Emp_cnpj.ToString();
     }
 
     protected void btnAtualizar_Click(object sender, EventArgs e)
     {
         Empresas id = (Empresas)Session["emp_nome_fantasia"];
 
-        Empresas emp = new Empresas();
+        Telefones tel = new Telefones();
+        DataSet dsTel = TelefonesDB.SelectTel(id.Emp_id);
+
+        tel.Tel_ddd = Convert.ToString(dsTel.Tables[0].Rows[0]["tel_ddd"]);
+        tel.Tel_num = Convert.ToString(dsTel.Tables[0].Rows[0]["tel_num"]);
+
+        tel.Emp_id = new Empresas();
+        tel.Emp_id.Emp_id = Convert.ToInt32(dsTel.Tables[0].Rows[0]["emp_id"]);
+
 
         DataSet ds = EmpresasDB.SelectAll(id.Emp_id);
-        emp.Emp_id = Convert.ToInt32(ds.Tables[0].Rows[0]["emp_id"]);
-        emp.Emp_nome_fantasia = Convert.ToString(ds.Tables[0].Rows[0]["emp_nome_fantasia"]);
-        emp.Emp_senha = Convert.ToString(ds.Tables[0].Rows[0]["emp_senha"]);
-        emp.Emp_email = Convert.ToString(ds.Tables[0].Rows[0]["emp_email"]);
-        emp.Emp_razao_social = Convert.ToString(ds.Tables[0].Rows[0]["emp_razao_social"]);
-        emp.Emp_cnpj = Convert.ToString(ds.Tables[0].Rows[0]["emp_cnpj"]);
-        emp.Emp_foto_url = Convert.ToString(ds.Tables[0].Rows[0]["emp_foto_url"]);
-        emp.Emp_numero_endereco = Convert.ToString(ds.Tables[0].Rows[0]["emp_numero_endereco"]);
+        tel.Emp_id.Emp_nome_fantasia = Convert.ToString(ds.Tables[0].Rows[0]["emp_nome_fantasia"]);
+        tel.Emp_id.Emp_senha = Convert.ToString(ds.Tables[0].Rows[0]["emp_senha"]);
+        tel.Emp_id.Emp_email = Convert.ToString(ds.Tables[0].Rows[0]["emp_email"]);
+        tel.Emp_id.Emp_razao_social = Convert.ToString(ds.Tables[0].Rows[0]["emp_razao_social"]);
+        tel.Emp_id.Emp_cnpj = Convert.ToString(ds.Tables[0].Rows[0]["emp_cnpj"]);
+        tel.Emp_id.Emp_foto_url = Convert.ToString(ds.Tables[0].Rows[0]["emp_foto_url"]);
+        tel.Emp_id.Emp_numero_endereco = Convert.ToString(ds.Tables[0].Rows[0]["emp_numero_endereco"]);
 
 
-        emp.Emp_nome_fantasia = textNomeFantasia.Text;
-        emp.Emp_email = textEmail2.Text;
-        emp.Emp_razao_social = textSocial.Text;
-        emp.Emp_cnpj = textCNPJ.Text;
+        tel.Tel_ddd = textDDD.Text;
+        tel.Tel_num = textTelefone.Text;
+        tel.Emp_id.Emp_nome_fantasia = textNomeFantasia.Text;
+        tel.Emp_id.Emp_email = textEmail2.Text;
+        tel.Emp_id.Emp_razao_social = textSocial.Text;
+        tel.Emp_id.Emp_cnpj = textCNPJ.Text;
 
 
-        switch (EmpresasDB.Update(emp))
+        switch (EmpresasDB.Update(tel.Emp_id) & TelefonesDB.Update(tel))
         {
             case 0:
                 ltl.Text = "<p class='text-success'>atualizado com sucesso </p>";

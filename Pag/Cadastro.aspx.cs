@@ -56,16 +56,8 @@ public partial class Pag_Cadastro : System.Web.UI.Page
             cli.Cli_senha = ClientesDB.PWD(textSenha.Text);
             cli.Cli_sexo = Convert.ToChar(rblSexo.SelectedValue);
             cli.Cli_data_nascimento = Convert.ToDateTime(textCalendario.Text);
+            cli.Cli_celular = textCelular.Text;
             cli.Cli_id = ClientesDB.Insert(cli);
-
-            Telefones tel = new Telefones();
-            tel.Tel_ddd = Convert.ToInt32(textDDD.Text);
-            tel.Tel_num = Convert.ToInt32(textCelular.Text);
-            //FK
-            tel.Cli_id = cli;
-            tel.Tel_id = TelefonesDB.Insert(tel);
-
-            Estados est = new Estados();
 
             Cidades cid = new Cidades();
 
@@ -111,8 +103,6 @@ public partial class Pag_Cadastro : System.Web.UI.Page
         {
 
 
-            Estados est = new Estados();
-
             Cidades cid = new Cidades();
 
             Bairros bai = new Bairros();
@@ -139,15 +129,15 @@ public partial class Pag_Cadastro : System.Web.UI.Page
             emp.Emp_numero_endereco = textNumero.Text;
             //FK
             emp.End_id = end;
+            emp.Emp_id = EmpresasDB.Insert(emp);
 
-            /*Telefones tel = new Telefones();
-            tel.Tel_ddd = Convert.ToInt32(textDDD.Text);
-            tel.Tel_num = Convert.ToInt32(textCelular.Text);
+            Telefones tel = new Telefones();
+            tel.Tel_ddd = Convert.ToString(textDDD.Text);
+            tel.Tel_num = Convert.ToString(textTelefone.Text);
             //FK
             tel.Emp_id = emp;
-            tel.Tel_id = TelefonesDB.Insert(tel);*/
 
-            switch (EmpresasDB.Insert(emp))
+            switch (TelefonesDB.Insert(tel))
             {
                 case 0:
                     ltl.Text = "<p class='text-success'>Cadastro efetuado com sucesso</p>";

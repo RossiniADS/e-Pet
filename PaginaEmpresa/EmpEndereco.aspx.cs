@@ -37,6 +37,7 @@ public partial class PaginaEmpresa_EmpEndereco : System.Web.UI.Page
 
         Empresas emp2 = new Empresas();
         DataSet dsEmp = EmpresasDB.SelectAll(emp.Emp_id);
+
         emp2.Emp_numero_endereco = Convert.ToString(dsEmp.Tables[0].Rows[0]["emp_numero_endereco"]);
 
         emp2.End_id = new Enderecos();

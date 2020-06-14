@@ -23,7 +23,7 @@ public class EmpresasDB
             IDbCommand objCommand;
 
             string sql = "insert into emp_empresa(emp_razao_social, emp_email, emp_nome_fantasia, emp_cnpj, emp_senha, emp_numero_endereco, end_id) " +
-                "values(?emp_razao_social, ?emp_email, ?emp_nome_fantasia, ?emp_cnpj, ?emp_senha, ?emp_numero_endereco, ?end_id)";
+                "values(?emp_razao_social, ?emp_email, ?emp_nome_fantasia, ?emp_cnpj, ?emp_senha, ?emp_numero_endereco, ?end_id); select last_insert_id();";
 
             objConnection = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConnection);

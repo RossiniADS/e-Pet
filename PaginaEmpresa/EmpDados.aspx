@@ -7,7 +7,7 @@
         <div class="mt-4 ml-4">
             <h5>Dados Empresariais</h5>
         </div>
-        <hr/>
+        <hr />
 
         <div class="row">
             <div class="col-12">
@@ -20,20 +20,16 @@
             </div>
             <div class="col-1">
                 <label>DDD</label>
-                <asp:TextBox runat="server" ID="textDDD2" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textDDD" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-4">
-                <label>Celular *</label>
-                <asp:TextBox runat="server" ID="textCelular2" CssClass="form-control"></asp:TextBox>
+                <label>Telefone *</label>
+                <asp:TextBox runat="server" ID="textTelefone" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-2"></div>
             <div class="col-1">
-                <label>DDD</label>
-                <asp:TextBox runat="server" ID="textDDDt2" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-4">
-                <label>Telefone </label>
-                <asp:TextBox runat="server" ID="textTelefone2" CssClass="form-control"></asp:TextBox>
             </div>
 
             <div class="col-5">

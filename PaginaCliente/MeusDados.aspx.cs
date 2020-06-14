@@ -30,11 +30,13 @@ public partial class PaginaCliente_MeusDadosaspx : System.Web.UI.Page
         cli.Cli_nome = Convert.ToString(ds.Tables[0].Rows[0]["cli_nome"]);
         cli.Cli_senha = Convert.ToString(ds.Tables[0].Rows[0]["cli_senha"]);
         cli.Cli_email = Convert.ToString(ds.Tables[0].Rows[0]["cli_email"]);
+        cli.Cli_celular = Convert.ToString(ds.Tables[0].Rows[0]["cli_celular"]);
         cli.Cli_sexo = Convert.ToChar(ds.Tables[0].Rows[0]["cli_sexo"]);
         cli.Cli_data_nascimento = Convert.ToDateTime(ds.Tables[0].Rows[0]["cli_data_nascimento"]);
         cli.Cli_foto_url = Convert.ToString(ds.Tables[0].Rows[0]["cli_foto_url"]);
 
         textCalendario.Text = cli.Cli_data_nascimento.ToString();
+        textCelular.Text = cli.Cli_celular.ToString();
         textEmail.Text = cli.Cli_email.ToString();
         textNome.Text = cli.Cli_nome.ToString();
         rblSexo.SelectedValue = cli.Cli_sexo.ToString();
@@ -43,15 +45,25 @@ public partial class PaginaCliente_MeusDadosaspx : System.Web.UI.Page
     protected void btnAtualizar_Click(object sender, EventArgs e)
     {
 
-        Clientes cli = new Clientes();
-        cli.Cli_nome = textNome.Text;
-        cli.Cli_email = textEmail.Text;
-        cli.Cli_senha = ClientesDB.PWD(textSenha.Text);
-        cli.Cli_sexo = Convert.ToChar(rblSexo.SelectedValue);
-        cli.Cli_data_nascimento = Convert.ToDateTime(textCalendario.Text);
-
         Clientes id = (Clientes)Session["cli_cliente"];
-        cli.Cli_id = Convert.ToInt32(id.Cli_id);
+
+        Clientes cli = new Clientes();
+
+        DataSet ds = ClientesDB.SelectAll(id.Cli_id);
+        cli.Cli_id = Convert.ToInt32(ds.Tables[0].Rows[0]["cli_id"]);
+        cli.Cli_nome = Convert.ToString(ds.Tables[0].Rows[0]["cli_nome"]);
+        cli.Cli_senha = Convert.ToString(ds.Tables[0].Rows[0]["cli_senha"]);
+        cli.Cli_email = Convert.ToString(ds.Tables[0].Rows[0]["cli_email"]);
+        cli.Cli_celular = Convert.ToString(ds.Tables[0].Rows[0]["cli_celular"]);
+        cli.Cli_sexo = Convert.ToChar(ds.Tables[0].Rows[0]["cli_sexo"]);
+        cli.Cli_data_nascimento = Convert.ToDateTime(ds.Tables[0].Rows[0]["cli_data_nascimento"]);
+        cli.Cli_foto_url = Convert.ToString(ds.Tables[0].Rows[0]["cli_foto_url"]);
+
+        cli.Cli_data_nascimento = Convert.ToDateTime(textCalendario.Text);
+        cli.Cli_celular = textCelular.Text;
+        cli.Cli_email = textEmail.Text;
+        cli.Cli_nome = textNome.Text;
+        cli.Cli_sexo = Convert.ToChar(rblSexo.SelectedValue);
 
         switch (ClientesDB.Update(cli))
         {
