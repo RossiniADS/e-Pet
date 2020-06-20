@@ -26,7 +26,11 @@
                 </button>
 
                 <ul class="nav navbar-nav mx-auto">
-                    <li class="topnav-centered text-center"><a class="nav-link" href="telaInicial.aspx" runat="server">e-Pet</a></li>
+                    <li class="topnav-centered text-center">
+                        <a class="nav-link" href="telaInicial.aspx" runat="server">
+                            <img src="../Imagem/Logo.png" />
+                        </a>
+                    </li>
                 </ul>
                 <div id="menu" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -37,7 +41,8 @@
                         </li>
                         <li class="nav-item text-center">
                             <a class="nav-link" href="Carrinho.aspx" runat="server">
-                                <img src="../Icons/carrinho.png" /></a>
+                                <img src="../Icons/carrinho.png" />
+                            </a>
                         </li>
                     </ul>
 
@@ -80,7 +85,7 @@
                         </ul>
                     </asp:Panel>
 
-                    
+
 
                 </div>
             </nav>
