@@ -63,6 +63,7 @@
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <li><a class="dropdown-item" href="../PaginaCliente/MeusDados.aspx">Meus dados</a></li>
                                         <li><a class="dropdown-item" href="../PaginaCliente/Endereco.aspx">Endereço</a></li>
+                                        <li><a class="dropdown-item" href="../PaginaCliente/MeiosPagamento.aspx">Meios de pagamento</a></li>
                                         <li><a class="dropdown-item" href="#">Pedidos</a></li>
                                         <li><a class="dropdown-item" href="#">Historico de pedidos</a></li>
                                         <li>

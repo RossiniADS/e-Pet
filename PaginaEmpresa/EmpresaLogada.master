@@ -18,9 +18,7 @@
 <body>
     <form id="form1" runat="server">
         <header class="">
-
             <nav class="navbar navbar-expand-md navbar-light">
-
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu"
                     aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -57,8 +55,8 @@
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <li><a class="dropdown-item" href="EmpDados.aspx">Meus dados</a></li>
                                         <li><a class="dropdown-item" href="EmpEndereco.aspx">Endereço</a></li>
-                                        <li><a class="dropdown-item" href="#">Frete para entrega</a></li>
-                                        <li><a class="dropdown-item" href="#">Adicionar produto</a></li>
+                                        <li><a class="dropdown-item" href="AddFrete.aspx">Frete para entrega</a></li>
+                                        <li><a class="dropdown-item" href="AddProduto.aspx">Adicionar produto</a></li>
                                         <li><a class="dropdown-item" href="#">Indice de vendas</a></li>
                                         <li><a class="dropdown-item" href="#">Histórico de faturamento</a></li>
                                         <li><a class="dropdown-item" href="#">Histórico de pedidos</a></li>

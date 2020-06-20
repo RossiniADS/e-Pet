@@ -6,7 +6,7 @@
 
     <div class="container">
 
-        <div class="mt-4 ml-4">
+        <div class="mt-5 ml-4">
             <h5>Meus Dados</h5>
         </div>
         <hr />
@@ -19,18 +19,15 @@
                 <label>Nome completo *</label>
                 <asp:TextBox runat="server" ID="textNome" required="required" CssClass="form-control"></asp:TextBox>
             </div>
-            <div class="col-12">
+
+            <div class="col-5">
                 <label>E-mail *</label>
                 <asp:TextBox runat="server" ID="textEmail" type="email" required="required" CssClass="form-control"></asp:TextBox>
             </div>
+            <div class="col-2"></div>
             <div class="col-5">
                 <label>DDD + Celular *</label>
                 <asp:TextBox runat="server" ID="textCelular" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="col-2"></div>
-            <div class="col-1">
-            </div>
-            <div class="col-4">
             </div>
 
             <div class="col-5">

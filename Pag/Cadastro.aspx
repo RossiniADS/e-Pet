@@ -9,7 +9,6 @@
                 <h4>Cadastro</h4>
             </div>
             <div class="col-1"></div>
-
             <div class="col-6">
                 <asp:RadioButtonList runat="server" ID="EscolhePessoa" RepeatDirection="Horizontal" AutoPostBack="True" CssClass="rbl"
                     OnSelectedIndexChanged="EscolhePessoa_SelectedIndexChanged">
@@ -73,7 +72,6 @@
         </asp:Panel>
 
         <asp:Panel runat="server" ID="pnlJuridica">
-
             <div class="mt-4 ml-4">
                 <h5>Dados Empresariais</h5>
             </div>
@@ -121,9 +119,8 @@
                     <asp:TextBox runat="server" ID="textConfirmar2" required="required" CssClass="form-control" type="password"></asp:TextBox>
                 </div>
             </div>
-
-
         </asp:Panel>
+
 
         <div class="mt-4 ml-4">
             <h5>Endereço</h5>
