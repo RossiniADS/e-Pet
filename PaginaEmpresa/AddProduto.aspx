@@ -37,43 +37,43 @@
                 <div class="col-2"></div>
                 <div class="col-8 mt-3">
                     <label>Nome: </label>
-                    <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="ProNome" runat="server" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
 
                 <div class="col-2"></div>
                 <div class="col-8">
                     <label>Descreva Seu Produto: </label>
-                    <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProDesc" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
 
                 <div class="col-2"></div>
                 <div class="col-8">
                     <label>Caracteriscas: </label>
-                    <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProCarac" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
 
                 <div class="col-2"></div>
                 <div class="col-6">
-                    <label>Código de barra: </label>
-                    <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                    <label>Categoria: </label>
+                    <asp:TextBox runat="server" ID="ProTipo" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2">
                     <label>Vencimento: </label>
-                    <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProVenc" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
 
                 <div class="col-2"></div>
                 <div class="col-2">
                     <label>Quantidade: </label>
-                    <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProQtd" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-6">
                     <label>Valor: </label>
-                    <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProValor" required="required" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -84,28 +84,28 @@
                 <div class="col-2"></div>
                 <div class="col-8 mt-3">
                     <label>Nome: </label>
-                    <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ServNome" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
 
                 <div class="col-2"></div>
                 <div class="col-8">
                     <label>Descreva Seu serviço: </label>
-                    <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ServDesc" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
 
                 <div class="col-2"></div>
                 <div class="col-8">
                     <label>Caracteriscas: </label>
-                    <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ServCarac" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
 
                 <div class="col-2"></div>
                 <div class="col-8">
                     <label>Valor: </label>
-                    <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ServValor" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -136,13 +136,11 @@
                         </p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <asp:Button runat="server" ID="fecharModal" Text="Fechar" type="button" CssClass="btn btn-secondary" data-dismiss="modal" />
                     </div>
                 </div>
             </div>
         </div>
-        <!-- FIM DA MODAL -->
-
     </div>
 </asp:Content>
 
