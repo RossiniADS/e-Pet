@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,6 +19,21 @@ public partial class Pag_PesquisadeLoja : System.Web.UI.Page
                 if (tb != null)
                     textBusca.Text = tb.Text;
             }
+        }
+
+        DataSet ds = EmpresasDB.SelectPorCidade(textBusca.Text);
+        int qtd = ds.Tables[0].Rows.Count;
+        
+        if (qtd > 0)
+        {
+            rptCard.DataSource = ds;
+            rptCard.DataBind();
+        }
+        else
+        {
+            Response.Redirect("telaInicial.aspx");
+            //ltl.Text = "<p class='text-info'>Não encontramos registros referente ao perfil selecionado !</p>";
+            //Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
         }
     }
 }

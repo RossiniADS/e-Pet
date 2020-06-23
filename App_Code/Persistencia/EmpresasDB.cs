@@ -87,6 +87,37 @@ public class EmpresasDB
         return ds;
     }
 
+    public static DataSet SelectPorCidade(string cidade)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        objConnection = Mapped.Connection();
+        string sql = " select emp_nome_fantasia " +
+            "from emp_empresa emp " +
+            "inner join end_endereco end " +
+            "on emp.end_id = end.end_id " +
+            "inner join bai_bairro bai " +
+            "on bai.bai_id = end.bai_id " +
+            "inner join cid_cidade cid " +
+            "where cid.cid_nome = '?cid_nome';";
+
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?cid_nome", cidade));
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+    }
+
+
     public static DataSet SelectLogin(string email, string pwd)
     {
         DataSet ds = new DataSet();

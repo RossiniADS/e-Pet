@@ -62,8 +62,33 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
+                        <asp:Repeater runat="server" ID="rptCard">
+                            <itemtemplate>
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <a href="#">
+                                            <img class="card-img-top" src="../Imagem/petshop.jpg" height="200px" alt="">
+                                        </a>
+                                        <div class="card-body">
+                                            <h4 class="card-title">
+                                                <a href="#"> <%#Eval("emp_nome_fantasia") %></a>
+                                            </h4>
+                                            <h5>Entrega: R$ 10.00</h5>
+                                            <h5>Distancia: 8,2 km </h5>
+                                            <h5>Tempo de Entregua: 10 - 20 min</h5>
+                                            <p class="card-text"></p>
+                                        </div>
+                                       <div class="card-footer">
+                                           <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                       </div>
+                                    </div>
+                                </div>
+                            </itemtemplate>
+                        </asp:Repeater>
+                    </div>
+
+<%--                    <div class="row">
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card h-100">
                                 <a href="#">
@@ -188,7 +213,7 @@
 
             </div>
             <!-- /.row -->
-
+--%>
         </div>
         <!-- /.container -->
 
