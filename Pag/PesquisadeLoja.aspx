@@ -47,7 +47,9 @@
                             </div>
                             <div class="col-7"></div>
                             <div class="col-1">
-                                <div class="dropdown">
+                                <asp:TextBox runat="server" ID="textBusca"></asp:TextBox>
+
+                                <%--<div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Botão dropdown
                                     </button>
@@ -56,7 +58,7 @@
                                         <a class="dropdown-item" href="#">Outra ação</a>
                                         <a class="dropdown-item" href="#">Alguma coisa aqui</a>
                                     </div>
-                                </div>
+                                </div>--%>
                             </div>
                         </div>
                     </div>

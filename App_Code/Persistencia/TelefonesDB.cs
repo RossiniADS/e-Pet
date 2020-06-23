@@ -13,31 +13,31 @@ public class TelefonesDB
     {
         int retorno = 0;
 
-        //try
-        //  {
-        IDbConnection objConnection;
-        IDbCommand objCommand;
+        try
+        {
+            IDbConnection objConnection;
+            IDbCommand objCommand;
 
-        string sql = "insert into tel_telefone(tel_ddd, tel_num, emp_id) values(?tel_ddd, ?tel_num, ?emp_id); select last_insert_id();";
+            string sql = "insert into tel_telefone(tel_ddd, tel_num, emp_id) values(?tel_ddd, ?tel_num, ?emp_id); select last_insert_id();";
 
-        objConnection = Mapped.Connection();
-        objCommand = Mapped.Command(sql, objConnection);
+            objConnection = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConnection);
 
-        objCommand.Parameters.Add(Mapped.Parameter("?tel_ddd", telefones.Tel_ddd));
-        objCommand.Parameters.Add(Mapped.Parameter("?tel_num", telefones.Tel_num));
+            objCommand.Parameters.Add(Mapped.Parameter("?tel_ddd", telefones.Tel_ddd));
+            objCommand.Parameters.Add(Mapped.Parameter("?tel_num", telefones.Tel_num));
 
-        //FK
-        objCommand.Parameters.Add(Mapped.Parameter("?emp_id", telefones.Emp_id.Emp_id));
+            //FK
+            objCommand.Parameters.Add(Mapped.Parameter("?emp_id", telefones.Emp_id.Emp_id));
 
-        retorno = Convert.ToInt32(objCommand.ExecuteScalar());
-        objConnection.Close();
-        objConnection.Dispose();
-        objCommand.Dispose();
-        // }
-        //catch (Exception ex)
-        // {
-        //    retorno = -2;
-        // }
+            retorno = Convert.ToInt32(objCommand.ExecuteScalar());
+            objConnection.Close();
+            objConnection.Dispose();
+            objCommand.Dispose();
+        }
+        catch (Exception ex)
+        {
+            retorno = -2;
+        }
         return retorno;
     }
 
@@ -79,7 +79,7 @@ public class TelefonesDB
             objCommand.Parameters.Add(Mapped.Parameter("?tel_num", tel.Tel_num));
             objCommand.Parameters.Add(Mapped.Parameter("?emp_id", tel.Emp_id.Emp_id));
 
-            retorno = Convert.ToInt32(objCommand.ExecuteScalar());
+            objCommand.ExecuteNonQuery();
 
             objConnection.Close();
             objConnection.Dispose();

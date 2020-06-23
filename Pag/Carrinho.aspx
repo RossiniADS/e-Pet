@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Pag/MasterPage.master" AutoEventWireup="false" CodeFile="Carrinho.aspx.vb" Inherits="Pag_Carrinho" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pag/MasterPage.master" AutoEventWireup="true" CodeFile="Carrinho.aspx.cs" Inherits="Pag_Carrinho" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>

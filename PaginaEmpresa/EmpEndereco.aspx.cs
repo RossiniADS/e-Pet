@@ -33,7 +33,7 @@ public partial class PaginaEmpresa_EmpEndereco : System.Web.UI.Page
 
     protected void carregaDados()
     {
-        Empresas emp = (Empresas)Session["emp_nome_fantasia"];
+        Empresas emp = (Empresas)Session["emp_empresa"];
 
         Empresas emp2 = new Empresas();
         DataSet dsEmp = EmpresasDB.SelectAll(emp.Emp_id);
@@ -82,7 +82,7 @@ public partial class PaginaEmpresa_EmpEndereco : System.Web.UI.Page
     }
     protected void btnAtualizar_Click(object sender, EventArgs e)
     {
-        Empresas emp = (Empresas)Session["emp_nome_fantasia"];
+        Empresas emp = (Empresas)Session["emp_empresa"];
 
         Empresas emp2 = new Empresas();
         DataSet dsEmp = EmpresasDB.SelectAll(emp.Emp_id);

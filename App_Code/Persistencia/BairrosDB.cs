@@ -102,7 +102,7 @@ public class BairrosDB
             objCommand.Parameters.Add(Mapped.Parameter("?cid_id", bairros.Cid_id.Cid_id));
             objCommand.Parameters.Add(Mapped.Parameter("?bai_id", bairros.Bai_id));
 
-            retorno = Convert.ToInt32(objCommand.ExecuteScalar());
+            objCommand.ExecuteNonQuery();
 
             objConnection.Close();
             objConnection.Dispose();

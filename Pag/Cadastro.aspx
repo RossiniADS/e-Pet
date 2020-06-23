@@ -169,29 +169,26 @@
             <div class="col-8"></div>
             <div class="col-4 mt-5">
                 <asp:Button runat="server" Text="Concluir" ID="btnConta" CssClass="btn btn-block btn-primary"
-                    OnClick="btnConta_Click" BorderWidth="5px" ForeColor="Black" BorderColor="orange" BackColor="white"></asp:Button>
+                    OnClick="btnConta_Click" BorderWidth="5px" ForeColor="Black" BorderColor="orange" BackColor="white" />
             </div>
         </div>
 
         <!-- INICIO DA MODAL -->
-        <div class="modal" tabindex="-1" role="dialog" id="myModal">
-
-
+        <div class="modal fade" id="modalUpdate" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Cadastro</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Update</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>
-                            <asp:Literal ID="ltl" runat="server"></asp:Literal>
-                        </p>
+                        <asp:Literal runat="server" ID="ltl"></asp:Literal>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <asp:Button runat="server" ID="fechar" text="Fechar" type="button" class="btn btn-secondary" data-dismiss="modal" />
+                        <%--<button type="button" class="btn btn-primary">Understood</button>--%>
                     </div>
                 </div>
             </div>

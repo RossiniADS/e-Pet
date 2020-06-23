@@ -81,7 +81,7 @@ public class EnderecosDB
             objCommand.Parameters.Add(Mapped.Parameter("?end_tipo", enderecos.End_tipo));
             objCommand.Parameters.Add(Mapped.Parameter("?end_id", enderecos.End_id));
 
-            retorno = Convert.ToInt32(objCommand.ExecuteScalar());
+            objCommand.ExecuteNonQuery();
 
             objConnection.Close();
             objConnection.Dispose();

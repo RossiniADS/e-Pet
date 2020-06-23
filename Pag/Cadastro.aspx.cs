@@ -87,9 +87,6 @@ public partial class Pag_Cadastro : System.Web.UI.Page
             switch (ClienteEnderecoDB.Insert(cle))
             {
                 case 0:
-                    ltl.Text = "<p class='text-success'>Cadastro efetuado com sucesso</p>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
-
                     Session["cli_cliente"] = cli;
                     Response.Redirect("../PaginaCliente/MeusDados.aspx");
                     break;
@@ -139,15 +136,18 @@ public partial class Pag_Cadastro : System.Web.UI.Page
 
             switch (TelefonesDB.Insert(tel))
             {
-                case 0:
-                    ltl.Text = "<p class='text-success'>Cadastro efetuado com sucesso</p>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
-                    break;
                 case -2:
                     ltl.Text = "<p class='text-success'>Erro no cadastro</p>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#modalUpdate').modal('show');</script>", false);
                     break;
+
+                default:
+                    Session["emp_empresa"] = emp;
+                    Response.Redirect("../PaginaEmpresa/EmpDados.aspx");
+                    break;
+
             }
+
         }
     }
 

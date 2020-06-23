@@ -17,7 +17,7 @@ public partial class PaginaEmpresa_EmpDados : System.Web.UI.Page
 
     protected void carregaDados()
     {
-        Empresas id = (Empresas)Session["emp_nome_fantasia"];
+        Empresas id = (Empresas)Session["emp_empresa"];
 
         Telefones tel = new Telefones();
         DataSet dsTel = TelefonesDB.SelectTel(id.Emp_id);
@@ -49,7 +49,7 @@ public partial class PaginaEmpresa_EmpDados : System.Web.UI.Page
 
     protected void btnAtualizar_Click(object sender, EventArgs e)
     {
-        Empresas id = (Empresas)Session["emp_nome_fantasia"];
+        Empresas id = (Empresas)Session["emp_empresa"];
 
         Telefones tel = new Telefones();
         DataSet dsTel = TelefonesDB.SelectTel(id.Emp_id);

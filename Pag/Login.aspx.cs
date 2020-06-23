@@ -49,8 +49,7 @@ public partial class Pag_Login : System.Web.UI.Page
             emp.Emp_senha = dsEmpresa.Tables[0].Rows[0]["emp_senha"].ToString();
             emp.Emp_numero_endereco = dsEmpresa.Tables[0].Rows[0]["emp_numero_endereco"].ToString();
 
-            Session["emp_nome_fantasia"] = emp;
-
+            Session["emp_empresa"] = emp;
             Response.Redirect("../PaginaEmpresa/EmpDados.aspx");
         }
         else
