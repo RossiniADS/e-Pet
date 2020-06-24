@@ -32,8 +32,6 @@ public partial class Pag_PesquisadeLoja : System.Web.UI.Page
         else
         {
             Response.Redirect("telaInicial.aspx");
-            //ltl.Text = "<p class='text-info'>Não encontramos registros referente ao perfil selecionado !</p>";
-            //Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
         }
     }
 }

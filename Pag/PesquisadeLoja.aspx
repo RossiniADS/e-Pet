@@ -7,13 +7,9 @@
     <main>
         <!-- Page Content -->
         <div class="container">
-
             <div class="row">
-
                 <!-- /.col-lg-3 -->
-
                 <div class="col-lg-12">
-
                     <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -64,7 +60,7 @@
                     </div>
                     <div class="row">
                         <asp:Repeater runat="server" ID="rptCard">
-                            <itemtemplate>
+                            <ItemTemplate>
                                 <div class="col-lg-4 col-md-6 mb-4">
                                     <div class="card h-100">
                                         <a href="#">
@@ -72,157 +68,29 @@
                                         </a>
                                         <div class="card-body">
                                             <h4 class="card-title">
-                                                <a href="#"> <%#Eval("emp_nome_fantasia") %></a>
+                                                <a href="#"><%#Eval("emp_nome_fantasia") %></a>
                                             </h4>
                                             <h5>Entrega: R$ 10.00</h5>
                                             <h5>Distancia: 8,2 km </h5>
                                             <h5>Tempo de Entregua: 10 - 20 min</h5>
                                             <p class="card-text"></p>
                                         </div>
-                                       <div class="card-footer">
-                                           <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                       </div>
+                                        <div class="card-footer">
+                                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                        </div>
                                     </div>
                                 </div>
-                            </itemtemplate>
+                            </ItemTemplate>
                         </asp:Repeater>
                     </div>
-
-<%--                    <div class="row">
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#">
-                                    <img class="card-img-top" src="../Imagem/petshop.jpg" height="200px" alt="">
-                                </a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">Loja Zé</a>
-                                    </h4>
-                                    <h5>Entrega: R$ 10.00</h5>
-                                    <h5>Distancia: 8,2 km </h5>
-                                    <h5>Tempo de Entregua: 10 - 20 min</h5>
-                                    <p class="card-text"></p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#">
-                                    <img class="card-img-top" src="../Imagem/images.png" height="200px" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">Loja Zé</a>
-                                    </h4>
-                                    <h5>Entrega: R$ 10.00</h5>
-                                    <h5>Distancia: 8,2 km </h5>
-                                    <h5>Tempo de Entregua: 10 - 20 min</h5>
-                                    <p class="card-text"></p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#">
-                                    <img class="card-img-top" src="../Imagem/petshop.jpg" height="200px" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">Loja Zé</a>
-                                    </h4>
-                                    <h5>Entrega: R$ 10.00</h5>
-                                    <h5>Distancia: 8,2 km </h5>
-                                    <h5>Tempo de Entregua: 10 - 20 min</h5>
-                                    <p class="card-text"></p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#">
-                                    <img class="card-img-top" src="../Imagem/images.png" height="200px" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">Loja Zé</a>
-                                    </h4>
-                                    <h5>Entrega: R$ 10.00</h5>
-                                    <h5>Distancia: 8,2 km </h5>
-                                    <h5>Tempo de Entregua: 10 - 20 min</h5>
-                                    <p class="card-text"></p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#">
-                                    <img class="card-img-top" src="../Imagem/petshop.jpg" height="200px" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">Loja Zé</a>
-                                    </h4>
-                                    <h5>Entrega: R$ 10.00</h5>
-                                    <h5>Distancia: 8,2 km </h5>
-                                    <h5>Tempo de Entregua: 10 - 20 min</h5>
-                                    <p class="card-text"></p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#">
-                                    <img class="card-img-top" src="../Imagem/images.png" height="200px" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#">Loja Zé</a>
-                                    </h4>
-                                    <h5>Entrega: R$ 10.00</h5>
-                                    <h5>Distancia: 8,2 km </h5>
-                                    <h5>Tempo de Entregua: 10 - 20 min</h5>
-                                    <p class="card-text"></p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row -->
-
                 </div>
-                <!-- /.col-lg-9 -->
-
             </div>
-            <!-- /.row -->
---%>
         </div>
         <!-- /.container -->
-
-
 
         <!-- Bootstrap core JavaScript -->
         <script src="../Scripts/jquery.min.js"></script>
         <script src="../Scripts/bootstrap.bundle.min.js"></script>
-
     </main>
 </asp:Content>
 

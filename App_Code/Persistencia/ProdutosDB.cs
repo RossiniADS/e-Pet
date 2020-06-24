@@ -80,7 +80,7 @@ public class ProdutosDB
             IDbConnection objConnection;
             IDbCommand objCommand;
 
-            string sql = "update pro_produtos set pro_nome = ?pro_nome, pro_tipo = ?pro_tipo, pro_quantidade = ?pro_quantidade " +
+            string sql = "update pro_produto set pro_nome = ?pro_nome, pro_tipo = ?pro_tipo, pro_quantidade = ?pro_quantidade " +
                 "pro_valor = ?pro_valor, pro_vencimento = ?pro_vencimento where pro_id = ?pro_id;";
             objConnection = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConnection);

@@ -102,7 +102,8 @@ public class EmpresasDB
             "inner join bai_bairro bai " +
             "on bai.bai_id = end.bai_id " +
             "inner join cid_cidade cid " +
-            "where cid.cid_nome = '?cid_nome';";
+            "where cid.cid_nome = ?cid_nome;";
+
 
         objCommand = Mapped.Command(sql, objConnection);
 

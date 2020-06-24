@@ -20,7 +20,7 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
 
     protected void btnSalvar_Click(object sender, EventArgs e)
     {
-        Empresas id = (Empresas)Session["emp_nome_fantasia"];
+        Empresas id = (Empresas)Session["emp_empresa"];
         Empresas emp = new Empresas();
         if (EscolheCategoria.SelectedValue == "1")
         {
@@ -52,6 +52,29 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
         }
         else
         {
+            Servicos ser = new Servicos();
+            ser.Ser_nome = ServNome.Text;
+            ser.Ser_descricao = ServDesc.Text;
+            ser.Ser_caracteristica = ServCarac.Text;
+            ser.Ser_valor = Convert.ToInt32(ServValor.Text);
+
+            //FK
+            emp.Emp_id = Convert.ToInt32(id.Emp_id);
+            ser.Emp_id = emp;
+
+            switch (ServicosDB.Insert(ser))
+            {
+                case -2:
+                    ltl.Text = "<p class='text-success'>Erro no produto</p>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                    break;
+
+                default:
+                    ltl.Text = "<p class='text-success'>Produto adicionado com sucesso</p>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                    limpaCampos();
+                    break;
+            }
 
         }
     }

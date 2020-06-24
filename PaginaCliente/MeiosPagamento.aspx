@@ -14,28 +14,36 @@
             <div class="col-2"></div>
             <div class="col-8">
                 <label>Nome impresso no cartão</label>
-                <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textNome" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-2"></div>
 
             <div class="col-2"></div>
             <div class="col-8">
+                <label>CPF do titular do cartão</label>
+                <asp:TextBox runat="server" ID="textCPF" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-2"></div>
+
+
+            <div class="col-2"></div>
+            <div class="col-8">
                 <label>Numero do cartão</label>
-                <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textNumero" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-2"></div>
 
             <div class="col-2"></div>
             <div class="col-8">
                 <label>Data de vencimento</label>
-                <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textData" type="Date" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-2"></div>
 
             <div class="col-2"></div>
             <div class="col-8">
                 <label>CVC</label>
-                <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textCVC" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-2"></div>
 
@@ -47,6 +55,29 @@
             </div>
             <div class="col-2"></div>
         </div>
+
+        <!-- INICIO DA MODAL -->
+        <div class="modal" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cadastro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Literal ID="ltl" runat="server"></asp:Literal>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button runat="server" ID="fecharModal" Text="Fechar" type="button" CssClass="btn btn-secondary" data-dismiss="modal" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </asp:Content>
 
