@@ -25,9 +25,12 @@
             </div>
             <div class="col-8"></div>
             <div class="col-12 mt-2">
-                <asp:FileUpload runat="server" />
-                <asp:FileUpload runat="server" />
-                <asp:FileUpload runat="server" />
+                <label>Selecione uma foto que será vinculada ao evento (.png, .jpeg,.jpg):</label>
+                <asp:FileUpload ID="fileArquivo" runat="server" CssClass="btn btn-default" />
+                <br />
+                <asp:Label runat="server" id="lblMsg"></asp:Label>
+                <asp:Literal runat="server" ID="ltlUrl"></asp:Literal>
+
             </div>
 
         </div>
