@@ -36,7 +36,7 @@ public partial class PaginaEmpresa_EmpEndereco : System.Web.UI.Page
         Empresas emp = (Empresas)Session["emp_empresa"];
 
         Empresas emp2 = new Empresas();
-        DataSet dsEmp = EmpresasDB.SelectAll(emp.Emp_id);
+        DataSet dsEmp = EmpresasDB.SelectID(emp.Emp_id);
 
         emp2.Emp_numero_endereco = Convert.ToString(dsEmp.Tables[0].Rows[0]["emp_numero_endereco"]);
 
@@ -85,7 +85,7 @@ public partial class PaginaEmpresa_EmpEndereco : System.Web.UI.Page
         Empresas emp = (Empresas)Session["emp_empresa"];
 
         Empresas emp2 = new Empresas();
-        DataSet dsEmp = EmpresasDB.SelectAll(emp.Emp_id);
+        DataSet dsEmp = EmpresasDB.SelectID(emp.Emp_id);
         emp2.Emp_numero_endereco = Convert.ToString(dsEmp.Tables[0].Rows[0]["emp_numero_endereco"]);
         emp2.Emp_id = Convert.ToInt32(dsEmp.Tables[0].Rows[0]["emp_id"]);
         emp2.Emp_nome_fantasia = Convert.ToString(dsEmp.Tables[0].Rows[0]["emp_nome_fantasia"]);

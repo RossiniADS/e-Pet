@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pag/MasterPage.master" AutoEventWireup="true" CodeFile="PesquisadeLoja.aspx.cs" Inherits="Pag_PesquisadeLoja" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pag/MasterPage.master" AutoEventWireup="true" CodeFile="PesquisadeProduto.aspx.cs" Inherits="Pag_Loja" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
     <main>
         <!-- Page Content -->
         <div class="container">
@@ -36,48 +35,44 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-
                     <div class="mt-5 mb-3">
                         <div class="row">
+                            <h1>Produtos</h1>
+                            <hr />
                             <div class="col-3">
-                            </div>
-                            <div class="col-7"></div>
-                            <div class="col-1">
-                                <asp:TextBox runat="server" ID="textBusca"></asp:TextBox>
-
-                                <%--<div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Botão dropdown
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Alguma ação</a>
-                                        <a class="dropdown-item" href="#">Outra ação</a>
-                                        <a class="dropdown-item" href="#">Alguma coisa aqui</a>
-                                    </div>
-                                </div>--%>
+                                <asp:DropDownList ID="ddl" CssClass="form-control" AutoPostBack="true"
+                                    OnSelectedIndexChanged="ddl_SelectedIndexChanged" runat="server">
+                                </asp:DropDownList>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-5">
                         <asp:Repeater runat="server" ID="rptCard">
                             <ItemTemplate>
                                 <div class="col-lg-4 col-md-6 mb-4">
                                     <div class="card h-100">
-                                    <img src="http://placehold.it/200x250">
-                                        <a href="#">
-                                            <img class="card-img-top" src="../Imagem/petshop.jpg" height="200px" alt="">
-                                        </a>
+                                        <img src="http://placehold.it/200x250">
                                         <div class="card-body">
-                                            <h4 class="card-title">
-                                                <a href="PesquisadeProduto.aspx"><%#Eval("emp_nome_fantasia") %></a>
-                                            </h4>
-                                            <h5>Entrega: R$ 10.00</h5>
-                                            <h5>Distancia: 8,2 km </h5>
-                                            <h5>Tempo de Entregua: 10 - 20 min</h5>
+                                            <h2 class="card-title text-center">
+                                                <%#Eval("pro_nome") %>  - <%#Eval("pro_valor") %>
+                                            </h2>
+                                            <h5></h5>
+                                            <a href="#">
+                                                <h5 class="text-center">Ver descrição </h5>
+                                            </a>
                                             <p class="card-text"></p>
                                         </div>
                                         <div class="card-footer">
-                                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                            <div class="row">
+                                                <div class=" col-6">
+                                                    <asp:ImageButton runat="server" ImageUrl="../Imagem/126510.png" Width="150px" Height="50px" CssClass="btn bt-primary btn-block"
+                                                        BorderColor="black" BorderWidth="2px" BackColor="blue" ForeColor="black" />
+                                                </div>
+                                                <div class=" col-6">
+                                                    <asp:Button Height="50px" Width="150px" runat="server" Text="COMPRAR" CssClass="btn bt-primary btn-block"
+                                                        BorderColor="black" BorderWidth="2px" BackColor="green" ForeColor="black" />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -88,10 +83,10 @@
             </div>
         </div>
         <!-- /.container -->
-
-        <!-- Bootstrap core JavaScript -->
         <script src="../Scripts/jquery.min.js"></script>
         <script src="../Scripts/bootstrap.bundle.min.js"></script>
     </main>
 </asp:Content>
+
+
 

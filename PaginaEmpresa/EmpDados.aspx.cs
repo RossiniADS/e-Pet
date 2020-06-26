@@ -29,7 +29,7 @@ public partial class PaginaEmpresa_EmpDados : System.Web.UI.Page
         tel.Emp_id.Emp_id = Convert.ToInt32(dsTel.Tables[0].Rows[0]["emp_id"]);
 
 
-        DataSet ds = EmpresasDB.SelectAll(id.Emp_id);
+        DataSet ds = EmpresasDB.SelectID(id.Emp_id);
         tel.Emp_id.Emp_nome_fantasia = Convert.ToString(ds.Tables[0].Rows[0]["emp_nome_fantasia"]);
         tel.Emp_id.Emp_senha = Convert.ToString(ds.Tables[0].Rows[0]["emp_senha"]);
         tel.Emp_id.Emp_email = Convert.ToString(ds.Tables[0].Rows[0]["emp_email"]);
@@ -61,7 +61,7 @@ public partial class PaginaEmpresa_EmpDados : System.Web.UI.Page
         tel.Emp_id.Emp_id = Convert.ToInt32(dsTel.Tables[0].Rows[0]["emp_id"]);
 
 
-        DataSet ds = EmpresasDB.SelectAll(id.Emp_id);
+        DataSet ds = EmpresasDB.SelectID(id.Emp_id);
         tel.Emp_id.Emp_nome_fantasia = Convert.ToString(ds.Tables[0].Rows[0]["emp_nome_fantasia"]);
         tel.Emp_id.Emp_senha = Convert.ToString(ds.Tables[0].Rows[0]["emp_senha"]);
         tel.Emp_id.Emp_email = Convert.ToString(ds.Tables[0].Rows[0]["emp_email"]);

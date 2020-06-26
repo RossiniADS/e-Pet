@@ -65,7 +65,51 @@ public class EmpresasDB
         return strHEx;
     }
 
-    public static DataSet SelectAll(int id)
+    public static DataSet EmpresaUsuarioPerfil(int emp_id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        string sql = "select * from pro_produto where emp_id = ?emp_id;";
+
+        objConnection = Mapped.Connection();
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?emp_id", emp_id));
+
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+
+    }
+
+    public static DataSet SelectAll()
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        objConnection = Mapped.Connection();
+        string sql = "select * from emp_empresa";
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+    }
+    public static DataSet SelectID(int id)
     {
         DataSet ds = new DataSet();
         IDbConnection objConnection;
@@ -102,6 +146,7 @@ public class EmpresasDB
             "inner join bai_bairro bai " +
             "on bai.bai_id = end.bai_id " +
             "inner join cid_cidade cid " +
+            "on cid.cid_id = bai.cid_id " +
             "where cid.cid_nome = ?cid_nome;";
 
 
