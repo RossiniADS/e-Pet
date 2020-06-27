@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using UpFoto.Classes;
+
 public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -44,49 +46,104 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
             pro.Pro_id = ProdutosDB.Insert(pro);
 
 
-            // Você tem que criar uma pasta para o Upload de imagens
-            // em nosso exemplo e a pasta foto
-            string path = Path.Combine(Request.PhysicalApplicationPath, "FotoProduto");
-            if (FileUploadControl.HasFile)
+            img.Pro_id = pro;
+            if (FileUploadControl.PostedFile.ContentLength < 8388608)
             {
-                string extensao =
-                System.IO.Path.GetExtension(FileUploadControl.FileName).ToLower();
-                string[] extensoesPermitidas = { ".png", ".jpeg", ".jpg" };
-                if (extensoesPermitidas.Contains(extensao))
+                try
                 {
-                    try
+                    if (FileUploadControl.HasFile)
                     {
-                        string fileName = FileUploadControl.FileName.Replace(" ", "");
-                        string caminhoUpload = Path.Combine(path, fileName);
-                        caminhoUpload = Path.Combine(path, fileName);
-                        FileUploadControl.PostedFile.SaveAs(caminhoUpload);
-                        //StatusLabel.Text = "<div class='alert alert-success'>Upload da foto realizado com sucesso!</ div > ";
-                        img.Img_url = "<img src='../FotoProduto/" + fileName + "'class='img-responsive img-thumbnail' style = 'width: 500px; height: 250px;' alt='Logo'/>";
-                    }
-                    catch (Exception ex)
-                    {
-                        //StatusLabel.Text = "Erro arquivo:" + ex.Message;
+                        try
+                        {
+                            //Aqui ele vai filtrar pelo tipo de arquivo
+                            if (FileUploadControl.PostedFile.ContentType == "image/jpeg" ||
+                                FileUploadControl.PostedFile.ContentType == "image/png" ||
+                                FileUploadControl.PostedFile.ContentType == "image/gif" ||
+                                FileUploadControl.PostedFile.ContentType == "image/bmp")
+                            {
+                                try
+                                {
+                                    //Obtem o  HttpFileCollection
+                                    HttpFileCollection hfc = Request.Files;
+                                    for (int i = 0; i < hfc.Count; i++)
+                                    {
+                                        HttpPostedFile hpf = hfc[i];
+                                        if (hpf.ContentLength > 0)
+                                        {
+                                            //Pega o nome do arquivo
+                                            string nome = System.IO.Path.GetFileName(hpf.FileName);
+                                            //Pega a extensão do arquivo
+                                            string extensao = Path.GetExtension(hpf.FileName);
+                                            //Gera nome novo do Arquivo numericamente
+                                            string filename = string.Format("{0:00000000000000}", GerarID());
+                                            //Caminho a onde será salvo
+                                            hpf.SaveAs(Server.MapPath("~/FotoProduto/") + filename + i
+                                            + extensao);
+
+                                            //Prefixo p/ img m
+                                            var prefixoG = "-m";
+
+                                            //pega o arquivo já carregado
+                                            string pth = Server.MapPath("~/FotoProduto/")
+                                            + filename + i + extensao;
+
+                                            //Redefine altura e largura da imagem e Salva o arquivo + prefixo
+                                            Redefinir.resizeImageAndSave(pth, 500, 331, prefixoG);
+                                            //     H    V    
+
+                                            img.Img_url = "../FotoProduto/" + filename + i + prefixoG + extensao;
+
+                                            File.Delete(Request.PhysicalApplicationPath + "FotoProduto\\" + filename + i + extensao);
+
+                                            switch (ImagensDB.InsertImgProduto(img))
+                                            {
+                                                case -2:
+                                                    ltl.Text = "<p class='text-success'>Erro no produto</p>";
+                                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                                                    break;
+
+                                                default:
+                                                    ltl.Text = "<p class='text-success'>Produto adicionado com sucesso</p>";
+                                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                                                    LimpaCampos();
+                                                    break;
+                                            }
+                                        }
+
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    throw;
+                                }
+                                // Mensagem se tudo ocorreu bem
+                                StatusLabel.Text = "Todas imagens carregadas com sucesso!";
+
+                            }
+                            else
+                            {
+                                // Mensagem notifica que é permitido carregar apenas 
+                                // as imagens definida la em cima.
+                                StatusLabel.Text = "É permitido carregar apenas imagens!";
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            // Mensagem notifica quando ocorre erros
+                            StatusLabel.Text = "O arquivo não pôde ser carregado. O seguinte erro ocorreu: " + ex.Message;
+                        }
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    //StatusLabel.Text = "<div class='alert alert-danger'>Arquivo com extensão não permitida!</div>";
+                    // Mensagem notifica quando ocorre erros
+                    StatusLabel.Text = "O arquivo não pôde ser carregado. O seguinte erro ocorreu: " + ex.Message;
                 }
             }
-
-            img.Pro_id = pro;
-            switch (ImagensDB.InsertImgProduto(img))
+            else
             {
-                case -2:
-                    ltl.Text = "<p class='text-success'>Erro no produto</p>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
-                    break;
-
-                default:
-                    ltl.Text = "<p class='text-success'>Produto adicionado com sucesso</p>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
-                    LimpaCampos();
-                    break;
+                // Mensagem notifica quando imagem é superior a 8 MB
+                StatusLabel.Text = "Não é permitido carregar mais do que 8 MB";
             }
         }
         else
@@ -102,53 +159,124 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
             ser.Emp_id = emp;
             ser.Ser_id = ServicosDB.Insert(ser);
 
-            // Você tem que criar uma pasta para o Upload de imagens
-            // em nosso exemplo e a pasta foto
-            string path = Path.Combine(Request.PhysicalApplicationPath, "FotoProduto");
-            if (FileUploadControl.HasFile)
-            {
-                string extensao =
-                System.IO.Path.GetExtension(FileUploadControl.FileName).ToLower();
-                string[] extensoesPermitidas = { ".png", ".jpeg", ".jpg" };
-                if (extensoesPermitidas.Contains(extensao))
-                {
-                    try
-                    {
-                        string fileName = FileUploadControl.FileName.Replace(" ", "");
-                        string caminhoUpload = Path.Combine(path, fileName);
-                        caminhoUpload = Path.Combine(path, fileName);
-                        FileUploadControl.PostedFile.SaveAs(caminhoUpload);
-                        //StatusLabel.Text = "<div class='alert alert-success'>Upload da foto realizado com sucesso!</ div > ";
-                        img.Img_url = "<img src='../FotoProduto/" + fileName + "'class='img-responsive img-thumbnail' style = 'width: 10%; height: 10%;' alt='Logo'/>";
-                    }
-                    catch (Exception ex)
-                    {
-                        //StatusLabel.Text = "Erro arquivo:" + ex.Message;
-                    }
-                }
-                else
-                {
-                    //StatusLabel.Text = "<div class='alert alert-danger'>Arquivo com extensão não permitida!</div>";
-                }
-            }
-
             img.Ser_id = ser;
-            switch (ImagensDB.InsertImgServico(img))
+
+
+
+            if (FileUploadControl.PostedFile.ContentLength < 8388608)
             {
-                case -2:
-                    ltl.Text = "<p class='text-success'>Erro no serviço</p>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
-                    break;
+                try
+                {
+                    if (FileUploadControl.HasFile)
+                    {
+                        try
+                        {
+                            //Aqui ele vai filtrar pelo tipo de arquivo
+                            if (FileUploadControl.PostedFile.ContentType == "image/jpeg" ||
+                                FileUploadControl.PostedFile.ContentType == "image/png" ||
+                                FileUploadControl.PostedFile.ContentType == "image/gif" ||
+                                FileUploadControl.PostedFile.ContentType == "image/bmp")
+                            {
+                                try
+                                {
+                                    //Obtem o  HttpFileCollection
+                                    HttpFileCollection hfc = Request.Files;
+                                    for (int i = 0; i < hfc.Count; i++)
+                                    {
+                                        HttpPostedFile hpf = hfc[i];
+                                        if (hpf.ContentLength > 0)
+                                        {
+                                            //Pega o nome do arquivo
+                                            string nome = System.IO.Path.GetFileName(hpf.FileName);
+                                            //Pega a extensão do arquivo
+                                            string extensao = Path.GetExtension(hpf.FileName);
+                                            //Gera nome novo do Arquivo numericamente
+                                            string filename = string.Format("{0:00000000000000}", GerarID());
+                                            //Caminho a onde será salvo
+                                            hpf.SaveAs(Server.MapPath("~/FotoProduto/") + filename + i
+                                            + extensao);
 
-                default:
-                    ltl.Text = "<p class='text-success'>Serviço adicionado com sucesso</p>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
-                    LimpaCampos();
-                    break;
+                                            //Prefixo p/ img m
+                                            var prefixoG = "-m";
+
+                                            //pega o arquivo já carregado
+                                            string pth = Server.MapPath("~/FotoProduto/")
+                                            + filename + i + extensao;
+
+                                            //Redefine altura e largura da imagem e Salva o arquivo + prefixo
+                                            Redefinir.resizeImageAndSave(pth, 500, 331, prefixoG);
+                                            //     H    V    
+
+                                            img.Img_url = "../FotoProduto/" + filename + i + prefixoG + extensao;
+
+                                            File.Delete(Request.PhysicalApplicationPath + "FotoProduto\\" + filename + i + extensao);
+
+                                            switch (ImagensDB.InsertImgServico(img))
+                                            {
+                                                case -2:
+                                                    ltl.Text = "<p class='text-success'>Erro no serviço</p>";
+                                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                                                    break;
+
+                                                default:
+                                                    ltl.Text = "<p class='text-success'>Serviço adicionado com sucesso</p>";
+                                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                                                    LimpaCampos();
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    throw;
+                                }
+                                // Mensagem se tudo ocorreu bem
+                                StatusLabel.Text = "Todas imagens carregadas com sucesso!";
+                            }
+                            else
+                            {
+                                // Mensagem notifica que é permitido carregar apenas 
+                                // as imagens definida la em cima.
+                                StatusLabel.Text = "É permitido carregar apenas imagens!";
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            // Mensagem notifica quando ocorre erros
+                            StatusLabel.Text = "O arquivo não pôde ser carregado. O seguinte erro ocorreu: " + ex.Message;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Mensagem notifica quando ocorre erros
+                    StatusLabel.Text = "O arquivo não pôde ser carregado. O seguinte erro ocorreu: " + ex.Message;
+                }
             }
-
+            else
+            {
+                // Mensagem notifica quando imagem é superior a 8 MB
+                StatusLabel.Text = "Não é permitido carregar mais do que 8 MB";
+            }
         }
     }
+
+    public Int64 GerarID()
+    {
+        try
+        {
+            DateTime data = new DateTime();
+            data = DateTime.Now;
+            string s = data.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
+            return Convert.ToInt64(s);
+        }
+        catch (Exception erro)
+        {
+            throw;
+        }
+    }
+
     public void LimpaCampos()
     {
         ProNome.Text = string.Empty;
