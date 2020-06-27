@@ -43,32 +43,35 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
             pro.Emp_id = emp;
             pro.Pro_id = ProdutosDB.Insert(pro);
 
+
             // Você tem que criar uma pasta para o Upload de imagens
             // em nosso exemplo e a pasta foto
             string path = Path.Combine(Request.PhysicalApplicationPath, "FotoProduto");
-            if (fileArquivo.HasFile)
+            if (FileUploadControl.HasFile)
             {
                 string extensao =
-                System.IO.Path.GetExtension(fileArquivo.FileName).ToLower();
+                System.IO.Path.GetExtension(FileUploadControl.FileName).ToLower();
                 string[] extensoesPermitidas = { ".png", ".jpeg", ".jpg" };
                 if (extensoesPermitidas.Contains(extensao))
                 {
                     try
                     {
-                        string fileName = fileArquivo.FileName.Replace(" ", "");
+                        string fileName = FileUploadControl.FileName.Replace(" ", "");
                         string caminhoUpload = Path.Combine(path, fileName);
                         caminhoUpload = Path.Combine(path, fileName);
-                        fileArquivo.PostedFile.SaveAs(caminhoUpload);
-                        lblMsg.Text = "<div class='alert alert-success'>Upload da foto realizado com sucesso!</ div > ";
-                        img.Img_url = ltlUrl.Text = "<img src='../FotoProduto/" + fileName + "'class='img-responsive img-thumbnail' alt='Logo'/>";
+                        FileUploadControl.PostedFile.SaveAs(caminhoUpload);
+                        //StatusLabel.Text = "<div class='alert alert-success'>Upload da foto realizado com sucesso!</ div > ";
+                        img.Img_url = "<img src='../FotoProduto/" + fileName + "'class='img-responsive img-thumbnail' style = 'width: 500px; height: 250px;' alt='Logo'/>";
                     }
                     catch (Exception ex)
                     {
-                        lblMsg.Text = "Erro arquivo:" + ex.Message;
+                        //StatusLabel.Text = "Erro arquivo:" + ex.Message;
                     }
                 }
                 else
-                    lblMsg.Text = "<div class='alert alert-danger'>Arquivo com extensão não permitida!</div>";
+                {
+                    //StatusLabel.Text = "<div class='alert alert-danger'>Arquivo com extensão não permitida!</div>";
+                }
             }
 
             img.Pro_id = pro;
@@ -102,41 +105,43 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
             // Você tem que criar uma pasta para o Upload de imagens
             // em nosso exemplo e a pasta foto
             string path = Path.Combine(Request.PhysicalApplicationPath, "FotoProduto");
-            if (fileArquivo.HasFile)
+            if (FileUploadControl.HasFile)
             {
                 string extensao =
-                System.IO.Path.GetExtension(fileArquivo.FileName).ToLower();
+                System.IO.Path.GetExtension(FileUploadControl.FileName).ToLower();
                 string[] extensoesPermitidas = { ".png", ".jpeg", ".jpg" };
                 if (extensoesPermitidas.Contains(extensao))
                 {
                     try
                     {
-                        string fileName = fileArquivo.FileName.Replace(" ", "");
+                        string fileName = FileUploadControl.FileName.Replace(" ", "");
                         string caminhoUpload = Path.Combine(path, fileName);
                         caminhoUpload = Path.Combine(path, fileName);
-                        fileArquivo.PostedFile.SaveAs(caminhoUpload);
-                        lblMsg.Text = "<div class='alert alert-success'>Upload da foto realizado com sucesso!</ div > ";
-                        img.Img_url = ltlUrl.Text = "<img src='../FotoProduto/" + fileName + "'class='img-responsive img-thumbnail' style = 'width: 10%; height: 10%;' alt='Logo'/>";
+                        FileUploadControl.PostedFile.SaveAs(caminhoUpload);
+                        //StatusLabel.Text = "<div class='alert alert-success'>Upload da foto realizado com sucesso!</ div > ";
+                        img.Img_url = "<img src='../FotoProduto/" + fileName + "'class='img-responsive img-thumbnail' style = 'width: 10%; height: 10%;' alt='Logo'/>";
                     }
                     catch (Exception ex)
                     {
-                        lblMsg.Text = "Erro arquivo:" + ex.Message;
+                        //StatusLabel.Text = "Erro arquivo:" + ex.Message;
                     }
                 }
                 else
-                    lblMsg.Text = "<div class='alert alert-danger'>Arquivo com extensão não permitida!</div>";
+                {
+                    //StatusLabel.Text = "<div class='alert alert-danger'>Arquivo com extensão não permitida!</div>";
+                }
             }
 
             img.Ser_id = ser;
             switch (ImagensDB.InsertImgServico(img))
             {
                 case -2:
-                    ltl.Text = "<p class='text-success'>Erro no produto</p>";
+                    ltl.Text = "<p class='text-success'>Erro no serviço</p>";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
                     break;
 
                 default:
-                    ltl.Text = "<p class='text-success'>Produto adicionado com sucesso</p>";
+                    ltl.Text = "<p class='text-success'>Serviço adicionado com sucesso</p>";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
                     LimpaCampos();
                     break;

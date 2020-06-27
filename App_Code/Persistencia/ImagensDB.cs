@@ -78,7 +78,29 @@ public class ImagensDB
         return retorno;
     }
 
-    public static DataSet SelectAll(int img_id)
+    public static DataSet SelectPorProduto(int pro_id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        objConnection = Mapped.Connection();
+        string sql = "select img_url from img_imagem where pro_id= ?pro_id";
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?pro_id", pro_id));
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+    }
+
+    public static DataSet SelectID(int img_id)
     {
         DataSet ds = new DataSet();
         IDbConnection objConnection;

@@ -72,7 +72,11 @@ public class EmpresasDB
         IDbCommand objCommand;
         IDataAdapter objDataDadapter;
 
-        string sql = "select * from pro_produto where emp_id = ?emp_id;";
+        string sql = " select pro.*, img.* " +
+            "from pro_produto pro " +
+            "inner join img_imagem img " +
+            "on pro.pro_id = img.pro_id " +
+            "where emp_id = ?emp_id;";
 
         objConnection = Mapped.Connection();
         objCommand = Mapped.Command(sql, objConnection);

@@ -65,7 +65,7 @@
                                     <div class="card h-100">
                                     <img src="http://placehold.it/200x250">
                                         <a href="#">
-                                            <img class="card-img-top" src="../Imagem/petshop.jpg" height="200px" alt="">
+                                            <img class="card-img-top card-img-top" src="../Imagem/petshop.jpg" height="" alt="">
                                         </a>
                                         <div class="card-body">
                                             <h4 class="card-title">
