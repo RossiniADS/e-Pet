@@ -63,14 +63,14 @@
                 </div>
                 <div class="col-2">
                     <label>Vencimento: </label>
-                    <asp:TextBox runat="server" ID="ProVenc" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProVenc" required="required" type="date" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
 
                 <div class="col-2"></div>
                 <div class="col-2">
                     <label>Quantidade: </label>
-                    <asp:TextBox runat="server" ID="ProQtd" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProQtd" required="required" type="number" min="0" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-6">
                     <label>Valor: </label>

@@ -51,13 +51,13 @@
                             <ItemTemplate>
                                 <div class="col-lg-4 col-md-6 mb-4">
                                     <div class="card h-100">
-                                        <image src="<%#Eval("img_url") %>" class="img-responsive img-thumbnail"></image> 
+                                        <image src="<%#Eval("img_url") %>" class="img-responsive img-thumbnail"></image>
                                         <div class="card-body">
                                             <h2 class="card-title text-center">
                                                 <%#Eval("pro_nome") %>  - <%#Eval("pro_valor") %>
                                             </h2>
                                             <h5></h5>
-                                            <a href="#">
+                                            <a href="Produto.aspx">
                                                 <h5 class="text-center">Ver descrição </h5>
                                             </a>
                                             <p class="card-text"></p>

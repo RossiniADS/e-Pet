@@ -13,7 +13,7 @@
     <script src="../Scripts/popper.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
     <link href="../Content/MeuEstilo.css" rel="stylesheet" />
-
+      
 </head>
 <body>
     <form id="form1" runat="server">
@@ -38,7 +38,7 @@
                                 <a class="nav-link" href="#">Resumo</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Sua loja</a>
+                                <a class="nav-link" href="SuaLoja.aspx">Sua loja</a>
                             </li>
 
                             <!-- Dropdown -->

@@ -14,6 +14,7 @@ public class Empresas
     private string emp_nome_fantasia;
     private string emp_cnpj;
     private string emp_senha;
+    private string emp_img_url;
     private string emp_numero_endereco;
     private string emp_foto_url;
 
@@ -27,5 +28,6 @@ public class Empresas
     public string Emp_senha { get => emp_senha; set => emp_senha = value; }
     public string Emp_numero_endereco { get => emp_numero_endereco; set => emp_numero_endereco = value; }
     public string Emp_foto_url { get => emp_foto_url; set => emp_foto_url = value; }
-    public Enderecos End_id { get => end_id; set => end_id = value; }
+    public global::Enderecos End_id { get => end_id; set => end_id = value; }
+    public string Emp_img_url { get => emp_img_url; set => emp_img_url = value; }
 }
