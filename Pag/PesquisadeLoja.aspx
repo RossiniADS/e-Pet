@@ -44,17 +44,6 @@
                             <div class="col-7"></div>
                             <div class="col-1">
                                 <asp:TextBox runat="server" ID="textBusca"></asp:TextBox>
-
-                                <%--<div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Botão dropdown
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Alguma ação</a>
-                                        <a class="dropdown-item" href="#">Outra ação</a>
-                                        <a class="dropdown-item" href="#">Alguma coisa aqui</a>
-                                    </div>
-                                </div>--%>
                             </div>
                         </div>
                     </div>
@@ -64,12 +53,10 @@
                                 <div class="col-lg-4 col-md-6 mb-4">
                                     <div class="card h-100">
                                         <img src="http://placehold.it/200x250">
-                                        <a href="#">
-                                            <img class="card-img-top card-img-top" src="../Imagem/petshop.jpg" height="" alt="">
-                                        </a>
                                         <div class="card-body">
                                             <h4 class="card-title">
-                                                <a href="PesquisadeProduto.aspx"><%#Eval("emp_nome_fantasia") %></a>
+                                                <a href="PesquisadeProduto.aspx?id=<%#Eval("emp_id") %>"><%#Eval("emp_nome_fantasia") %></a>
+
                                             </h4>
                                             <h5>Entrega: R$ 10.00</h5>
                                             <h5>Distancia: 8,2 km </h5>

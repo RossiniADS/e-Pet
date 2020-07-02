@@ -35,7 +35,7 @@ public partial class PaginaCliente_MeusDadosaspx : System.Web.UI.Page
         cli.Cli_data_nascimento = Convert.ToDateTime(ds.Tables[0].Rows[0]["cli_data_nascimento"]);
         cli.Cli_foto_url = Convert.ToString(ds.Tables[0].Rows[0]["cli_foto_url"]);
 
-        textCalendario.Text = cli.Cli_data_nascimento.ToString();
+        textCalendario.Text = cli.Cli_data_nascimento.ToString("yyyy-MM-dd");
         textCelular.Text = cli.Cli_celular.ToString();
         textEmail.Text = cli.Cli_email.ToString();
         textNome.Text = cli.Cli_nome.ToString();

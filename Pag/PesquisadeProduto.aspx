@@ -39,11 +39,6 @@
                         <div class="row">
                             <h1>Produtos</h1>
                             <hr />
-                            <div class="col-3">
-                                <asp:DropDownList ID="ddl" CssClass="form-control" AutoPostBack="true"
-                                    OnSelectedIndexChanged="ddl_SelectedIndexChanged" runat="server">
-                                </asp:DropDownList>
-                            </div>
                         </div>
                     </div>
                     <div class="row mt-5">
@@ -51,15 +46,13 @@
                             <ItemTemplate>
                                 <div class="col-lg-4 col-md-6 mb-4">
                                     <div class="card h-100">
-                                        <image src="<%#Eval("img_url") %>" class="img-responsive img-thumbnail"></image>
-                                        <div class="card-body">
-                                            <h2 class="card-title text-center">
-                                                <%#Eval("pro_nome") %>  - <%#Eval("pro_valor") %>
-                                            </h2>
+                                        <image src="<%#Eval("img_url") %>" class="card-img-top img-responsive img-thumbnail"></image>
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">
+                                                <asp:Label runat="server"><%#Eval("pro_nome") %><br />R$ <%#Eval("pro_valor") %></asp:Label>
+                                            </h5>
                                             <h5></h5>
-                                            <a href="Produto.aspx">
-                                                <h5 class="text-center">Ver descrição </h5>
-                                            </a>
+                                            <a href="Produto.aspx?id=<%#Eval("pro_id") %>">Ver descrição</a>
                                             <p class="card-text"></p>
                                         </div>
                                         <div class="card-footer">

@@ -12,25 +12,15 @@ public partial class Pag_Loja : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            CarregarDDl();
+            int id = Convert.ToInt32(Request.QueryString["id"]);
+            carregaGrid(id);
         }
     }
-
-    private void CarregarDDl()
-    {
-        DataSet ds = EmpresasDB.SelectAll();
-        ddl.DataSource = ds;
-        ddl.DataTextField = "emp_nome_fantasia";
-        ddl.DataValueField = "emp_id";
-        ddl.DataBind();
-        ddl.Items.Insert(0, "Selecione um PetShop");
-    }
-
-    protected void ddl_SelectedIndexChanged(object sender, EventArgs e)
+    protected void carregaGrid(int id)
     {
         try
         {
-            DataSet ds = EmpresasDB.EmpresaUsuarioPerfil(Convert.ToInt32(ddl.SelectedValue));
+            DataSet ds = EmpresasDB.ProdutoImagem(id);
             rptCard.DataSource = ds;
             rptCard.DataBind();
         }

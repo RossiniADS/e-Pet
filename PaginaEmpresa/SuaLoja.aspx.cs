@@ -29,7 +29,7 @@ public partial class PaginaEmpresa_SuaLoja : System.Web.UI.Page
     {
         try
         {
-            DataSet ds = EmpresasDB.EmpresaUsuarioPerfil(Convert.ToInt32(ddl.SelectedValue));
+            DataSet ds = EmpresasDB.ProdutoImagem(Convert.ToInt32(ddl.SelectedValue));
             rptCard.DataSource = ds;
             rptCard.DataBind();
         }

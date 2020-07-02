@@ -65,14 +65,43 @@ public class EmpresasDB
         return strHEx;
     }
 
-    public static DataSet EmpresaUsuarioPerfil(int emp_id)
+    public static DataSet ProdutoID(int pro_id)
     {
         DataSet ds = new DataSet();
         IDbConnection objConnection;
         IDbCommand objCommand;
         IDataAdapter objDataDadapter;
 
-        string sql = " select pro.*, img.* " +
+        string sql = "select * " +
+            "from pro_produto pro " +
+            "inner join img_imagem img " +
+            "on pro.pro_id = img.pro_id " +
+            "where pro.pro_id = ?pro_id;";
+
+        objConnection = Mapped.Connection();
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?pro_id", pro_id));
+
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+
+    }
+
+    public static DataSet ProdutoImagem(int emp_id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        string sql = "select * " +
             "from pro_produto pro " +
             "inner join img_imagem img " +
             "on pro.pro_id = img.pro_id " +
@@ -143,7 +172,7 @@ public class EmpresasDB
         IDataAdapter objDataDadapter;
 
         objConnection = Mapped.Connection();
-        string sql = " select emp_nome_fantasia " +
+        string sql = " select emp_nome_fantasia, emp_id " +
             "from emp_empresa emp " +
             "inner join end_endereco end " +
             "on emp.end_id = end.end_id " +

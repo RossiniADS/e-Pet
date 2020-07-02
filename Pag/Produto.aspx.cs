@@ -9,9 +9,15 @@ public partial class Pag_Produto : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        int id = Convert.ToInt32(Request.QueryString["id"]);
+        carregaGrid(id);
+    }
+    protected void carregaGrid(int id)
+    {
         try
         {
-            DataSet ds = EmpresasDB.EmpresaUsuarioPerfil(1);
+
+            DataSet ds = EmpresasDB.ProdutoID(id);
             rpt.DataSource = ds;
             rpt.DataBind();
         }

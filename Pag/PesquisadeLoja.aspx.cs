@@ -23,7 +23,7 @@ public partial class Pag_PesquisadeLoja : System.Web.UI.Page
 
         DataSet ds = EmpresasDB.SelectPorCidade(textBusca.Text);
         int qtd = ds.Tables[0].Rows.Count;
-        
+
         if (qtd > 0)
         {
             rptCard.DataSource = ds;

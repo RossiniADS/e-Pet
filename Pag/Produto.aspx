@@ -12,7 +12,7 @@
                             <img src="http://placehold.it/210x250" runat="server" />
                         </div>
                         <div class="col-9 mt-5">
-                            <h4 class="font-weight-bolder">Ração Golden Special Sabor Frkango e Carne para Cães Adultos</h4>
+                            <h4 class="font-weight-bolder"><%#Eval("pro_nome") %></h4>
                             <div>
                                 <h2>
                                     <span>&#9733; &#9733; &#9733; &#9733; &#9734; </span>
@@ -27,8 +27,9 @@
                             <hr />
 
                         </div>
-
                         <div class="col-12 ml-4 mt-5">
+
+                            
                             <h3>Empresa: <small class="ml-5">Lorem Ipsum is simply dummy text of the printing and typesetting</small></h3>
                             <h3>Caracteristica: <small class="ml-5">Lorem Ipsum is simply dummy text of the printing and typesetting</small></h3>
                             <h3>Valor: <small class="ml-5">Lorem Ipsum is simply dummy text of the printing and typesetting</small></h3>
@@ -41,10 +42,7 @@
                         <div class="col-2 mt-5">
                             <asp:Button ClientIDMode="Static" runat="server" Text="Adicionar ao Carrinho" ID="btn" ForeColor="black"
                                 BorderColor="orange" BorderWidth="4px" BackColor="white" CssClass="btn btn-primary shadow" />
-
                         </div>
-
-
                     </ItemTemplate>
                 </asp:Repeater>
 

@@ -38,7 +38,7 @@
                 <div class="col-2"></div>
                 <div class="col-8 mt-3">
                     <label>Nome: </label>
-                    <asp:TextBox ID="ProNome" runat="server" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="ProNome" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
 
@@ -59,22 +59,22 @@
                 <div class="col-2"></div>
                 <div class="col-6">
                     <label>Categoria: </label>
-                    <asp:TextBox runat="server" ID="ProTipo" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProTipo" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2">
                     <label>Vencimento: </label>
-                    <asp:TextBox runat="server" ID="ProVenc" required="required" type="date" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProVenc" type="date" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
 
                 <div class="col-2"></div>
                 <div class="col-2">
                     <label>Quantidade: </label>
-                    <asp:TextBox runat="server" ID="ProQtd" required="required" type="number" min="0" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProQtd" type="number" min="0" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-6">
                     <label>Valor: </label>
-                    <asp:TextBox runat="server" ID="ProValor" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProValor" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
             </div>
