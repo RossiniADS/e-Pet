@@ -45,8 +45,8 @@
                         <asp:Repeater runat="server" ID="rptCard">
                             <ItemTemplate>
                                 <div class="col-lg-4 col-md-6 mb-4">
-                                    <div class="card h-100">
-                                        <image src="<%#Eval("img_url") %>" class="card-img-top img-responsive img-thumbnail"></image>
+                                    <div style="border-radius:20px;" class="shadow-lg card h-100">
+                                        <image src="<%#Eval("img_url") %>" style="border-radius:20px 20px 0 0" class="card-img-top img-responsive img-thumbnail"></image>
                                         <div class="card-body text-center">
                                             <h5 class="card-title">
                                                 <asp:Label runat="server"><%#Eval("pro_nome") %><br />R$ <%#Eval("pro_valor") %></asp:Label>
@@ -57,12 +57,11 @@
                                         </div>
                                         <div class="card-footer">
                                             <div class="row">
-                                                <div class=" col-6">
-                                                    <asp:ImageButton runat="server" ImageUrl="../Imagem/126510.png" Width="150px" Height="50px" CssClass="btn bt-primary btn-block"
+                                                <div class=" col-md-12">
+                                                    <asp:Button runat="server" Width="49%" Text="Carrinho" CssClass="btn bt-primary"
                                                         BorderColor="black" BorderWidth="2px" BackColor="blue" ForeColor="black" />
-                                                </div>
-                                                <div class=" col-6">
-                                                    <asp:Button Height="50px" Width="150px" runat="server" Text="COMPRAR" CssClass="btn bt-primary btn-block"
+
+                                                    <asp:Button runat="server" Width="49%" Text="Comprar" CssClass="btn bt-primary"
                                                         BorderColor="black" BorderWidth="2px" BackColor="green" ForeColor="black" />
                                                 </div>
                                             </div>
