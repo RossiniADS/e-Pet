@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-5">
                     <label>DDD + Celular *</label>
-                    <asp:TextBox runat="server" ID="textCelular" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="textCelular" required="required" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
                 <div class="col-1">
@@ -107,7 +107,7 @@
                 <div class="col-2"></div>
                 <div class="col-5">
                     <label>CNPJ *</label>
-                    <asp:TextBox runat="server" ID="textCNPJ" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="textCNPJ" required="required" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="col-5">
                     <label>Senha *</label>
@@ -129,7 +129,7 @@
         <div class="row">
             <div class="col-4 ">
                 <label>Cep</label>
-                <asp:TextBox runat="server" ID="textCep" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textCep" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
             </div>
             <div class="col-1 mt-2 pl-1">
                 <label></label>
@@ -187,14 +187,22 @@
                         <asp:Literal runat="server" ID="ltl"></asp:Literal>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button runat="server" ID="fechar" text="Fechar" type="button" class="btn btn-secondary" data-dismiss="modal" />
+                        <asp:Button runat="server" ID="fechar" Text="Fechar" type="button" class="btn btn-secondary" data-dismiss="modal" />
                         <%--<button type="button" class="btn btn-primary">Understood</button>--%>
                     </div>
                 </div>
             </div>
         </div>
         <!-- FIM DA MODAL -->
-
     </div>
+
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#textCelular").mask("(99) 99999-9999");
+            $("#textCep").mask("99999-999");
+            $("#txtCPF").mask("999.999.999-99");
+            $("#textCNPJ").mask("99.999.999/9999-99");
+        });
+    </script>
 </asp:Content>
 

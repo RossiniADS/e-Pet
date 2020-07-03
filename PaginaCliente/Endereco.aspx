@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-4 ">
                 <label>Cep</label>
-                <asp:TextBox runat="server" ID="textCep" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textCep" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
             </div>
             <div class="col-1 mt-2 pl-1">
                 <label></label>
@@ -57,5 +57,13 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#textCelular").mask("(99) 99999-9999");
+            $("#textCep").mask("99999-999");
+            $("#txtCPF").mask("999.999.999-99");
+            $("#textCNPJ").mask("99.999.999/9999-99");
+        });
+    </script>
 </asp:Content>
 

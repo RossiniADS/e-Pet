@@ -24,7 +24,7 @@
             </div>
             <div class="col-4">
                 <label>Telefone *</label>
-                <asp:TextBox runat="server" ID="textTelefone" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textTelefone" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
             </div>
             <div class="col-2"></div>
             <div class="col-1">
@@ -39,7 +39,7 @@
             <div class="col-2"></div>
             <div class="col-5">
                 <label>CNPJ *</label>
-                <asp:TextBox runat="server" ID="textCNPJ" required="required" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textCNPJ" required="required" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
             </div>
             <div class="col-5">
                 <label>Senha *</label>
@@ -82,5 +82,12 @@
         </div>
         <!-- FIM DA MODAL -->
     </div>
+
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#textTelefone").mask("9999-9999");
+            $("#textCNPJ").mask("99.999.999/9999-99");
+        });
+    </script>
 </asp:Content>
 

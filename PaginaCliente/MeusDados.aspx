@@ -27,7 +27,7 @@
             <div class="col-2"></div>
             <div class="col-5">
                 <label>DDD + Celular *</label>
-                <asp:TextBox runat="server" ID="textCelular" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textCelular" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
             </div>
 
             <div class="col-5">
@@ -87,6 +87,13 @@
         <!-- FIM DA MODAL -->
     </div>
 
-
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#textCelular").mask("(99) 99999-9999");
+            $("#textCep").mask("99999-999");
+            $("#txtCPF").mask("999.999.999-99");
+            $("#textCNPJ").mask("99.999.999/9999-99");
+        });
+    </script>
 </asp:Content>
 

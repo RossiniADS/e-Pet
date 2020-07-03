@@ -48,6 +48,7 @@ public partial class Pag_Cadastro : System.Web.UI.Page
 
     protected void btnConta_Click(object sender, EventArgs e)
     {
+
         if (EscolhePessoa.SelectedValue == "1")
         {
             Clientes cli = new Clientes();

@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-4 ">
                 <label>Cep</label>
-                <asp:TextBox runat="server" ID="textCep" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textCep" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
             </div>
             <div class="col-1 mt-2 pl-1">
                 <label></label>
@@ -78,5 +78,11 @@
         </div>
         <!-- FIM DA MODAL -->
     </div>
+
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#textCep").mask("99999-999");
+        });
+    </script>
 </asp:Content>
 

@@ -21,7 +21,7 @@
             <div class="col-2"></div>
             <div class="col-8">
                 <label>CPF do titular do cartão</label>
-                <asp:TextBox runat="server" ID="textCPF" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textCPF" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
             </div>
             <div class="col-2"></div>
 
@@ -77,7 +77,14 @@
                 </div>
             </div>
         </div>
-
     </div>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#textCelular").mask("(99) 99999-9999");
+            $("#textCep").mask("99999-999");
+            $("#textCPF").mask("999.999.999-99");
+            $("#textCNPJ").mask("99.999.999/9999-99");
+        });
+    </script>
 </asp:Content>
 
