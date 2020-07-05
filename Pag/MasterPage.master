@@ -69,7 +69,7 @@
                                         <li><a class="dropdown-item" href="#">Historico de pedidos</a></li>
                                         <li>
                                             <asp:Button runat="server" ID="btnSair" ValidationGroup=""
-                                                CssClass="btn btn-danger btn-sm dropdown-item" Text="Sair" OnClick="btnSair_Click" /></li>
+                                                CssClass="btn btn-danger btn-sm dropdown-item" Text="Sair" OnClick="BtnSair_Click" /></li>
                                     </ul>
                                 </div>
                             </li>

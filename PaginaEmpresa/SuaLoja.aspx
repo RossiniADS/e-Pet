@@ -128,7 +128,6 @@
                         <!-- INICIO DA MODAL DELETE -->
                         <div class="modal" tabindex="-1" role="dialog" id="myModal">
 
-
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
