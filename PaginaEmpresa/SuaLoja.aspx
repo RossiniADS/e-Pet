@@ -40,9 +40,7 @@
                             <h1>Produtos</h1>
                             <hr />
                             <div class="col-3">
-                                <asp:DropDownList ID="ddl" CssClass="form-control" AutoPostBack="true"
-                                    OnSelectedIndexChanged="ddl_SelectedIndexChanged" runat="server">
-                                </asp:DropDownList>
+                                <%--DropdownList--%>
                             </div>
                         </div>
                     </div>
@@ -127,7 +125,6 @@
 
                         <!-- INICIO DA MODAL DELETE -->
                         <div class="modal" tabindex="-1" role="dialog" id="myModal">
-
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">

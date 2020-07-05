@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30204.135
+VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "e-Pet", "..\e-Pet", "{102DBFE5-CCDF-4292-B968-71ECAACF4C04}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "e-Pet", ".", "{102DBFE5-CCDF-4292-B968-71ECAACF4C04}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_56720"
@@ -36,6 +36,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4E49DBA2-173D-49C6-8C5D-77DAF4016BF6}
+		SolutionGuid = {8B7E09DE-D103-4137-834B-5C402F966AD2}
 	EndGlobalSection
 EndGlobal
