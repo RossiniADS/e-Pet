@@ -45,14 +45,16 @@
                 <div class="col-2"></div>
                 <div class="col-8">
                     <label>Descreva Seu Produto: </label>
-                    <asp:TextBox runat="server" ID="ProDesc" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProDesc" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+                    <%--<asp:TextBox runat="server" ID="ProDesc" CssClass="form-control"></asp:TextBox>--%>
                 </div>
                 <div class="col-2"></div>
 
                 <div class="col-2"></div>
                 <div class="col-8">
                     <label>Caracteriscas: </label>
-                    <asp:TextBox runat="server" ID="ProCarac" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ProCarac" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+                    <%--<asp:TextBox runat="server" ID="ProCarac" CssClass="form-control"></asp:TextBox>--%>
                 </div>
                 <div class="col-2"></div>
 
@@ -92,14 +94,16 @@
                 <div class="col-2"></div>
                 <div class="col-8">
                     <label>Descreva Seu serviço: </label>
-                    <asp:TextBox runat="server" ID="ServDesc" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ServDesc" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+                    <%--<asp:TextBox runat="server" ID="ServDesc" CssClass="form-control"></asp:TextBox>--%>
                 </div>
                 <div class="col-2"></div>
 
                 <div class="col-2"></div>
                 <div class="col-8">
                     <label>Caracteriscas: </label>
-                    <asp:TextBox runat="server" ID="ServCarac" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="ServCarac" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+                    <%--<asp:TextBox runat="server" ID="ServCarac" CssClass="form-control"></asp:TextBox>--%>
                 </div>
                 <div class="col-2"></div>
 

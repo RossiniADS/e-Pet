@@ -8,35 +8,29 @@
             <div class="row">
                 <asp:Repeater runat="server" ID="rpt">
                     <ItemTemplate>
-                        <div class="col-3 mt-5">
-                            <img src="http://placehold.it/210x250" runat="server" />
+                        <div class="row col-4 mt-5 mr-2">
+                            <image src="<%#Eval("img_url") %>" class="img-responsive img-thumbnail"></image>
                         </div>
-                        <div class="col-9 mt-5">
+                        <div class="row col-7 mt-5">
                             <h4 class="font-weight-bolder"><%#Eval("pro_nome") %></h4>
                             <div>
-                                <h2>
+                                <h5>
                                     <span>&#9733; &#9733; &#9733; &#9733; &#9734; </span>
-                                </h2>
+                                </h5>
                                 <br />
-                                <h4 class="font-weight-bolder text-center mt-5">Descricão do produto:</h4>
+                                <h4 class="font-weight-bolder">Descrição:</h4>
+                                <%#Eval("pro_descricao") %>
                             </div>
                         </div>
 
                         <div class="col-12 mt-5">
-                            <h4 class="font-weight-bolder">Caracteristica:</h4>
+                            <h4 class="font-weight-bolder">Caracteristicas:</h4>
                             <hr />
 
                         </div>
                         <div class="col-12 ml-4 mt-5">
 
-                            
-                            <h3>Empresa: <small class="ml-5">Lorem Ipsum is simply dummy text of the printing and typesetting</small></h3>
-                            <h3>Caracteristica: <small class="ml-5">Lorem Ipsum is simply dummy text of the printing and typesetting</small></h3>
-                            <h3>Valor: <small class="ml-5">Lorem Ipsum is simply dummy text of the printing and typesetting</small></h3>
-                            <h3>Vencimento: <small class="ml-5">Lorem Ipsum is simply dummy text of the printing and typesetting</small></h3>
-                            <h3>Sabor: <small class="ml-5">Lorem Ipsum is simply dummy text of the printing and typesetting</small></h3>
-                            <h3>Quantidade: <small class="ml-5">Lorem Ipsum is simply dummy text of the printing and typesetting</small></h3>
-                            <h3>Tipo: <small class="ml-5">Lorem Ipsum is simply dummy text of the printing and typesetting</small></h3>
+                            <%#Eval("pro_caracteristica") %>
                         </div>
                         <div class="col-10"></div>
                         <div class="col-2 mt-5">

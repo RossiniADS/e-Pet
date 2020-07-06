@@ -34,8 +34,8 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
             Produtos pro = new Produtos();
             pro.Pro_nome = ProNome.Text;
             pro.Pro_tipo = ProTipo.Text;
-            pro.Pro_descricao = ProDesc.Text;
-            pro.Pro_caracteristica = ProCarac.Text;
+            pro.Pro_descricao = ProDesc.Text.Replace("\n", "<br />");
+            pro.Pro_caracteristica = ProCarac.Text.Replace("\n", "<br />"); ;
             pro.Pro_quantidade = Convert.ToInt32(ProQtd.Text);
             pro.Pro_vencimento = Convert.ToDateTime(ProVenc.Text);
             pro.Pro_valor = Convert.ToDouble(ProValor.Text);
@@ -150,8 +150,8 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
         {
             Servicos ser = new Servicos();
             ser.Ser_nome = ServNome.Text;
-            ser.Ser_descricao = ServDesc.Text;
-            ser.Ser_caracteristica = ServCarac.Text;
+            ser.Ser_descricao = ServDesc.Text.Replace("\n", "<br />");
+            ser.Ser_caracteristica = ServCarac.Text.Replace("\n", "<br />");
             ser.Ser_valor = Convert.ToInt32(ServValor.Text);
 
             //FK
