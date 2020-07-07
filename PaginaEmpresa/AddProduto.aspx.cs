@@ -35,7 +35,7 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
             pro.Pro_nome = ProNome.Text;
             pro.Pro_tipo = ProTipo.Text;
             pro.Pro_descricao = ProDesc.Text.Replace("\n", "<br />");
-            pro.Pro_caracteristica = ProCarac.Text.Replace("\n", "<br />"); ;
+            pro.Pro_caracteristica = ProCarac.Text.Replace("\n", "<br />");
             pro.Pro_quantidade = Convert.ToInt32(ProQtd.Text);
             pro.Pro_vencimento = Convert.ToDateTime(ProVenc.Text);
             pro.Pro_valor = Convert.ToDouble(ProValor.Text);
@@ -193,23 +193,23 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
                                             //Gera nome novo do Arquivo numericamente
                                             string filename = string.Format("{0:00000000000000}", GerarID());
                                             //Caminho a onde será salvo
-                                            hpf.SaveAs(Server.MapPath("~/FotoProduto/") + filename + i
+                                            hpf.SaveAs(Server.MapPath("~/FotoServiço/") + filename + i
                                             + extensao);
 
                                             //Prefixo p/ img m
                                             var prefixoG = "-m";
 
                                             //pega o arquivo já carregado
-                                            string pth = Server.MapPath("~/FotoProduto/")
+                                            string pth = Server.MapPath("~/FotoServiço/")
                                             + filename + i + extensao;
 
                                             //Redefine altura e largura da imagem e Salva o arquivo + prefixo
                                             Redefinir.resizeImageAndSave(pth, 500, 331, prefixoG);
                                             //     H    V    
 
-                                            img.Img_url = "../FotoProduto/" + filename + i + prefixoG + extensao;
+                                            img.Img_url = "../FotoServiço/" + filename + i + prefixoG + extensao;
 
-                                            File.Delete(Request.PhysicalApplicationPath + "FotoProduto\\" + filename + i + extensao);
+                                            File.Delete(Request.PhysicalApplicationPath + "FotoServiço\\" + filename + i + extensao);
 
                                             switch (ImagensDB.InsertImgServico(img))
                                             {

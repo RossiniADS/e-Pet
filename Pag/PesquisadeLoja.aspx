@@ -51,12 +51,11 @@
                         <asp:Repeater runat="server" ID="rptCard">
                             <ItemTemplate>
                                 <div class="col-lg-4 col-md-6 mb-4">
-                                    <div style="border-radius:20px;" class="shadow-lg card h-100">
-                                        <img style="border-radius:20px 20px 0 0" src="http://placehold.it/200x250">
+                                    <div style="border-radius: 20px;" class="shadow-lg card h-100">
+                                        <img style="border-radius: 20px 20px 0 0" src="http://placehold.it/200x250">
                                         <div class="card-body">
                                             <h4 class="card-title">
                                                 <a href="PesquisadeProduto.aspx?id=<%#Eval("emp_id") %>"><%#Eval("emp_nome_fantasia") %></a>
-
                                             </h4>
                                             <h5>Entrega: R$ 10.00</h5>
                                             <h5>Distancia: 8,2 km </h5>

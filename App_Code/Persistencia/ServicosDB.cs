@@ -45,6 +45,30 @@ public class ServicosDB
         return retorno;
     }
 
+    public static DataSet ServicoImagem(int emp_id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        string sql = "select * from ser_servico ser inner join img_imagem img on ser.ser_id = img.ser_id where emp_id = ?emp_id;";
+
+        objConnection = Mapped.Connection();
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?emp_id", emp_id));
+
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+
+    }
 
     public static DataSet SelectAll(int ser_id)
     {
@@ -66,6 +90,33 @@ public class ServicosDB
         objCommand.Dispose();
         objConnection.Dispose();
         return ds;
+    }
+
+    public static int Delete(Servicos serviços)
+    {
+        int retorno = 0;
+        try
+        {
+            IDbConnection objConnection;
+            IDbCommand objCommand;
+            string sql = "delete from img_imagem where ser_id = ?ser_id; " +
+                "delete from ser_servico where ser_id = ?ser_id;";
+            objConnection = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConnection);
+
+            objCommand.Parameters.Add(Mapped.Parameter("?ser_id", serviços.Ser_id));
+            retorno = Convert.ToInt32(objCommand.ExecuteScalar());
+
+            objConnection.Close();
+            objConnection.Dispose();
+            objCommand.Dispose();
+
+        }
+        catch (Exception ex)
+        {
+            retorno = -2;
+        }
+        return retorno;
     }
 
     public static int Update(Servicos servicos)
@@ -92,13 +143,11 @@ public class ServicosDB
             objConnection.Close();
             objConnection.Dispose();
             objCommand.Dispose();
-
         }
         catch (Exception ex)
         {
             retorno = -2;
         }
         return retorno;
-
     }
 }
