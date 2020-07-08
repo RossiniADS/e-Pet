@@ -127,7 +127,7 @@ public class ServicosDB
             IDbConnection objConnection;
             IDbCommand objCommand;
 
-            string sql = "update ser_servico set ser_nome = ?ser_nome, ser_descricao = ?ser_descricao, ser_caracteristica = ?ser_caracteristica " +
+            string sql = "update ser_servico set ser_nome = ?ser_nome, ser_descricao = ?ser_descricao, ser_caracteristica = ?ser_caracteristica," +
                 "ser_valor = ?ser_valor where ser_id = ?ser_id;";
             objConnection = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConnection);

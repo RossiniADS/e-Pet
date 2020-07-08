@@ -3,38 +3,39 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+    <style>
+        #LogoEmpresa.container-fluid {
+            position: relative;
+            text-align: center;
+            color: white;
+            font-size: 50px;
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #LogoEmpresa img {
+            filter: brightness( 30% );
+        }
+    </style>
+
     <main>
         <!-- Page Content -->
         <div class="container">
             <div class="row">
-                <!-- /.col-lg-3 -->
-                <div class="col-lg-12">
-                    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active">
-                                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+                <!-- Imagem da Fachada -->
+                <div class="col-lg-12 mt-2">
+                    <div id="LogoEmpresa" class="container-fluid">
+                        <img src="../Imagem/4.jpg" alt="Snow" style="width: 100%;">
+                        <asp:Label runat="server" ID="LogoNome" CssClass="centered"></asp:Label>
                     </div>
+
                     <div class="mt-5 mb-3">
                         <div class="row">
                             <h1>Produtos</h1>
@@ -45,13 +46,15 @@
                         <asp:Repeater runat="server" ID="rptCard">
                             <ItemTemplate>
                                 <div class="col-lg-4 col-md-6 mb-4">
-                                    <div style="border-radius:20px;" class="shadow-lg card h-100">
-                                        <image src="<%#Eval("img_url") %>" style="border-radius:20px 20px 0 0" class="card-img-top img-responsive img-thumbnail"></image>
+                                    <div style="border-radius: 20px;" class="shadow-lg card h-100">
+                                        <image src="<%#Eval("img_url") %>" style="border-radius: 20px 20px 0 0" class="card-img-top img-responsive img-thumbnail"></image>
                                         <div class="card-body text-center">
-                                            <h5 class="card-title">
-                                                <asp:Label runat="server"><%#Eval("pro_nome") %><br />R$ <%#Eval("pro_valor") %></asp:Label>
+                                            <p class="card-title">
+                                                <asp:Label runat="server"><%#Eval("pro_nome") %><br /></asp:Label>
+                                            </p>
+                                            <h5>
+                                                <asp:Label runat="server">R$ <%#Eval("pro_valor") %></asp:Label>
                                             </h5>
-                                            <h5></h5>
                                             <a href="Produto.aspx?id=<%#Eval("pro_id") %>">Ver descrição</a>
                                             <p class="card-text"></p>
                                         </div>

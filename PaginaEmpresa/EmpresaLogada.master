@@ -13,7 +13,7 @@
     <script src="../Scripts/popper.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <link href="../Content/MeuEstilo.css" rel="stylesheet" />
+    <link href="../Content/MeuEstilo.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>

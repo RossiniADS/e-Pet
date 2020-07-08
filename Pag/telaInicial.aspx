@@ -55,7 +55,7 @@
             <div class="col-4"></div>
             <div class="col-4 text-center">
                 <h4>Quer saber as lojas perto de você? Digite sua cidade!</h4>
-                <asp:TextBox runat="server" ID="textBuscaInicial" placeholder="Cep/Cidade" CssClass="form-control-md" BorderWidth="5px" BorderColor="Orange"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textBuscaInicial" placeholder="Cep/Cidade" CssClass="form-control-md" style="border-radius: 15px;" BorderWidth="5px" BorderColor="Orange"></asp:TextBox>
                 <asp:Button runat="server" ID="Buscar" Style="display: none;" PostBackUrl="~/Pag/PesquisadeLoja.aspx" />
             </div>
             <div class="col-4"></div>

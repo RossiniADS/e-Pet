@@ -3,37 +3,35 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+    <style>
+        #LogoEmpresa.container-fluid {
+            position: relative;
+            text-align: center;
+            color: white;
+            font-size: 50px;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #LogoEmpresa img{
+            filter: brightness( 30% );
+        }
+    </style>
+
     <main>
         <!-- Page Content -->
         <div class="container">
             <div class="row">
-                <!-- /.col-lg-3 -->
-                <div class="col-lg-12">
-                    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active">
-                                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+                <!-- Imagem da Fachada -->
+                <div class="col-lg-12 mt-2">
+                    <div id="LogoEmpresa" class="container-fluid">
+                        <img src="../Imagem/4.jpg" alt="Snow" style="width: 100%;">
+                        <asp:Label runat="server" ID="LogoNome" CssClass="centered"></asp:Label>
                     </div>
                     <div class="mt-5 mb-3">
                         <div class="row">
@@ -126,7 +124,94 @@
                     </div>
                     <!--Final Repeater-->
 
-                    <!-- INICIO DA MODAL EDITAR-->
+                    <!-- INICIO DA MODAL DELETE SERVICO -->
+                    <div class="modal" tabindex="-1" role="dialog" id="myModalDeleteServico1">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Delete</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        <asp:Literal ID="ltlDeleteServico" runat="server"></asp:Literal>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="col-12">
+                                        <asp:TextBox runat="server" ID="txtNomeServicoDelete" ReadOnly="true" CssClass="form-control"></asp:TextBox>
+                                    </div>
+
+                                    <asp:Button ID="btnExcluirServico" runat="server" Text="Sim" CssClass="alert-danger btn" OnClick="btnExcluirServico_Click" />
+
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+
+                                    <asp:TextBox runat="server" ID="txtDeleteID" value="Atualizar" CssClass="form-control" Style="display: none"></asp:TextBox>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FIM DA MODAL -->
+
+
+                    <!-- MODAL SERVIÇO UPDATE INICIO -->
+                    <div class="modal" tabindex="-1" role="dialog" id="myModalUpdateServico">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Update</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <div class="row">
+                                        <asp:Literal ID="ltlUpdateServico" runat="server"></asp:Literal>
+
+                                        <asp:HiddenField runat="server" ID="hdUpdateServico" />
+
+                                        <div class="col-12">
+                                            <label>Nome:</label>
+                                            <asp:TextBox runat="server" ID="txtNomeUpateServico" CssClass="form-control"></asp:TextBox>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label>Descrição:</label>
+                                            <asp:TextBox runat="server" ID="txtDescricaoUpdateServico" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label>Caracteristica:</label>
+                                            <asp:TextBox runat="server" ID="txtCaracteristicaUpdateServico" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+                                        </div>
+
+
+                                        <div class="col-12">
+                                            <label>Valor:</label>
+                                            <asp:TextBox runat="server" ID="txtValorUpdateServico" CssClass="form-control"></asp:TextBox>
+                                        </div>
+
+                                        <asp:TextBox runat="server" ID="txtServicoID" CssClass="form-control" Style="display: none"></asp:TextBox>
+
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <asp:Button runat="server" Text="Salvar" CssClass="btn btn-info" ID="Button1" OnClick="btnUpdateServico_Click1" />
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- MODAL SERVIÇO UPDATE FINAL -->
+
+
+                    <!-- INICIO DA MODAL EDITAR produto-->
                     <div class="modal" tabindex="-1" role="dialog" id="myModalUpdate">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">

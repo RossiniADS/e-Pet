@@ -14,7 +14,7 @@
     <script src="../Scripts/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <link href="../Content/MeuEstilo.css" rel="stylesheet" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
 </head>
 <body>
     <form id="form1" runat="server">

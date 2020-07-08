@@ -13,6 +13,7 @@ public partial class Pag_Loja : System.Web.UI.Page
         if (!IsPostBack)
         {
             int id = Convert.ToInt32(Request.QueryString["id"]);
+            LogoNome.Text = Convert.ToString(Request.QueryString["nome"]);
             carregaGrid(id);
         }
     }

@@ -15,6 +15,8 @@ public partial class PaginaEmpresa_SuaLoja : System.Web.UI.Page
         {
             carregaGrid();
             carregaGridServico();
+            Empresas emp = (Empresas)Session["emp_empresa"];
+            LogoNome.Text = emp.Emp_nome_fantasia;
         }
     }
 
@@ -38,8 +40,8 @@ public partial class PaginaEmpresa_SuaLoja : System.Web.UI.Page
         try
         {
             Empresas id = (Empresas)Session["emp_empresa"];
-            DataSet ds = ServicosDB.ServicoImagem(Convert.ToInt32(id.Emp_id));
-            rptCardServico.DataSource = ds;
+            DataSet da = ServicosDB.ServicoImagem(Convert.ToInt32(id.Emp_id));
+            rptCardServico.DataSource = da;
             rptCardServico.DataBind();
         }
         catch (Exception)
@@ -80,7 +82,6 @@ public partial class PaginaEmpresa_SuaLoja : System.Web.UI.Page
         Button btn = (sender as Button);
 
         string[] arr = btn.CommandArgument.ToString().Split('|');
-        hdUpdate.Value = arr[0];
         txtNome.Text = arr[0];
         txtTipo.Text = arr[1];
         txtVencimento.Text = arr[2];
@@ -134,13 +135,83 @@ public partial class PaginaEmpresa_SuaLoja : System.Web.UI.Page
         }
     }
 
-    protected void btnDeleteServico_Click(object sender, EventArgs e)
-    {
-
-    }
 
     protected void btnUpdateServico_Click(object sender, EventArgs e)
     {
+        //Buton Update
 
+        Button btn = (sender as Button);
+
+        string[] arr = btn.CommandArgument.ToString().Split('|');
+        txtNomeUpateServico.Text = arr[0];
+        txtDescricaoUpdateServico.Text = arr[1].Replace("<br />", "\n");
+        txtCaracteristicaUpdateServico.Text = arr[2].Replace("<br />", "\n");
+        txtValorUpdateServico.Text = arr[3];
+        txtServicoID.Text = arr[4];
+
+        //ltlUpdate.Text = btn.CommandArgument.ToString();
+        Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModalUpdateServico').modal('show');</script>", false);
+
+
+    }
+
+    protected void btnUpdateServico_Click1(object sender, EventArgs e)
+    {
+        //Modal
+        Servicos ser = new Servicos();
+        ser.Ser_nome = txtNomeUpateServico.Text;
+        ser.Ser_valor = float.Parse(txtValorUpdateServico.Text);
+        ser.Ser_id = Convert.ToInt32(txtServicoID.Text);
+        ser.Ser_descricao = txtDescricaoUpdateServico.Text.Replace("\n", "<br />");
+        ser.Ser_caracteristica = txtCaracteristicaUpdateServico.Text.Replace("\n", "<br />");
+
+        switch (ServicosDB.Update(ser))
+        {
+            case 0:
+                ltlUpdateServico.Text = "<p class='text-success'>Update - OK!</p>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModalUpdateServico').modal('show');</script>", false);
+                Response.Redirect("SuaLoja.aspx");
+                break;
+            case -2:
+                ltlUpdateServico.Text = "<p class='text-Danger'>Update - ERRO!</p>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModalUpdateServico').modal('show');</script>", false);
+                break;
+        }
+
+
+    }
+
+
+    protected void btnDeleteServico_Click(object sender, EventArgs e)
+    {
+        Button btn = (sender as Button);
+
+        string[] arr = btn.CommandArgument.ToString().Split('|');
+        txtNomeServicoDelete.Text = arr[0];
+        txtDeleteID.Text = arr[1];
+        ltlDeleteServico.Text = "<h5 class='text-danger'>Deseja excluir esse produto?</h5>";
+
+        Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModalDeleteServico1').modal('show');</script>", false);
+
+    }
+
+    protected void btnExcluirServico_Click(object sender, EventArgs e)
+    {
+        Servicos ser = new Servicos();
+        ser.Ser_id = Convert.ToInt32(txtDeleteID.Text);
+
+        switch (ServicosDB.Delete(ser))
+        {
+            case 0:
+                ltlDeleteServico.Text = "<p class='text-success'>Delete - OK!</p>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModalDeleteServico1').modal('show');</script>", false);
+
+                Response.Redirect("SuaLoja.aspx");
+                break;
+            case -2:
+                ltlDeleteServico.Text = "<p class='text-Danger'>Delete - ERRO!</p>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModalDeleteServico1').modal('show');</script>", false);
+                break;
+        }
     }
 }
