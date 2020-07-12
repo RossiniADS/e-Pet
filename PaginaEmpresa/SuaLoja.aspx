@@ -18,7 +18,8 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
-        #LogoEmpresa img{
+
+        #LogoEmpresa img {
             filter: brightness( 30% );
         }
     </style>
@@ -82,11 +83,8 @@
                         </asp:Repeater>
                     </div>
 
-                    <!-- LISTA DE SERVIÇOS-->
-                    <div class="col-12">
-                        <h3>Serviço</h3>
-                        <hr />
-                    </div>
+                    <h3>Serviço</h3>
+                    <hr />
                     <!-- INICIAL REPEATER SERVIÇO-->
                     <div class="row mt-5">
                         <asp:Repeater runat="server" ID="rptCardServico">

@@ -14,10 +14,11 @@ public partial class Pag_Loja : System.Web.UI.Page
         {
             int id = Convert.ToInt32(Request.QueryString["id"]);
             LogoNome.Text = Convert.ToString(Request.QueryString["nome"]);
-            carregaGrid(id);
+            CarregaGrid(id);
+            CarregarGridServiço(id);
         }
     }
-    protected void carregaGrid(int id)
+    protected void CarregaGrid(int id)
     {
         try
         {
@@ -29,5 +30,25 @@ public partial class Pag_Loja : System.Web.UI.Page
         {
             throw;
         }
+    }
+
+    protected void CarregarGridServiço(int id)
+    {
+        try
+        {
+            DataSet ds = EmpresasDB.ServicoImagem(id);
+            rptCardServico.DataSource = ds;
+            rptCardServico.DataBind();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    protected void btnComprar_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Carrinho.aspx");
+
     }
 }

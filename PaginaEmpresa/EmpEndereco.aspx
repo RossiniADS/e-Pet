@@ -74,9 +74,47 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
+
             </div>
         </div>
         <!-- FIM DA MODAL -->
+        <table class="table table-striped mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">CEP</th>
+                    <th scope="col">LOGRADOURO</th>
+                    <th scope="col">NUMERO</th>
+                    <th scope="col">BAIRRO</th>
+                    <th scope="col">COMPLEMENTO</th>
+                    <th scope="col">ESTADO</th>
+                    <th scope="col">CIDADE</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">123123-159</th>
+                    <td>SP</td>
+                    <td>Lorena</td>
+                    <td>Vila Hepacare</td>
+                    <td>Perto do Predio</td>
+
+                    <td>São Paulo</td>
+                    <td>Lorena</td>
+                    <td>
+                        <asp:Button runat="server" Text="Editar" ID="Button1" CssClass="btn btn-block btn-primary"
+                            BorderWidth="2px" ForeColor="white" BorderColor="green" BackColor="green"></asp:Button>
+                    </td>
+                    <td>
+                        <asp:Button runat="server" Text="Excluir" ID="btnExcluir" CssClass="btn btn-block btn-primary"
+                            BorderWidth="2px" ForeColor="white" BorderColor="red" BackColor="red"></asp:Button>
+
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <script type="text/javascript">

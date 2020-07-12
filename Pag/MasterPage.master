@@ -65,8 +65,8 @@
                                         <li><a class="dropdown-item" href="../PaginaCliente/MeusDados.aspx">Meus dados</a></li>
                                         <li><a class="dropdown-item" href="../PaginaCliente/Endereco.aspx">Endereço</a></li>
                                         <li><a class="dropdown-item" href="../PaginaCliente/MeiosPagamento.aspx">Meios de pagamento</a></li>
-                                        <li><a class="dropdown-item" href="#">Pedidos</a></li>
-                                        <li><a class="dropdown-item" href="#">Historico de pedidos</a></li>
+                                        <li><a class="dropdown-item" href="../PaginaCliente/Pedidos.aspx">Pedidos</a></li>
+                                        <li><a class="dropdown-item" href="../PaginaCliente/Historico.aspx">Historico de pedidos</a></li>
                                         <li>
                                             <asp:Button runat="server" ID="btnSair" ValidationGroup=""
                                                 CssClass="btn btn-danger btn-sm dropdown-item" Text="Sair" OnClick="BtnSair_Click" /></li>

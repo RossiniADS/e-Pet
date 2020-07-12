@@ -74,9 +74,42 @@
                     <div class="modal-footer">
                         <asp:Button runat="server" ID="fecharModal" Text="Fechar" type="button" CssClass="btn btn-secondary" data-dismiss="modal" />
                     </div>
+
                 </div>
             </div>
+
         </div>
+        <table class="table table-striped mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">NOME</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">NUMERO</th>
+                    <th scope="col">DATA VENCIMENTO</th>
+                    <th scope="col">CVC</th> 
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">Gabriel Oliveira</td>
+                    <td>123123-123</td>
+                    <td>7777 7777 7777 7777</td>
+                    <td>01/21</td>
+                    <td>999</td> 
+                    <td>
+                        <asp:Button runat="server" Text="Editar" ID="Button1" CssClass="btn btn-block btn-primary"
+                            BorderWidth="2px" ForeColor="white" BorderColor="green" BackColor="green"></asp:Button>
+                    </td>
+                    <td>
+                        <asp:Button runat="server" Text="Excluir" ID="btnExcluir" CssClass="btn btn-block btn-primary"
+                            BorderWidth="2px" ForeColor="white" BorderColor="red" BackColor="red"></asp:Button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <script type="text/javascript">
         jQuery(function ($) {

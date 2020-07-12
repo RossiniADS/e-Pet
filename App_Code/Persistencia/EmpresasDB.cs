@@ -94,6 +94,34 @@ public class EmpresasDB
 
     }
 
+    public static DataSet ServicoID(int pro_id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        string sql = "select * " +
+            "from ser_servico ser " +
+            "inner join img_imagem img " +
+            "on ser.ser_id = img.ser_id " +
+            "where ser.ser_id = ?ser_id;";
+
+        objConnection = Mapped.Connection();
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?ser_id", pro_id));
+
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+
+    }
     public static DataSet ProdutoImagem(int emp_id)
     {
         DataSet ds = new DataSet();
@@ -105,6 +133,35 @@ public class EmpresasDB
             "from pro_produto pro " +
             "inner join img_imagem img " +
             "on pro.pro_id = img.pro_id " +
+            "where emp_id = ?emp_id;";
+
+        objConnection = Mapped.Connection();
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?emp_id", emp_id));
+
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+
+    }
+
+    public static DataSet ServicoImagem(int emp_id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        string sql = "select * " +
+            "from ser_servico ser " +
+            "inner join img_imagem img " +
+            "on ser.ser_id = img.ser_id " +
             "where emp_id = ?emp_id;";
 
         objConnection = Mapped.Connection();

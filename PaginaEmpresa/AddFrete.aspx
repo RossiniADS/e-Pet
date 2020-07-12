@@ -44,8 +44,38 @@
                     OnClick="Salvar_Click" BorderWidth="5px" ForeColor="Black" BorderColor="orange" BackColor="white"></asp:Button>
             </div>
             <div class="col-2"></div>
-
         </div>
+        <table class="table table-striped mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">Estado</th>
+                    <th scope="col">UF</th>
+                    <th scope="col">CIDADE</th>
+                    <th scope="col">BAIRRO</th>
+                    <th scope="col">VALOR DO FRETE</th>
+                    <th scope="col">EDITAR</th>
+                    <th scope="col">EXCLUIR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">São Paulo</th>
+                    <td>SP</td>
+                    <td>Lorena</td>
+                    <td>Vila Hepacare</td>
+                    <td>R$10,00</td>
+                    <td>
+                        <asp:Button runat="server" Text="Editar" ID="Button1" CssClass="btn btn-block btn-primary"
+                            BorderWidth="2px" ForeColor="white" BorderColor="green" BackColor="green"></asp:Button>
+                    </td>
+                    <td>
+                        <asp:Button runat="server" Text="Excluir" ID="btnExcluir" CssClass="btn btn-block btn-primary"
+                            BorderWidth="2px" ForeColor="white" BorderColor="red" BackColor="red"></asp:Button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </asp:Content>
 

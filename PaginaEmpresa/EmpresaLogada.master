@@ -36,7 +36,7 @@
                         <!-- Links -->
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Resumo</a>
+                                <a class="nav-link" href="Resumo.aspx">Resumo</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="SuaLoja.aspx">Sua loja</a>
@@ -59,9 +59,9 @@
                                         <li><a class="dropdown-item" href="AddFrete.aspx">Frete para entrega</a></li>
                                         <li><a class="dropdown-item" href="AddProduto.aspx">Adicionar produto</a></li>
                                         <li><a class="dropdown-item" href="#">Indice de vendas</a></li>
-                                        <li><a class="dropdown-item" href="#">Histórico de faturamento</a></li>
-                                        <li><a class="dropdown-item" href="#">Histórico de pedidos</a></li>
-                                        <li>
+                                        <li><a class="dropdown-item" href="HistoricoFaturamento.aspx">Histórico de faturamento</a></li>
+                                        <li><a class="dropdown-item" href="HistoricoPedido.aspx">Histórico de pedidos</a></li>
+                                        <li> 
                                             <asp:Button runat="server" ID="btnSair" ValidationGroup=""
                                                 CssClass="btn btn-danger btn-sm dropdown-item" Text="Sair" OnClick="btnSair_Click" /></li>
                                     </ul>
