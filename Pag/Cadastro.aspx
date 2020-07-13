@@ -159,12 +159,12 @@
             </div>
             <div class="col-5">
                 <label>Estado *</label>
-                <asp:DropDownList runat="server" ID="rblEstado" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList runat="server" ID="rblEstado" CssClass="form-control form-control-chosen-required"></asp:DropDownList>
             </div>
             <div class="col-2"></div>
             <div class="col-5">
                 <label>Cidade *</label>
-                <asp:DropDownList runat="server" ID="rblCidade" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList runat="server" ID="rblCidade" CssClass="form-control form-control-chosen-required"></asp:DropDownList>
             </div>
             <div class="col-8"></div>
             <div class="col-4 mt-5">
@@ -200,9 +200,13 @@
         jQuery(function ($) {
             $("#textCelular").mask("(99) 99999-9999");
             $("#textCep").mask("99999-999");
-            $("#txtCPF").mask("999.999.999-99");
             $("#textCNPJ").mask("99.999.999/9999-99");
         });
     </script>
+
+    <script>
+        $('.form-control-chosen-required').chosen();
+    </script>
+
 </asp:Content>
 

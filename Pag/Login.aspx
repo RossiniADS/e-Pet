@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-2 "></div>
+                    <div class="col-2 "></div>  
                     <div class="col-10 mt-3">
                         <h4 class="text-center">Senha</h4>
                     </div>

@@ -47,6 +47,7 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
 
 
             img.Pro_id = pro;
+
             if (FileUploadControl.PostedFile.ContentLength < 8388608)
             {
                 try
@@ -100,8 +101,8 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
                                                 case -2:
                                                     ltl.Text = "<p class='text-success'>Erro no produto</p>";
                                                     Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                                                    File.Delete(Request.PhysicalApplicationPath + "FotoProduto\\" + filename + i + prefixoG + extensao);
                                                     break;
-
                                                 default:
                                                     ltl.Text = "<p class='text-success'>Produto adicionado com sucesso</p>";
                                                     Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
@@ -216,6 +217,7 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
                                                 case -2:
                                                     ltl.Text = "<p class='text-success'>Erro no serviço</p>";
                                                     Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModal').modal('show');</script>", false);
+                                                    File.Delete(Request.PhysicalApplicationPath + "FotoServiço\\" + filename + i + prefixoG + extensao);
                                                     break;
 
                                                 default:
