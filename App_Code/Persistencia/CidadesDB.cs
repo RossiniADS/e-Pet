@@ -60,7 +60,7 @@ public class CidadesDB
 
     }
 
-   
+
     public static DataSet SelectCid(int cid_id)
     {
         DataSet ds = new DataSet();
@@ -82,5 +82,27 @@ public class CidadesDB
         objConnection.Dispose();
         return ds;
 
+    }
+
+    public static DataSet SelectPorEstado(int est_id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        objConnection = Mapped.Connection();
+        string sql = "select * from cid_cidade inner join est_estado e using (est_id) where est_id = ?est_id";
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?est_id", est_id));
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
     }
 }
