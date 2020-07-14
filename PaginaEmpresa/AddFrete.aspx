@@ -7,16 +7,16 @@
         <div class="row mt-5">
             <div class="col-6">
                 <label>Cidade *</label>
-                <asp:DropDownList runat="server" ID="rblCidade" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList runat="server" ID="rblCidade" CssClass="form-control form-control-chosen-required"></asp:DropDownList>
             </div>
 
             <div class="col-6">
                 <label>Bairro *</label>
-                <asp:DropDownList runat="server" ID="rblBairro" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList runat="server" ID="rblBairro" CssClass="form-control form-control-chosen-required"></asp:DropDownList>
             </div>
             <div class="col-6">
                 <label>Estado *</label>
-                <asp:DropDownList runat="server" ID="rblEstado" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList runat="server" ID="rblEstado" CssClass="form-control form-control-chosen-required"></asp:DropDownList>
             </div>
             <div class="col-6">
                 <label>Frete *</label>
@@ -29,35 +29,85 @@
             </div>
             <div class="col-2"></div>
         </div>
-        <table class="table table-striped mt-5">
-            <thead>
-                <tr>
-                    <th scope="col">Cidade</th>
-                    <th scope="col">Bairro</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Frete</th>
-                    <th scope="col">EDITAR</th>
-                    <th scope="col">EXCLUIR</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Lorena</th>
-                    <td>Vila Hepacare</td>
-                    <td>São Paulo</td>
-                    <td>10,00</td>
-                    <td>
-                        <asp:Button runat="server" Text="Editar" ID="Button1" CssClass="btn btn-block btn-primary"
-                            BorderWidth="2px" ForeColor="white" BorderColor="green" BackColor="green"></asp:Button>
-                    </td>
-                    <td>
-                        <asp:Button runat="server" Text="Excluir" ID="btnExcluir" CssClass="btn btn-block btn-primary"
-                            BorderWidth="2px" ForeColor="white" BorderColor="red" BackColor="red"></asp:Button>
 
-                    </td>
-                </tr>
-            </tbody>
+        <asp:GridView ID="grid" runat="server" CssClass="table table-hover table-striped mt-5"
+            OnRowCommand="grid_RowCommand"
+            DataKeyNames="ent_id,est_nome,est_uf,cid_nome,bai_nome,ent_frete"
+            AutoGenerateColumns="False">
+            <Columns>
+                <asp:BoundField DataField="ent_id" />
+                <asp:BoundField DataField="est_nome" HeaderText="Estado" />
+                <asp:BoundField DataField="est_uf" HeaderText="UF" />
+                <asp:BoundField DataField="cid_nome" HeaderText="CIDADE" />
+                <asp:BoundField DataField="bai_nome" HeaderText="BAIRRO" />
+                <asp:BoundField DataField="ent_frete" HeaderText="VALOR DO FRETE" />
 
-        </table>
+                <asp:ButtonField ButtonType="Image" ImageUrl="~/Imagem/editar.jpg" HeaderText="Editar" CommandName="Editar">
+                    <ControlStyle CssClass="btform" />
+                </asp:ButtonField>
+                <asp:ButtonField ButtonType="Image" ImageUrl="~/Imagem/deleta.jpg" HeaderText="Deletar" CommandName="Deletar">
+                    <ControlStyle CssClass="btform" />
+                </asp:ButtonField>
+            </Columns>
+        </asp:GridView>
+        <asp:HiddenField ID="hdId" runat="server" />
     </div>
+
+    <asp:Literal ID="ltl" runat="server"></asp:Literal>
+
+    <!-- INICIO DA MODAL EDITAR produto-->
+    <div class="modal" tabindex="-1" role="dialog" id="myModalUpdate">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadastro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="row">
+                        <asp:Literal ID="ltlUpdate" runat="server"></asp:Literal>
+
+                        <asp:HiddenField runat="server" ID="hdUpdate" />
+
+                        <div class="col-12">
+                            <label>Estado:</label>
+                            <asp:DropDownList runat="server" ID="DDLEstado" CssClass="form-control form-control-chosen-required"></asp:DropDownList>
+                        </div>
+
+                        <div class="col-12">
+                            <label>Cidade:</label>
+                            <asp:DropDownList runat="server" ID="DDLCidade" CssClass="form-control form-control-chosen-required"></asp:DropDownList>
+                        </div>
+
+                        <div class="col-12">
+                            <label>Bairro:</label>
+                            <asp:DropDownList runat="server" ID="DDLBairro" CssClass="form-control form-control-chosen-required"></asp:DropDownList>
+                        </div>
+
+                        <div class="col-12">
+                            <label>Valor do Frete:</label>
+                            <asp:TextBox runat="server" ID="textFrete" CssClass="form-control"></asp:TextBox>
+                        </div>
+
+                        <asp:TextBox runat="server" ID="txtEnt_id" CssClass="form-control" Style="display: none"></asp:TextBox>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <asp:Button runat="server" Text="Salvar" CssClass="btn btn-info" ID="btn_Atualizar" OnClick="btn_Atualizar_Click" />
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIM DA MODAL -->
+
+    <script>
+        $('.form-control-chosen-required').chosen();
+    </script>
 </asp:Content>
