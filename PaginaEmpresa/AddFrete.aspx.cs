@@ -23,10 +23,10 @@ public partial class PaginaEmpresa_AddFrete : System.Web.UI.Page
     void CarregaRBL()
     {
 
-        rblEstado.DataSource = EstadosDB.SelectAll();
-        rblEstado.DataTextField = "est_uf";
-        rblEstado.DataValueField = "est_id";
-        rblEstado.DataBind();
+        //rblEstado.DataSource = EstadosDB.SelectAll();
+        //rblEstado.DataTextField = "est_uf";
+        //rblEstado.DataValueField = "est_id";
+        //rblEstado.DataBind();
         rblCidade.DataSource = CidadesDB.SelectAll();
         rblCidade.DataTextField = "cid_nome";
         rblCidade.DataValueField = "cid_id";
@@ -64,9 +64,9 @@ public partial class PaginaEmpresa_AddFrete : System.Web.UI.Page
         ent.Cid_id = cid;
 
         //FK
-        Estados est = new Estados();
-        est.Est_id = Convert.ToInt32(rblEstado.SelectedValue);
-        cid.Est_id = est;
+        //Estados est = new Estados();
+        //est.Est_id = Convert.ToInt32(rblEstado.SelectedValue);
+        //cid.Est_id = est;
 
         //FK
         Bairros bai = new Bairros();
@@ -143,7 +143,6 @@ public partial class PaginaEmpresa_AddFrete : System.Web.UI.Page
             int index = Convert.ToInt32(e.CommandArgument);
             GridViewRow row = grid.Rows[index];
             int id = Convert.ToInt32(row.Cells[0].Text);
-            hdId.Value = id.ToString();
 
             int retorno;
             retorno = EntregasDB.Delete(id);

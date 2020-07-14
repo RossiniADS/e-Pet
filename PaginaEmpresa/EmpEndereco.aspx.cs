@@ -21,10 +21,10 @@ public partial class PaginaEmpresa_EmpEndereco : System.Web.UI.Page
 
     void CarregaRBL()
     {
-        rblEstado.DataSource = EstadosDB.SelectAll();
-        rblEstado.DataTextField = "est_uf";
-        rblEstado.DataValueField = "est_id";
-        rblEstado.DataBind();
+        //rblEstado.DataSource = EstadosDB.SelectAll();
+        //rblEstado.DataTextField = "est_uf";
+        //rblEstado.DataValueField = "est_id";
+        //rblEstado.DataBind();
         rblCidade.DataSource = CidadesDB.SelectAll();
         rblCidade.DataTextField = "cid_nome";
         rblCidade.DataValueField = "cid_id";
@@ -78,7 +78,7 @@ public partial class PaginaEmpresa_EmpEndereco : System.Web.UI.Page
         textRua.Text = emp2.End_id.Bai_id.Bai_rua;
         textComplemento.Text = emp2.End_id.End_tipo;
         rblCidade.SelectedValue = emp2.End_id.Bai_id.Cid_id.Cid_id.ToString();
-        rblEstado.SelectedValue = emp2.End_id.Bai_id.Cid_id.Est_id.Est_id.ToString();
+        //rblEstado.SelectedValue = emp2.End_id.Bai_id.Cid_id.Est_id.Est_id.ToString();
     }
     protected void btnAtualizar_Click(object sender, EventArgs e)
     {
@@ -127,7 +127,7 @@ public partial class PaginaEmpresa_EmpEndereco : System.Web.UI.Page
         emp2.End_id.Bai_id.Bai_rua = textRua.Text;
         emp2.End_id.End_tipo = textComplemento.Text;
         emp2.End_id.Bai_id.Cid_id.Cid_id = Convert.ToInt32(rblCidade.SelectedValue);
-        emp2.End_id.Bai_id.Cid_id.Est_id.Est_id = Convert.ToInt32(rblEstado.SelectedValue);
+        //emp2.End_id.Bai_id.Cid_id.Est_id.Est_id = Convert.ToInt32(rblEstado.SelectedValue);
 
 
         switch (EmpresasDB.Update(emp2) & BairrosDB.Update(emp2.End_id.Bai_id) & EnderecosDB.Update(emp2.End_id))
@@ -154,7 +154,7 @@ public partial class PaginaEmpresa_EmpEndereco : System.Web.UI.Page
             textRua.Text = address.end;
             textBairro.Text = address.bairro;
             DDLSelecionaItem(rblCidade, address.cidade);
-            DDLSelecionaItem(rblEstado, address.uf);
+            //DDLSelecionaItem(rblEstado, address.uf);
         }
     }
 
@@ -173,5 +173,10 @@ public partial class PaginaEmpresa_EmpEndereco : System.Web.UI.Page
             }
         }
         return ddl;
+    }
+
+    protected void grid_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+
     }
 }

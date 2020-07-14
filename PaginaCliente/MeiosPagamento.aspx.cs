@@ -44,4 +44,9 @@ public partial class PaginaCliente_Meios_de_pagamento : System.Web.UI.Page
         }
     }
 
+
+    protected void grid_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+
+    }
 }

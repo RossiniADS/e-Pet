@@ -56,61 +56,52 @@
             <div class="col-2"></div>
         </div>
 
-        <!-- INICIO DA MODAL -->
-        <div class="modal" tabindex="-1" role="dialog" id="myModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Cadastro</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <asp:Literal ID="ltl" runat="server"></asp:Literal>
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <asp:Button runat="server" ID="fecharModal" Text="Fechar" type="button" CssClass="btn btn-secondary" data-dismiss="modal" />
-                    </div>
 
-                </div>
-            </div>
+        <asp:GridView ID="grid" runat="server" CssClass="table table-hover text-center table-striped mt-5"
+            OnRowCommand="grid_RowCommand"
+            AutoGenerateColumns="False">
+            <Columns>
+                <asp:BoundField DataField="car_id" />
+                <asp:BoundField DataField="car_nome" HeaderText="Nome" />
+                <asp:BoundField DataField="car_cpf" HeaderText="CPF" />
+                <asp:BoundField DataField="car_numero" HeaderText="NUMERO" />
+                <asp:BoundField DataField="car_data_vencimento" HeaderText="DATA VENCIMENTO" />
+                <asp:BoundField DataField="car_cod_seguranca" HeaderText="CVC" />
 
-        </div>
-        <table class="table table-striped mt-5">
-            <thead>
-                <tr>
-                    <th scope="col">NOME</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">NUMERO</th>
-                    <th scope="col">DATA VENCIMENTO</th>
-                    <th scope="col">CVC</th> 
-                    <th>Editar</th>
-                    <th>Excluir</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td scope="row">Gabriel Oliveira</td>
-                    <td>123123-123</td>
-                    <td>7777 7777 7777 7777</td>
-                    <td>01/21</td>
-                    <td>999</td> 
-                    <td>
-                        <asp:Button runat="server" Text="Editar" ID="Button1" CssClass="btn btn-block btn-primary"
-                            BorderWidth="2px" ForeColor="white" BorderColor="green" BackColor="green"></asp:Button>
-                    </td>
-                    <td>
-                        <asp:Button runat="server" Text="Excluir" ID="btnExcluir" CssClass="btn btn-block btn-primary"
-                            BorderWidth="2px" ForeColor="white" BorderColor="red" BackColor="red"></asp:Button>
+                <asp:ButtonField ButtonType="Image" ImageUrl="~/Icons/deleta.jpg" HeaderText="Deletar" CommandName="Deletar">
+                    <ControlStyle CssClass="btform" />
+                </asp:ButtonField>
+            </Columns>
+        </asp:GridView>
 
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <asp:Literal ID="Literal1" runat="server"></asp:Literal>
     </div>
+
+
+    <!-- INICIO DA MODAL -->
+    <div class="modal" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadastro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <asp:Literal ID="ltl" runat="server"></asp:Literal>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button runat="server" ID="fecharModal" Text="Fechar" type="button" CssClass="btn btn-secondary" data-dismiss="modal" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
     <script type="text/javascript">
         jQuery(function ($) {
             $("#textCelular").mask("(99) 99999-9999");

@@ -5,22 +5,22 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="container">
         <div class="row mt-5">
-            <div class="col-6">
+            <div class="col-4">
                 <label>Cidade *</label>
                 <asp:DropDownList runat="server" ID="rblCidade" CssClass="form-control form-control-chosen-required"></asp:DropDownList>
             </div>
 
-            <div class="col-6">
+            <div class="col-4">
                 <label>Bairro *</label>
                 <asp:DropDownList runat="server" ID="rblBairro" CssClass="form-control form-control-chosen-required"></asp:DropDownList>
             </div>
-            <div class="col-6">
-                <label>Estado *</label>
-                <asp:DropDownList runat="server" ID="rblEstado" CssClass="form-control form-control-chosen-required"></asp:DropDownList>
-            </div>
-            <div class="col-6">
+            <div class="col-4">
                 <label>Frete *</label>
                 <asp:TextBox runat="server" ID="txtFrete" type="number" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-6">
+                <%--                <label>Estado *</label>
+                <asp:DropDownList runat="server" ID="rblEstado" CssClass="form-control form-control-chosen-required"></asp:DropDownList>--%>
             </div>
             <div class="col-10"></div>
             <div class="col-2 mt-5">
@@ -30,30 +30,29 @@
             <div class="col-2"></div>
         </div>
 
-        <asp:GridView ID="grid" runat="server" CssClass="table table-hover table-striped mt-5"
+        <asp:GridView ID="grid" runat="server" CssClass="table table-hover text-center table-striped mt-5"
             OnRowCommand="grid_RowCommand"
-            DataKeyNames="ent_id,est_nome,est_uf,cid_nome,bai_nome,ent_frete"
             AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="ent_id" />
                 <asp:BoundField DataField="est_nome" HeaderText="Estado" />
                 <asp:BoundField DataField="est_uf" HeaderText="UF" />
-                <asp:BoundField DataField="cid_nome" HeaderText="CIDADE" />
-                <asp:BoundField DataField="bai_nome" HeaderText="BAIRRO" />
-                <asp:BoundField DataField="ent_frete" HeaderText="VALOR DO FRETE" />
+                <asp:BoundField DataField="cid_nome" HeaderText="Cidade" />
+                <asp:BoundField DataField="bai_nome" HeaderText="Bairro" />
+                <asp:BoundField DataField="ent_frete" HeaderText="Valor do frete" />
 
-                <asp:ButtonField ButtonType="Image" ImageUrl="~/Imagem/editar.jpg" HeaderText="Editar" CommandName="Editar">
+                <asp:ButtonField ButtonType="Image" ImageUrl="~/Icons/editar.jpg" HeaderText="Editar" CommandName="Editar">
                     <ControlStyle CssClass="btform" />
                 </asp:ButtonField>
-                <asp:ButtonField ButtonType="Image" ImageUrl="~/Imagem/deleta.jpg" HeaderText="Deletar" CommandName="Deletar">
+                <asp:ButtonField ButtonType="Image" ImageUrl="~/Icons/deleta.jpg" HeaderText="Deletar" CommandName="Deletar">
                     <ControlStyle CssClass="btform" />
                 </asp:ButtonField>
             </Columns>
         </asp:GridView>
-        <asp:HiddenField ID="hdId" runat="server" />
+
+        <asp:Literal ID="ltl" runat="server"></asp:Literal>
     </div>
 
-    <asp:Literal ID="ltl" runat="server"></asp:Literal>
 
     <!-- INICIO DA MODAL EDITAR produto-->
     <div class="modal" tabindex="-1" role="dialog" id="myModalUpdate">

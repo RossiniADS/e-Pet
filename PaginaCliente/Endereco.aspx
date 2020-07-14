@@ -20,79 +20,68 @@
                 <asp:Button runat="server" ID="BuscaCep" Text="Buscar" CssClass="btn btn-group-sm" ForeColor="Black"
                     BorderColor="orange" BackColor="white" OnClick="BuscaCep_Click" />
             </div>
-            <div class="col-3"></div>
             <div class="col-5">
-                <label>Logradouro *</label>
-                <asp:TextBox runat="server" ID="textRua" CssClass="form-control"></asp:TextBox>
+                <label>Cidade *</label>
+                <asp:DropDownList runat="server" ID="rblCidade" CssClass="form-control form-control-chosen-required"></asp:DropDownList>
             </div>
 
-            <div class="col-2"></div>
-            <div class="col-5">
-                <label>Numero *</label>
-                <asp:TextBox runat="server" ID="textNumero" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="col-5">
-                <label>Complemento</label>
-                <asp:TextBox runat="server" ID="textComplemento" CssClass="form-control"></asp:TextBox>
-            </div>
             <div class="col-2"></div>
             <div class="col-5">
                 <label>Bairro *</label>
                 <asp:TextBox runat="server" ID="textBairro" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-5">
-                <label>Estado *</label>
-                <asp:DropDownList runat="server" ID="rblEstado" CssClass="form-control"></asp:DropDownList>
+                <label>Logradouro *</label>
+                <asp:TextBox runat="server" ID="textRua" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-2"></div>
             <div class="col-5">
-                <label>Cidade *</label>
-                <asp:DropDownList runat="server" ID="rblCidade" CssClass="form-control"></asp:DropDownList>
+                <label>Complemento</label>
+                <asp:TextBox runat="server" ID="textComplemento" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-5">
+                <label>Numero *</label>
+                <asp:TextBox runat="server" ID="textNumero" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+                <%--                <label>Estado *</label>
+                <asp:DropDownList runat="server" ID="rblEstado" CssClass="form-control"></asp:DropDownList>--%>
             </div>
             <div class="col-8"></div>
             <div class="col-4 mt-5">
                 <asp:Button runat="server" Text="Concluir" ID="btnAtualizar" CssClass="btn btn-block btn-primary"
                     OnClick="btnAtualizar_Click" BorderWidth="5px" ForeColor="Black" BorderColor="orange" BackColor="white"></asp:Button>
             </div>
+        </div>
 
-        </div><table class="table table-striped mt-5">
-            <thead>
-                <tr>
-                    <th scope="col">CEP</th>
-                    <th scope="col">LOGRADOURO</th>
-                    <th scope="col">NUMERO</th>
-                    <th scope="col">BAIRRO</th>
-                    <th scope="col">COMPLEMENTO</th>
-                    <th scope="col">ESTADO</th>
-                    <th scope="col">CIDADE</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Excluir</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">123123-159</th>
-                    <td>SP</td>
-                    <td>Lorena</td>
-                    <td>Vila Hepacare</td>
-                    <td>Perto do Predio</td>
+        <asp:GridView ID="grid" runat="server" CssClass="table table-hover text-center table-striped mt-5"
+            OnRowCommand="grid_RowCommand"
+            AutoGenerateColumns="False">
+            <Columns>
+                <asp:BoundField DataField="end_id" />
+                <asp:BoundField DataField="end_cep" HeaderText="Cep" />
+                <asp:BoundField DataField="est_nome" HeaderText="Estado" />
+                <asp:BoundField DataField="est_uf" HeaderText="UF" />
+                <asp:BoundField DataField="cid_nome" HeaderText="Cidade" />
+                <asp:BoundField DataField="bai_nome" HeaderText="Bairro" />
+                <asp:BoundField DataField="bai_rua" HeaderText="Logadouro" />
+                <asp:BoundField DataField="end_tipo" HeaderText="Complemento" />
+                <asp:BoundField DataField="cle_num" HeaderText="Numero" />
 
-                    <td>São Paulo</td>
-                    <td>Lorena</td>
-                    <td>
-                        <asp:Button runat="server" Text="Editar" ID="Button1" CssClass="btn btn-block btn-primary"
-                            BorderWidth="2px" ForeColor="white" BorderColor="green" BackColor="green"></asp:Button>
-                    </td>
-                    <td>
-                        <asp:Button runat="server" Text="Excluir" ID="btnExcluir" CssClass="btn btn-block btn-primary"
-                            BorderWidth="2px" ForeColor="white" BorderColor="red" BackColor="red"></asp:Button>
+                <asp:ButtonField ButtonType="Image" ImageUrl="~/Icons/editar.jpg" HeaderText="Editar" CommandName="Editar">
+                    <ControlStyle CssClass="btform" />
+                </asp:ButtonField>
+                <asp:ButtonField ButtonType="Image" ImageUrl="~/Icons/deleta.jpg" HeaderText="Deletar" CommandName="Deletar">
+                    <ControlStyle CssClass="btform" />
+                </asp:ButtonField>
+            </Columns>
+        </asp:GridView>
 
-                    </td>
+        <asp:Literal ID="ltl" runat="server"></asp:Literal>
 
-                </tr>
-            </tbody>
-        </table>
     </div>
+
 
     <script type="text/javascript">
         jQuery(function ($) {
@@ -101,6 +90,9 @@
             $("#txtCPF").mask("999.999.999-99");
             $("#textCNPJ").mask("99.999.999/9999-99");
         });
+    </script>
+    <script>
+        $('.form-control-chosen-required').chosen();
     </script>
 </asp:Content>
 
