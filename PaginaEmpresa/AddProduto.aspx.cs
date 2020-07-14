@@ -153,7 +153,7 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
             ser.Ser_nome = ServNome.Text;
             ser.Ser_descricao = ServDesc.Text.Replace("\n", "<br />");
             ser.Ser_caracteristica = ServCarac.Text.Replace("\n", "<br />");
-            ser.Ser_valor = Convert.ToInt32(ServValor.Text);
+            ser.Ser_valor = float.Parse(ServValor.Text);
 
             //FK
             emp.Emp_id = Convert.ToInt32(id.Emp_id);

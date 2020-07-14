@@ -92,7 +92,7 @@
                 </div>
                 <div class="col-4">
                     <label>telefone *</label>
-                    <asp:TextBox runat="server" ID="textTelefone" required="required" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="textTelefone" required="required" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="col-2"></div>
                 <div class="col-1">
@@ -199,6 +199,7 @@
     <script type="text/javascript">
         jQuery(function ($) {
             $("#textCelular").mask("(99) 99999-9999");
+            $("#textTelefone").mask("9999-9999");
             $("#textCep").mask("99999-999");
             $("#textCNPJ").mask("99.999.999/9999-99");
         });

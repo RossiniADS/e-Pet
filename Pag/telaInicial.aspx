@@ -12,32 +12,32 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="first-slide w-100" src="../Imagem/4.jpg" alt="First slide">
+                    <img class="first-slide w-100" src="../Imagem/inicial1.jpg" alt="First slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
-                            <h1>Manchete</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                            <h1>e-Pet</h1>
+                            <p>Bem vindo ao e-Pet. Aqui você encontrará os mais variados acessórios e alimentos para seu pet</p>
+                            <p><a class="btn btn-lg btn-primary" href="Cadastro.aspx" role="button">Cadastre-se agora</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="second-slide w-100" src="../Imagem/5.jpg" alt="Second slide">
+                    <img class="second-slide w-100" src="../Imagem/inicial2.jpg" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Outra manchete</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                            <h1>Pet Shop Mania Animal</h1>
+                            <p>Venha conhecer uma grande parceira nossa, tudo que seu pet precisar você encontra aqui na Mania Animal!</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba mais</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide w-100" src="../Imagem/6.jpg" alt="Third slide">
+                    <img class="third-slide w-100" src="../Imagem/inicial3.jpg" alt="Third slide">
                     <div class="container">
                         <div class="carousel-caption text-right">
-                            <h1>Outra manchete, pra garantir</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                            <h1>Pet Shop Marcio</h1>
+                            <p>Seu pet precisa de um acessório novo? vem conferir no pet shop do marcio.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba mais</a></p>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
             <div class="col-4"></div>
             <div class="col-4 text-center">
                 <h4>Quer saber as lojas perto de você? Digite sua cidade!</h4>
-                <asp:TextBox runat="server" ID="textBuscaInicial" placeholder="Cep/Cidade" CssClass="form-control-md" style="border-radius: 15px;" BorderWidth="5px" BorderColor="Orange"></asp:TextBox>
+                <asp:TextBox runat="server" ID="textBuscaInicial" placeholder="Cep/Cidade" CssClass="form-control-md" Style="border-radius: 15px;" BorderWidth="5px" BorderColor="Orange"></asp:TextBox>
                 <asp:Button runat="server" ID="Buscar" Style="display: none;" PostBackUrl="~/Pag/PesquisadeLoja.aspx" />
             </div>
             <div class="col-4"></div>

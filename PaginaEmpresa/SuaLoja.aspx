@@ -31,7 +31,7 @@
                 <!-- Imagem da Fachada -->
                 <div class="col-lg-12 mt-2">
                     <div id="LogoEmpresa" class="container-fluid">
-                        <img src="../Imagem/4.jpg" alt="Snow" style="width: 100%;">
+                        <img src="../Imagem/pet_fachada.jpg" alt="Snow" style="width: 100%;">
                         <asp:Label runat="server" ID="LogoNome" CssClass="centered"></asp:Label>
                     </div>
                     <div class="mt-5 mb-3">
