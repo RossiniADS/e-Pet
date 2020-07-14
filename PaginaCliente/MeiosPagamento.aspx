@@ -50,7 +50,7 @@
 
             <div class="col-8"></div>
             <div class="col-2 mt-5">
-                <asp:Button runat="server" Text="Salvar" ID="Salvar" CssClass="btn btn-block btn-primary"
+                <asp:Button runat="server" Text="Adicionar" ID="Salvar" CssClass="btn btn-block btn-primary"
                     OnClick="Salvar_Click" BorderWidth="5px" ForeColor="Black" BorderColor="orange" BackColor="white"></asp:Button>
             </div>
             <div class="col-2"></div>
@@ -64,10 +64,12 @@
                 <asp:BoundField DataField="car_id" />
                 <asp:BoundField DataField="car_nome" HeaderText="Nome" />
                 <asp:BoundField DataField="car_cpf" HeaderText="CPF" />
-                <asp:BoundField DataField="car_numero" HeaderText="NUMERO" />
+                <asp:BoundField DataField="car_num" HeaderText="NUMERO" />
                 <asp:BoundField DataField="car_data_vencimento" HeaderText="DATA VENCIMENTO" />
                 <asp:BoundField DataField="car_cod_seguranca" HeaderText="CVC" />
-
+                <asp:ButtonField ButtonType="Image" ImageUrl="~/Icons/editar.jpg" HeaderText="Editar" CommandName="Editar">
+                    <ControlStyle CssClass="btform" />
+                </asp:ButtonField>
                 <asp:ButtonField ButtonType="Image" ImageUrl="~/Icons/deleta.jpg" HeaderText="Deletar" CommandName="Deletar">
                     <ControlStyle CssClass="btform" />
                 </asp:ButtonField>
@@ -76,7 +78,55 @@
 
         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
     </div>
+    <!-- INICIO DA MODAL ADD-->
+    <div class="modal" tabindex="-1" role="dialog" id="myModalUpdate">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadastro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <label>Nome impresso no cartão:</label>
+                            <asp:TextBox runat="server" type="number" ID="txtNomeUpdate" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <label>CPF:</label>
+                            <asp:TextBox runat="server" ID="txtCpfUpdate" CssClass="form-control"></asp:TextBox>
+                        </div>
 
+
+                        <div class="col-12">
+                            <label>Numero do Cartão:</label>
+                            <asp:TextBox runat="server" ID="txtNumeroADD" CssClass="form-control"></asp:TextBox>
+                        </div>
+
+                        <div class="col-12">
+                            <label>Data vencimento:</label>
+                            <asp:TextBox runat="server" ID="txtDataADD" type="date" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <asp:TextBox runat="server" ID="txtEnt_id" CssClass="form-control" Style="display: none"></asp:TextBox>
+
+                        <div class="col-12">
+                            <label>CVV:</label>
+                            <asp:TextBox runat="server" ID="txtCvvADD" CssClass="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <asp:Button runat="server" ID="btnAdd" Text="Atualizar" CssClass="btn btn-secondary" OnClick="btnAdd_Click" />
+                    <asp:Button runat="server" ID="btnFecharAdd" Text="Fechar" CssClass="btn btn-secondary btn-danger" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- FIM DA MODAL -->
 
     <!-- INICIO DA MODAL -->
     <div class="modal" tabindex="-1" role="dialog" id="myModal">
@@ -104,10 +154,7 @@
 
     <script type="text/javascript">
         jQuery(function ($) {
-            $("#textCelular").mask("(99) 99999-9999");
-            $("#textCep").mask("99999-999");
             $("#textCPF").mask("999.999.999-99");
-            $("#textCNPJ").mask("99.999.999/9999-99");
         });
     </script>
 </asp:Content>

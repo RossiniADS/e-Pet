@@ -41,7 +41,31 @@ public class EnderecosDB
         }
         return retorno;
     }
+    public static int Delete(int id)
+    {
+        int retorno = 0;
+        try
+        {
+            IDbConnection objConnection;
+            IDbCommand objCommand;
+            string sql = "delete from end_endereco where end_id = ?end_id";
+            objConnection = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConnection);
 
+            objCommand.Parameters.Add(Mapped.Parameter("?end_id", id));
+            retorno = Convert.ToInt32(objCommand.ExecuteScalar());
+
+            objConnection.Close();
+            objConnection.Dispose();
+            objCommand.Dispose();
+
+        }
+        catch (Exception ex)
+        {
+            retorno = -2;
+        }
+        return retorno;
+    }
     public static DataSet SelectEndereco(int end_id)
     {
         DataSet ds = new DataSet();

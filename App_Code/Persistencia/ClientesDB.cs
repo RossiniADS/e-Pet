@@ -45,7 +45,27 @@ public class ClientesDB
         }
         return retorno;
     }
+    public static DataSet SelectPorEndereco(int cli_id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
 
+        objConnection = Mapped.Connection();
+        string sql = "Select * from cli_cliente cli inner join cle_cliente_endereco cle on cli.cli_id = cle.cli_id inner join end_endereco end on end.end_id = cle.end_id inner join bai_bairro bai on bai.bai_id = end.bai_id inner join cid_cidade cid on cid.cid_id = bai.cid_id inner join est_estado est on est.est_id = cid.est_id where cli.cli_id = ?cli_id;";
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?cli_id", cli_id));
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+    }
     public static string PWD(string senha)
     {
         UnicodeEncoding UE = new UnicodeEncoding();

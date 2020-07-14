@@ -9,6 +9,28 @@ using System.Web;
 /// </summary>
 public class CartaoDB
 {
+    public static DataSet SelectCartao(int id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        objConnection = Mapped.Connection();
+        string sql = "select * from car_cartao where car_id = ?car_id";
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?car_id", id));
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+    }
+
     public static int Insert(Cartao cartao)
     {
         int retorno = 0;
@@ -48,8 +70,52 @@ public class CartaoDB
         }
         return retorno;
     }
+    public static int Delete(int id)
+    {
+        int retorno = 0;
+        try
+        {
+            IDbConnection objConnection;
+            IDbCommand objCommand;
+            string sql = "delete from car_cartao where car_id = ?car_id";
+            objConnection = Mapped.Connection();
+            objCommand = Mapped.Command(sql, objConnection);
 
+            objCommand.Parameters.Add(Mapped.Parameter("?car_id", id));
+            retorno = Convert.ToInt32(objCommand.ExecuteScalar());
 
+            objConnection.Close();
+            objConnection.Dispose();
+            objCommand.Dispose();
+
+        }
+        catch (Exception ex)
+        {
+            retorno = -2;
+        }
+        return retorno;
+    }
+    public static DataSet SelectPorCliente(int cli_id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection objConnection;
+        IDbCommand objCommand;
+        IDataAdapter objDataDadapter;
+
+        objConnection = Mapped.Connection();
+        string sql = "select*from car_cartao car  where cli_id = ?cli_id;";
+        objCommand = Mapped.Command(sql, objConnection);
+
+        objCommand.Parameters.Add(Mapped.Parameter("?cli_id", cli_id));
+
+        objDataDadapter = Mapped.adapter(objCommand);
+        objDataDadapter.Fill(ds);
+
+        objConnection.Close();
+        objCommand.Dispose();
+        objConnection.Dispose();
+        return ds;
+    }
     public static DataSet SelectAll(int car_id)
     {
         DataSet ds = new DataSet();

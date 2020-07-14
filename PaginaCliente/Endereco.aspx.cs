@@ -16,9 +16,28 @@ public partial class PaginaCliente_Endereco : System.Web.UI.Page
         {
             CarregaRBL();
             carregaDados();
+            CarregarGrid();
         }
     }
+    private void CarregarGrid()
+    {
 
+        Clientes id = (Clientes)Session["cli_cliente"];
+
+        DataSet ds = ClientesDB.SelectPorEndereco(id.Cli_id);
+
+        int qtd = ds.Tables[0].Rows.Count;
+        if (qtd > 0)
+        {
+            grid.DataSource = ds.Tables[0].DefaultView;
+            grid.DataBind();
+            grid.Visible = true;
+        }
+        else
+        {
+            grid.Visible = false;
+        }
+    }
     void CarregaRBL()
     {
         //rblEstado.DataSource = EstadosDB.SelectAll();
@@ -76,6 +95,35 @@ public partial class PaginaCliente_Endereco : System.Web.UI.Page
         //rblEstado.SelectedValue = cle.End_id.Bai_id.Cid_id.Est_id.Est_id.ToString();
     }
 
+    protected void grid_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+
+        if (e.CommandName == "Editar")
+        {
+
+
+
+        }
+
+        if (e.CommandName == "Deletar")
+        {
+            int index = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = grid.Rows[index];
+            int id = Convert.ToInt32(row.Cells[0].Text);
+
+            int retorno;
+            retorno = EnderecosDB.Delete(id);
+            if (retorno == 0)
+            {
+                CarregarGrid();
+            }
+            else
+            {
+
+            }
+
+        }
+    }
     protected void btnAtualizar_Click(object sender, EventArgs e)
     {
         Clientes cli = (Clientes)Session["cli_cliente"];
@@ -125,6 +173,8 @@ public partial class PaginaCliente_Endereco : System.Web.UI.Page
         BairrosDB.Update(cle.End_id.Bai_id);
         EnderecosDB.Update(cle.End_id);
         ClienteEnderecoDB.Update(cle);
+
+        Response.Redirect("Endereco.aspx");
     }
 
     protected void BuscaCep_Click(object sender, EventArgs e)
@@ -158,7 +208,13 @@ public partial class PaginaCliente_Endereco : System.Web.UI.Page
         return ddl;
     }
 
-    protected void grid_RowCommand(object sender, GridViewCommandEventArgs e)
+    protected void EnderecoADD_Click(object sender, EventArgs e)
+    {
+        Page.ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>$('#myModalAdicionar').modal('show');</script>", false);
+
+    }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
     {
 
     }

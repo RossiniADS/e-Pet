@@ -48,9 +48,17 @@
                 <%--                <label>Estado *</label>
                 <asp:DropDownList runat="server" ID="rblEstado" CssClass="form-control"></asp:DropDownList>--%>
             </div>
-            <div class="col-8"></div>
+
+
+            <div class="col-6"></div>
             <div class="col-4 mt-5">
-                <asp:Button runat="server" Text="Concluir" ID="btnAtualizar" CssClass="btn btn-block btn-primary"
+                <asp:ImageButton ImageUrl="~/Icons/add.png" runat="server" Text="Concluir" ID="btnAdd" CssClass=""
+                    OnClick="btnAdd_Click"></asp:ImageButton>
+            </div>
+
+            <div class="col-4"></div>
+            <div class="col-4 mt-5">
+                <asp:Button runat="server" Text="Atualizar" ID="btnAtualizar" CssClass="btn btn-block btn-primary"
                     OnClick="btnAtualizar_Click" BorderWidth="5px" ForeColor="Black" BorderColor="orange" BackColor="white"></asp:Button>
             </div>
         </div>
