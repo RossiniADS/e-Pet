@@ -46,13 +46,19 @@
                         </div>
                     </div>
 
-                    <div class="row mt-5">
+                    <input type="text" id="search" />
+                    <button id="btn" onclick="return false;">Ordenar</button>
+
+                    <div id="ordenar" class="row mt-5">
                         <asp:Repeater runat="server" ID="rptCardProduto">
                             <ItemTemplate>
-                                <div class="col-lg-4 col-md-6 mb-4">
+
+                                <div data-nome="<%#Eval("pro_nome") %>" class="produto content col-lg-4 col-md-6 mb-4">
+
                                     <div style="border-radius: 20px;" class="shadow-lg card h-100">
                                         <image src="<%#Eval("img_url") %>" class="img-responsive img-thumbnail" style="border-radius: 20px 20px 0 0"></image>
-                                        <div class="card-body text-center">
+
+                                        <div class="card-body text-center nome">
                                             <h5 class="card-title">
                                                 <asp:Label runat="server"><%#Eval("pro_nome") %><br />R$ <%#Eval("pro_valor") %></asp:Label>
                                             </h5>
@@ -62,6 +68,7 @@
                                             </a>
                                             <p class="card-text"></p>
                                         </div>
+
                                         <div class="card-footer">
                                             <div class="row">
                                                 <div class=" col-md-12">
@@ -314,5 +321,37 @@
         <!-- /.container -->
         <script src="../Scripts/jquery.min.js"></script>
         <script src="../Scripts/bootstrap.bundle.min.js"></script>
+
+
+        <script>
+            $(document).ready(function () {
+                $('#search').keyup(function () {
+
+                    // Search text
+                    var text = $(this).val();
+                    // Hide all content class element
+                    $('.content').hide();
+                    // Search 
+                    $('.content .nome:contains("' + text + '")').closest('.content').show();
+                });
+            });
+            $.expr[":"].contains = $.expr.createPseudo(function (arg) {
+                return function (elem) {
+                    return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+                };
+            });
+        </script>
+
+        <script>
+            $('#btn').on('click', function () {
+                $('.produto').sort(function (a, b) {
+                    if (a.dataset.nome < b.dataset.nome) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                }).appendTo('#ordenar');
+            });
+        </script>
     </main>
 </asp:Content>

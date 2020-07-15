@@ -7,21 +7,20 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "e-Pet", ".", "{102DBFE5-CCD
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_56720"
-		Debug.AspNetCompiler.PhysicalPath = "..\e-Pet\"
+		Debug.AspNetCompiler.PhysicalPath = "D:\Usuario\Documentos\GitHub\e-Pet\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56720\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_56720"
-		Release.AspNetCompiler.PhysicalPath = "..\e-Pet\"
+		Release.AspNetCompiler.PhysicalPath = "D:\Usuario\Documentos\GitHub\e-Pet\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56720\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "56720"
-		SlnRelativePath = "..\e-Pet\"
 	EndProjectSection
 EndProject
 Global
@@ -36,6 +35,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8B7E09DE-D103-4137-834B-5C402F966AD2}
+		SolutionGuid = {6BA539E4-9DBF-40C8-A90D-BF2F946A30F7}
 	EndGlobalSection
 EndGlobal
