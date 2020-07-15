@@ -22,6 +22,10 @@
         #LogoEmpresa img {
             filter: brightness( 30% );
         }
+
+        .inline {
+            display: inline-block;
+        }
     </style>
 
     <main>
@@ -46,8 +50,26 @@
                         </div>
                     </div>
 
-                    <input type="text" id="search" />
-                    <button id="btn" onclick="return false;">Ordenar</button>
+                    <div class="row text-center">
+
+                        <div class="col-1"></div>
+                        <div class="col-3">
+                            <div class="input-group">
+                                <input class="form-control" placeholder="pesquisa de produtos" type="text" id="search" />
+                                <div class="input-group-append">
+                                    <div class="input-group-text" style="background-color: #FFF"><i class="fas fa-search"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-3"></div>
+                        <div class="col-5">
+                            <p id="ord" class="inline"><b>Ordenar por: </b></p>
+                            <button id="btn" class="btn-sm btn-light inline" onclick="return false;">Ordenar A-Z</button>
+                            <button id="btn2" class="btn-sm btn-light inline" onclick="return false;">Ordenar Z-A</button>
+                        </div>
+                    </div>
+
 
                     <div id="ordenar" class="row mt-5">
                         <asp:Repeater runat="server" ID="rptCardProduto">
@@ -346,6 +368,16 @@
             $('#btn').on('click', function () {
                 $('.produto').sort(function (a, b) {
                     if (a.dataset.nome < b.dataset.nome) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                }).appendTo('#ordenar');
+            });
+
+            $('#btn2').on('click', function () {
+                $('.produto').sort(function (a, b) {
+                    if (a.dataset.nome > b.dataset.nome) {
                         return -1;
                     } else {
                         return 1;

@@ -7,20 +7,21 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "e-Pet", ".", "{102DBFE5-CCD
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_56720"
-		Debug.AspNetCompiler.PhysicalPath = "D:\Usuario\Documentos\GitHub\e-Pet\"
+		Debug.AspNetCompiler.PhysicalPath = "..\e-Pet\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56720\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_56720"
-		Release.AspNetCompiler.PhysicalPath = "D:\Usuario\Documentos\GitHub\e-Pet\"
+		Release.AspNetCompiler.PhysicalPath = "..\e-Pet\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56720\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "56720"
+		SlnRelativePath = "..\e-Pet\"
 	EndProjectSection
 EndProject
 Global
