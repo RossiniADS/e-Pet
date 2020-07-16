@@ -24,7 +24,6 @@ public partial class Pag_MasterPage : System.Web.UI.MasterPage
     }
     protected void BtnSair_Click(object sender, EventArgs e)
     {
-
         Session.Remove("cli_cliente");
         Response.Redirect("../Pag/telaInicial.aspx");
     }

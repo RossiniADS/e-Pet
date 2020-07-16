@@ -6,35 +6,49 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Pag_PesquisadeLoja : System.Web.UI.Page
+public partial class Pag_Loja : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            if (PreviousPage != null)
-            {
-                ContentPlaceHolder cp = PreviousPage.Master.FindControl("ContentPlaceHolder1") as ContentPlaceHolder;
-                if (cp != null)
-                {
-                    TextBox tb = cp.FindControl("textBuscaInicial") as TextBox;
-                    if (tb != null)
-                        textBusca.Text = tb.Text;
-                }
-            }
-
-            DataSet ds = EmpresasDB.SelectPorCidade(textBusca.Text);
-            int qtd = ds.Tables[0].Rows.Count;
-
-            if (qtd > 0)
-            {
-                rptCard.DataSource = ds;
-                rptCard.DataBind();
-            }
-            else
-            {
-                Response.Redirect("telaInicial.aspx");
-            }
+            int id = Convert.ToInt32(Request.QueryString["id"]);
+            LogoNome.Text = Convert.ToString(Request.QueryString["nome"]);
+            CarregaGrid(id);
+            CarregarGridServiço(id);
         }
+    }
+    protected void CarregaGrid(int id)
+    {
+        try
+        {
+            DataSet ds = EmpresasDB.ProdutoImagem(id);
+            rptCard.DataSource = ds;
+            rptCard.DataBind();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    protected void CarregarGridServiço(int id)
+    {
+        try
+        {
+            DataSet ds = EmpresasDB.ServicoImagem(id);
+            rptCardServico.DataSource = ds;
+            rptCardServico.DataBind();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    protected void btnComprar_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Carrinho.aspx");
+
     }
 }

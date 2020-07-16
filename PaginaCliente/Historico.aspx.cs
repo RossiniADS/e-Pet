@@ -9,12 +9,9 @@ public partial class PaginaCliente_Historico : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (Session["cli_cliente"] == null)
         {
-            if (Session["cli_cliente"] == null)
-            {
-                Response.Redirect("../Pag/Login.aspx");
-            }
-        } 
+            Response.Redirect("../Pag/Login.aspx");
+        }
     }
 }

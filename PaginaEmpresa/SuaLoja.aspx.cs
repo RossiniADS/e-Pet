@@ -11,17 +11,16 @@ public partial class PaginaEmpresa_SuaLoja : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["Emp_empresa"] == null)
+        {
+            Response.Redirect("../Pag/Login.aspx");
+        }
         if (!IsPostBack)
         {
-            if (Session["emp_empresa"] == null)
-            {
-                Response.Redirect("../Pag/Login.aspx");
-            }
             carregaGrid();
             carregaGridServico();
             Empresas emp = (Empresas)Session["emp_empresa"];
-            LogoNome.Text = emp.Emp_nome_fantasia; 
-             
+            LogoNome.Text = emp.Emp_nome_fantasia;
         }
     }
 
@@ -30,12 +29,12 @@ public partial class PaginaEmpresa_SuaLoja : System.Web.UI.Page
         try
         {
             Empresas id = (Empresas)Session["emp_empresa"];
-            DataSet ds = EmpresasDB.ProdutoImagem(Convert.ToInt32(id.Emp_id)); 
+            DataSet ds = EmpresasDB.ProdutoImagem(Convert.ToInt32(id.Emp_id));
             rptCardProduto.DataSource = ds;
             rptCardProduto.DataBind();
         }
         catch (Exception)
-        { 
+        {
             throw;
         }
     }

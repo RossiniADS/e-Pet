@@ -12,12 +12,12 @@ public partial class PaginaEmpresa_EmpEndereco : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["Emp_empresa"] == null)
+        {
+            Response.Redirect("../Pag/Login.aspx");
+        }
         if (!IsPostBack)
         {
-            if (Session["emp_empresa"] == null)
-            {
-                Response.Redirect("../Pag/Login.aspx");
-            }
             CarregaRBL();
             carregaDados();
         }

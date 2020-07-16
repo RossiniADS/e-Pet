@@ -75,13 +75,9 @@
                                         <li><a class="dropdown-item" href="../PaginaCliente/MeiosPagamento.aspx">Meios de pagamento</a></li>
                                         <li><a class="dropdown-item" href="../PaginaCliente/Pedidos.aspx">Pedidos</a></li>
                                         <li><a class="dropdown-item" href="../PaginaCliente/Historico.aspx">Historico de pedidos</a></li>
-                                        <li> 
-                                                <asp:Button runat="server" ID="btnSair" ValidationGroup=""
-                                                    CssClass="btn btn-danger btn-sm dropdown-item" Text="Sair" OnClick="BtnSair_Click" />
-                                            
-
-                                        </li>
-
+                                        <li>
+                                            <asp:Button runat="server" ID="btnSair" ValidationGroup=""
+                                                CssClass="btn btn-danger btn-sm dropdown-item" Text="Sair" OnClick="BtnSair_Click" /></li>
                                     </ul>
                                 </div>
                             </li>
@@ -136,6 +132,5 @@
             </div>
         </footer>
     </form>
-
 </body>
 </html>
