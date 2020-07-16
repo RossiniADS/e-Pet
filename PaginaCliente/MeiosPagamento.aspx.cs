@@ -12,6 +12,10 @@ public partial class PaginaCliente_Meios_de_pagamento : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            if (Session["cli_cliente"] == null)
+            {
+                Response.Redirect("../Pag/Login.aspx");
+            }
             CarregarGrid();
         }
     }

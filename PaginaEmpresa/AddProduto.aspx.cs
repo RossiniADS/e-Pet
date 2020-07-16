@@ -14,6 +14,10 @@ public partial class PaginaEmpresa_AddProduto : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            if (Session["emp_empresa"] == null)
+            {
+                Response.Redirect("../Pag/Login.aspx");
+            }
             pnlProduto.Visible = true;
             pnlServico.Visible = false;
         }

@@ -14,6 +14,10 @@ public partial class PaginaEmpresa_EmpEndereco : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            if (Session["emp_empresa"] == null)
+            {
+                Response.Redirect("../Pag/Login.aspx");
+            }
             CarregaRBL();
             carregaDados();
         }

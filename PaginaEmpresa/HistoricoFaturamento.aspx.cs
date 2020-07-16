@@ -9,6 +9,13 @@ public partial class PaginaEmpresa_HistoricoFaturamento : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
 
+            if (Session["emp_empresa"] == null)
+            {
+                Response.Redirect("../Pag/Login.aspx");
+            }
+        } 
     }
 }

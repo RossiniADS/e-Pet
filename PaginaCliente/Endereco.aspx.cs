@@ -14,6 +14,10 @@ public partial class PaginaCliente_Endereco : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            if (Session["cli_cliente"] == null)
+            {
+                Response.Redirect("../Pag/Login.aspx");
+            }
             CarregaRBL();
             carregaDados();
             CarregarGrid();
