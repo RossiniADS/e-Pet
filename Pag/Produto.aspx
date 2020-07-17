@@ -68,13 +68,12 @@
 
                         </div>
                         <div class="col-12 ml-4 mt-5">
-
                             <%#Eval("ser_caracteristica") %>
                         </div>
                         <div class="col-10"></div>
                         <div class="col-2 mt-5">
-                            <asp:Button ClientIDMode="Static" runat="server" Text="Adicionar ao Carrinho" ID="btn" ForeColor="black"
-                                BorderColor="orange" BorderWidth="4px" BackColor="white" CssClass="btn btn-primary shadow" />
+                            <asp:Button runat="server" Text="Adicionar ao Carrinho" ID="btn" ForeColor="black"
+                                BorderColor="orange" BorderWidth="4px" BackColor="white" CssClass="btn btn-primary shadow" OnClick="btn_Click" />
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -83,4 +82,3 @@
         </div>
     </main>
 </asp:Content>
-

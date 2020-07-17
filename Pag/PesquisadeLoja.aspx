@@ -43,7 +43,7 @@
                             </div>
                             <div class="col-7"></div>
                             <div class="col-1">
-                                <asp:TextBox runat="server" ID="textBusca"></asp:TextBox>
+<%--                                <asp:TextBox runat="server" ID="textBusca"></asp:TextBox>--%>
                             </div>
                         </div>
                     </div>

@@ -11,11 +11,15 @@ public partial class Pag_Produto : System.Web.UI.Page
     {
         int id = Convert.ToInt32(Request.QueryString["id"]);
         string nome = Convert.ToString(Request.QueryString["nome"]);
-        if (nome == "ser")
+        if (nome == null)
+        {
+            Response.Redirect("telaInicial.aspx");
+        }
+        else if (nome == "ser")
         {
             carregaGridServico(id);
         }
-        else
+        else if (nome == "pro")
         {
             carregaGrid(id);
         }
@@ -49,4 +53,9 @@ public partial class Pag_Produto : System.Web.UI.Page
         }
     }
 
+
+    protected void btn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Produto.aspx");
+    }
 }

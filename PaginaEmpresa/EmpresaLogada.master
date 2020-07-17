@@ -18,7 +18,7 @@
 
     <%--mascaras para celular, cep, cpf--%>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    
+
     <%--Tipo de fonte para nome da empresa--%>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
 

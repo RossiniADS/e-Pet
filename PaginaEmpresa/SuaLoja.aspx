@@ -75,19 +75,21 @@
                         <asp:Repeater runat="server" ID="rptCardProduto">
                             <ItemTemplate>
 
-                                <div data-nome="<%#Eval("pro_nome") %>" class="produto content col-lg-4 col-md-6 mb-4">
+                                <div data-nome="<%#Eval("pro_nome") %>" class="produto content col-lg-3 col-md-6 mb-4">
 
                                     <div style="border-radius: 20px;" class="shadow-lg card h-100">
                                         <image src="<%#Eval("img_url") %>" class="img-responsive img-thumbnail" style="border-radius: 20px 20px 0 0"></image>
 
                                         <div class="card-body text-center nome">
-                                            <h5 class="card-title">
-                                                <asp:Label runat="server"><%#Eval("pro_nome") %><br />R$ <%#Eval("pro_valor") %></asp:Label>
+                                            <p class="card-title">
+                                                <asp:Label runat="server"><%#Eval("pro_nome") %><br /></asp:Label>
+                                            </p>
+                                            <h5>
+                                                <asp:Label runat="server">R$ <%#Eval("pro_valor") %></asp:Label>
                                             </h5>
-                                            <h5></h5>
-                                            <a href="#">
+                                            <%--<a href="#">
                                                 <h5>Ver descrição </h5>
-                                            </a>
+                                            </a>--%>
                                             <p class="card-text"></p>
                                         </div>
 
@@ -118,7 +120,7 @@
                     <div class="row mt-5">
                         <asp:Repeater runat="server" ID="rptCardServico">
                             <ItemTemplate>
-                                <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="col-lg-3 col-md-6 mb-4">
                                     <div style="border-radius: 20px;" class="shadow-lg card h-100">
                                         <image src="<%#Eval("img_url") %>" class="img-responsive img-thumbnail" style="border-radius: 20px 20px 0 0"></image>
                                         <div class="card-body text-center">

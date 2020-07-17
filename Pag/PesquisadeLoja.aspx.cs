@@ -10,6 +10,7 @@ public partial class Pag_PesquisadeLoja : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        string busca = "";
         if (!IsPostBack)
         {
             if (PreviousPage != null)
@@ -19,11 +20,11 @@ public partial class Pag_PesquisadeLoja : System.Web.UI.Page
                 {
                     TextBox tb = cp.FindControl("textBuscaInicial") as TextBox;
                     if (tb != null)
-                        textBusca.Text = tb.Text;
+                        busca = tb.Text;
                 }
             }
 
-            DataSet ds = EmpresasDB.SelectPorCidade(textBusca.Text);
+            DataSet ds = EmpresasDB.SelectPorCidade(busca);
             int qtd = ds.Tables[0].Rows.Count;
 
             if (qtd > 0)

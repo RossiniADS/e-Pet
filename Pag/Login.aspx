@@ -1,4 +1,4 @@
-﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/Pag/MasterPage.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Pag_Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pag/MasterPage.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Pag_Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-2 "></div>  
+                    <div class="col-2 "></div>
                     <div class="col-10 mt-3">
                         <h4 class="text-center">Senha</h4>
                     </div>
